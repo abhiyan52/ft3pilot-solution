@@ -1,0 +1,51 @@
+name: Solution checks
+on: [push, pull_request]
+defaults:
+  run:
+    working-directory: .
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - run: pip install .
+      # GH-10: scan the Solution folder and the copied Precord.
+      - run: python scripts/check_secrets.py . .
+      # Components arrive in order. C7 writes tests/, so an earlier pull request has none yet.
+      - run: |
+          if [ -d tests ]; then python -m unittest discover -s tests; else echo "No tests yet. C7 writes them."; fi
+      - run: python deploy/smoke.py
+  evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - run: pip install .
+      # C4 writes evals/runner.py. An earlier pull request has none yet.
+      - run: |
+          if [ -f evals/runner.py ]; then python scripts/run_evals.py; else echo "No eval runner yet. C4 writes it."; fi
+  deploy:
+    # C2-4, D-8: a push to the default branch deploys from deploy/. The deploy needs the green jobs above.
+    if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    needs: [verify, evals]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      # C2-4: the target comes from runtime.yaml.environment.uat. With none, the target is the local compose path.
+      - run: python deploy/select_target.py
+      - run: docker compose -f deploy/compose.yaml config --quiet
+        env:
+          SOLUTION_DB_PASSWORD: ci-config-check-only
+          GOOGLE_API_KEY: ci-config-check-only
+      - run: docker compose -f deploy/compose.yaml build
+        env:
+          SOLUTION_DB_PASSWORD: ci-config-check-only
+          GOOGLE_API_KEY: ci-config-check-only

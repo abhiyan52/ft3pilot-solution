@@ -1,0 +1,18 @@
+{
+  "branches": {
+    "build": "build/<build_id>/base",
+    "component": "build/<build_id>/<component>"
+  },
+  "clone_url": null,
+  "clone_url_note": "The build has no remote repository yet. Set the clone address when the repository is linked.",
+  "ide": "OpenCode",
+  "never": [
+    "push to the default branch"
+  ],
+  "operation": "clone",
+  "read_only_paths": [
+    "precord/",
+    "artifacts/"
+  ],
+  "version": 1
+}
