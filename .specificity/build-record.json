@@ -250,6 +250,126 @@
       "effect_ids": [],
       "tool_versions": [],
       "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C4",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "46fc449e6d63c06568314a409f156681c6c6aac2",
+      "report": {
+        "component": "C4",
+        "verdict": "built",
+        "wrote": [
+          "evals/runner.py"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "Agents BLK_01.1 and BLK_01.2 have cases, coverage rows and graders (G-01 to G-04) but no in/out schema in schemas/.",
+          "C4-1: no case has split test; acceptance cannot be decided and the runner scores nothing",
+          "C4-2: threshold agent_error_rate has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold agent_error_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold agent_error_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold agents_live has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold agents_live has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold agents_live has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold ai_cost_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold ai_cost_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold ai_cost_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold audited_accuracy has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold audited_accuracy has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold audited_accuracy has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold data_extraction_time has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold data_extraction_time has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold data_extraction_time has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold guardrail_triggers has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold guardrail_triggers has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold guardrail_triggers has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold inputs_uploaded has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold inputs_uploaded has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold inputs_uploaded has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold memory_artifacts_created has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold memory_artifacts_created has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold memory_artifacts_created has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold override_rate_and_direction has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold override_rate_and_direction has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold override_rate_and_direction has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tokens_per_agent_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tokens_per_agent_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tokens_per_agent_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tokens_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tokens_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tokens_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tool_error_and_retry_rate has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tool_error_and_retry_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tool_error_and_retry_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold verification_api_availability has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold verification_api_availability has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold verification_api_availability has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+          "C4-2a: the case schema names no field; no deterministic case-schema gate can run",
+          "COVERAGE: coverage.csv declares a minimum only for the per-agent total (30, met). The per-scenario_type minimums are blank, so per-scenario coverage cannot be judged.",
+          "EMPTY_SCHEMA: BLK_01.out.schema.json and BLK_02.out.schema.json declare no properties, so G-02 schema validity accepts any object. evaluate() rejects only a non-object or empty answer.",
+          "EVAL_CASES_NOT_EXECUTABLE: every case input and expected value is prose (for example 'a complete, clean case'), with no structured input that validates against BLK_01.in/BLK_02.in.",
+          "EVAL_NO_TEST_CASES: the Precord has no case with split 'test'. The 120 cases are all 'dev', so scored_cases() returns [] and no quantitative acceptance can be claimed. The 'example' split is empty too.",
+          "G-05 judge_model is 'openai-api', which names a provider, not a model ID. The harness must resolve it. The skill requires it to differ from the agent model, and this cannot be confirmed from the context.",
+          "Generated cases test our assumptions, not the client's process: 118 of 120 cases are label_provenance 'generated'. Only EC-01 and EC-02 are tacit_knowledge.",
+          "MONITOR_ONLY_EVALS: every threshold row has a blank comparator, grader_id, min_sample, level and threshold_id. comparator_of() applies the name rule, which agrees with the context comparators map for all 13 metrics. Thresholds with no grader are unvalidated, not passed.",
+          "No threshold row is at tier 'blocking' at Pilot, so at this rung no metric can fail the build. Every advisory miss must be reported as a finding."
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        "evals/runner.py"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "ed14b0716873319a1facfa31eb9f90a7b7f29b452e5660f4aa9374b974640b91",
+        "command_hash": "a39f95022f1a5279373294265697415d8fb735031dd1e73357ef7ac4644e29df",
+        "output": ""
+      },
+      "review": {
+        "findings": [
+          {
+            "code": "G05_APPLIES_TO_MISMATCH_UNRECORDED",
+            "severity": "medium",
+            "message": "evals/runner.py:1569-1637 and :1721-1730. GRADERS G-05 has applies_to ['BLK_02'], but its rubric declares RUB-EC-08, -16, -17, -24 and -25 for BLK_01 and RUB-EC-01 for a BLK_01 case. evaluate() never checks applies_to or the payload's agent, so it sends any payload it gets to the judge. This contradiction in the Precord is a compiler-style finding (COMPILER_FINDING): it should be recorded as a gap or deviation, but none of scope.recorded_gaps mentions it. Record it. Do not decide which side is right in the code."
+          },
+          {
+            "code": "EVALUATE_MISATTRIBUTES_G02",
+            "severity": "low",
+            "message": "evals/runner.py:1656 and :1725-1726. evaluate() returns {'check': 'G-02', 'passed': False} for a non-dict or empty-dict payload. G-02's declared criterion is 'Output validates against the agent's out.schema.json'. The recorded gap says those schemas declare no properties, so an empty object passes the real G-02, and the harness has already run G-02 before it calls evaluate. Reporting G-02 as the grader that decided the case mislabels a check that the runner made up and that graders.yaml does not define. Only a non-dict payload is a real schema failure. An empty dict should go to the judge, or the result should not carry the G-02 ID."
+          },
+          {
+            "code": "MONITOR_PASS_NOT_RECORDED",
+            "severity": "low",
+            "message": "evals/runner.py:1745-1746. verdict() drops every passing result, including monitor-tier ones. Rule 6 of the eval-compilation skill says 'Record a monitor result', and rule 7 says to report the achieved value of a monitor metric without pass or fail. With this code, a passing monitor metric such as tokens_per_case does not appear anywhere in the verdict. The component instructions only require misses in 'recorded', so this is a gap in the skill obligation, not a contract break."
+          },
+          {
+            "code": "JUDGE_PARSE_TOO_STRICT",
+            "severity": "low",
+            "message": "evals/runner.py:1712-1718. _judged_pass() passes only when the first line is exactly the token PASS once the surrounding punctuation is stripped. A common one-line judge reply such as 'PASS: meets the rubric' or 'PASS - ...' becomes 'PASS: MEETS THE RUBRIC' and is scored as a fail. That produces silent false negatives in the repair loop. Use the first word of the first line instead."
+          },
+          {
+            "code": "VERDICT_RAISES_ON_BAD_TIER",
+            "severity": "low",
+            "message": "evals/runner.py:1688-1689 and :1742. tier_of() raises ValueError when tier_at_rung is not monitor, advisory or blocking, and verdict() calls it without a guard. If a caller passes thresholds with a blank or unexpected tier, the whole verdict aborts instead of the result being recorded. The pinned THRESHOLDS are all valid today, so this only affects caller-supplied thresholds."
+          }
+        ],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "8bc549df8d423432a5cb35d554f5cb7b3112a7c05472a5b1896f21fce61b235f",
+        "937bc542b5757fa98c424ff77a24c7a35341534c566f6cc54d47a45328f88af9"
+      ],
+      "tool_versions": [],
+      "checks": []
     }
   ],
   "promotion_blockers": [
@@ -311,5 +431,5 @@
   ],
   "deployment": "user_owned",
   "solution_dir": "",
-  "agent_sessions_started": 0
+  "agent_sessions_started": 3
 }
