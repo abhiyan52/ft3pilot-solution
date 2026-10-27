@@ -1,0 +1,510 @@
+{
+  "blocked": {
+    "CHK_01": "C5",
+    "CHK_02": "C5",
+    "DECISION-CHK_01-Confirm and proceed": "C5",
+    "DECISION-CHK_01-Edit details": "C5",
+    "DECISION-CHK_02-Approve agent": "C5",
+    "DECISION-CHK_02-Raise discrepancy": "C5",
+    "DECISION-CHK_02-Reject": "C5",
+    "HIL-API": "C5",
+    "HIL-CREATE": "C5",
+    "HIL-DECIDE": "C5",
+    "HIL-DECISIONS": "C5",
+    "HIL-PENDING": "C5",
+    "HIL-RATE": "C5",
+    "HIL-READ": "C5",
+    "REVIEWSCREEN-CHK_01": "C5",
+    "REVIEWSCREEN-CHK_02": "C5",
+    "STATE-CHK_01": "C5",
+    "STATE-CHK_02": "C5"
+  },
+  "by_component": {
+    "C3": {
+      "covered": 25,
+      "total": 25,
+      "uncovered": []
+    },
+    "C5": {
+      "covered": 0,
+      "total": 18,
+      "uncovered": [
+        "CHK_01",
+        "CHK_02",
+        "DECISION-CHK_01-Confirm and proceed",
+        "DECISION-CHK_01-Edit details",
+        "DECISION-CHK_02-Approve agent",
+        "DECISION-CHK_02-Raise discrepancy",
+        "DECISION-CHK_02-Reject",
+        "HIL-API",
+        "HIL-CREATE",
+        "HIL-DECIDE",
+        "HIL-DECISIONS",
+        "HIL-PENDING",
+        "HIL-RATE",
+        "HIL-READ",
+        "REVIEWSCREEN-CHK_01",
+        "REVIEWSCREEN-CHK_02",
+        "STATE-CHK_01",
+        "STATE-CHK_02"
+      ]
+    },
+    "C6": {
+      "covered": 3,
+      "total": 3,
+      "uncovered": []
+    }
+  },
+  "by_requirement": {
+    "C5-9": {
+      "covered": 3,
+      "total": 3,
+      "uncovered": []
+    },
+    "C7-1": {
+      "covered": 28,
+      "total": 46,
+      "uncovered": [
+        "CHK_01",
+        "CHK_02",
+        "DECISION-CHK_01-Confirm and proceed",
+        "DECISION-CHK_01-Edit details",
+        "DECISION-CHK_02-Approve agent",
+        "DECISION-CHK_02-Raise discrepancy",
+        "DECISION-CHK_02-Reject",
+        "HIL-API",
+        "HIL-CREATE",
+        "HIL-DECIDE",
+        "HIL-DECISIONS",
+        "HIL-PENDING",
+        "HIL-RATE",
+        "HIL-READ",
+        "REVIEWSCREEN-CHK_01",
+        "REVIEWSCREEN-CHK_02",
+        "STATE-CHK_01",
+        "STATE-CHK_02"
+      ]
+    }
+  },
+  "covered": 28,
+  "items": [
+    {
+      "covered": true,
+      "id": "BR-ACT_01",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: Mobile number unique; Email valid format"
+    },
+    {
+      "covered": true,
+      "id": "BR-ACT_02",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: KYC service response received or queued"
+    },
+    {
+      "covered": true,
+      "id": "BR-ACT_03",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: Pincode and state match"
+    },
+    {
+      "covered": true,
+      "id": "BR-ACT_04",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: IFSC format valid; Bank account verification passed"
+    },
+    {
+      "covered": true,
+      "id": "BR-ACT_05",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: File extension permitted; File size within limits"
+    },
+    {
+      "covered": true,
+      "id": "BR-ACT_07",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: Required verification checks completed"
+    },
+    {
+      "covered": true,
+      "id": "GR-01",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: refuse to write outside the tools declared in spec/tools.yaml"
+    },
+    {
+      "covered": true,
+      "id": "GR-02",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: no automation of any step listed in spec/not_automated.csv"
+    },
+    {
+      "covered": true,
+      "id": "GR-03",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: enforce every blocking rule in spec/rules.csv before an agent's output is written"
+    },
+    {
+      "covered": true,
+      "id": "GR-04",
+      "kind": "rule",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "blocking: escalate rather than decide when a required field is in spec/open_items.csv"
+    },
+    {
+      "covered": true,
+      "id": "EXC_01",
+      "kind": "exception_route",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "Data Conflict / Duplicate"
+    },
+    {
+      "covered": true,
+      "id": "EXC_02",
+      "kind": "exception_route",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "External Service Unavailable"
+    },
+    {
+      "covered": true,
+      "id": "EXC_03",
+      "kind": "exception_route",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "Document Validation Failure"
+    },
+    {
+      "covered": true,
+      "id": "EXC_05",
+      "kind": "exception_route",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "QC Review Discrepancy"
+    },
+    {
+      "covered": true,
+      "id": "TRIGGER-BLK_01",
+      "kind": "trigger",
+      "tests": [
+        "tests/test_api.py",
+        "tests/test_features.py"
+      ],
+      "text": "Inbound channel message"
+    },
+    {
+      "covered": true,
+      "id": "EDGE-BLK_01-BLK_02",
+      "kind": "orchestration_edge",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "done"
+    },
+    {
+      "covered": true,
+      "id": "EDGE-BLK_01-BLK_01.1",
+      "kind": "orchestration_edge",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "agent_tool"
+    },
+    {
+      "covered": true,
+      "id": "EDGE-BLK_01-BLK_01.2",
+      "kind": "orchestration_edge",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "agent_tool"
+    },
+    {
+      "covered": true,
+      "id": "PERSON-S6",
+      "kind": "person_step",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "a person does this step; no agent does"
+    },
+    {
+      "covered": true,
+      "id": "PERSON-S8",
+      "kind": "person_step",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "a person does this step; no agent does"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "DECISION-CHK_01-Confirm and proceed",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: the checkpoint accepts this decision"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "DECISION-CHK_01-Edit details",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: the checkpoint accepts this decision"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "DECISION-CHK_02-Approve agent",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: the checkpoint accepts this decision"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "DECISION-CHK_02-Raise discrepancy",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: the checkpoint accepts this decision"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "DECISION-CHK_02-Reject",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: the checkpoint accepts this decision"
+    },
+    {
+      "covered": true,
+      "id": "STUB-TOOL_01",
+      "kind": "stub",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "the stub returns schema-valid data and is labelled a mock"
+    },
+    {
+      "covered": true,
+      "id": "STUB-TOOL_02",
+      "kind": "stub",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "the stub returns schema-valid data and is labelled a mock"
+    },
+    {
+      "covered": true,
+      "id": "STUB-TOOL_03",
+      "kind": "stub",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "the stub returns schema-valid data and is labelled a mock"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "CHK_01",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: "
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "CHK_02",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: "
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "HIL-API",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: The checkpoint API of C5 (C5-10)."
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "HIL-CREATE",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: POST /v1/checkpoints/cases/{case_id}"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "HIL-PENDING",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: GET /v1/checkpoints/pending"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "HIL-READ",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: GET /v1/checkpoints/cases/{case_id}"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "HIL-DECIDE",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: POST /v1/checkpoints/cases/{case_id}/decisions"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "HIL-DECISIONS",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: GET /v1/checkpoints/cases/{case_id}/decisions"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "HIL-RATE",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: GET /v1/checkpoints/review-rate"
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "REVIEWSCREEN-CHK_01",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: Test that GET /v1/checkpoints/review/CHK_01 serves src/checkpoints/review/CHK_01.html as HTML, that the page names the checkpoint, each shown field and each decision, and that a decision posted to the endpoint of the page reaches the decision record. The file is package data of src/checkpoints, so the route serves it from the installed Solution too; the test must not read or copy it from the project root."
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "REVIEWSCREEN-CHK_02",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: Test that GET /v1/checkpoints/review/CHK_02 serves src/checkpoints/review/CHK_02.html as HTML, that the page names the checkpoint, each shown field and each decision, and that a decision posted to the endpoint of the page reaches the decision record. The file is package data of src/checkpoints, so the route serves it from the installed Solution too; the test must not read or copy it from the project root."
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "STATE-CHK_01",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: Test each transition: approve, reject, a stale version, an undeclared action, a timeout."
+    },
+    {
+      "blocked_by": "C5",
+      "covered": false,
+      "id": "STATE-CHK_02",
+      "kind": "blocked",
+      "owner": "C5",
+      "tests": [],
+      "text": "C5 failed and its code is not merged, so this item is blocked and not tested. Write no test for it. Do not test that it is absent. Do not name its ID in a test. Do not write the missing code. Declared: Test each transition: approve, reject, a stale version, an undeclared action, a timeout."
+    },
+    {
+      "covered": true,
+      "id": "FAIL-BLK_01",
+      "kind": "failure_path",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "Halt automatic progression, log failure trace, and flag case for human review with specific error context."
+    },
+    {
+      "covered": true,
+      "id": "FAIL-BLK_02",
+      "kind": "failure_path",
+      "tests": [
+        "tests/test_features.py"
+      ],
+      "text": "Flag unreadable documents or classification ambiguity for human operator inspection."
+    },
+    {
+      "covered": true,
+      "id": "SCREEN-CASES",
+      "kind": "screen",
+      "tests": [
+        "tests/test_api.py"
+      ],
+      "text": "C6-1 case list: GET /cases lists every case with its status, step, assignee and last action. The screen shows each open checkpoint from GET /playground/reviews/pending."
+    },
+    {
+      "covered": true,
+      "id": "SCREEN-KPIS",
+      "kind": "screen",
+      "tests": [
+        "tests/test_api.py"
+      ],
+      "text": "C6-2 KPI surface: GET /playground/kpis gives each KPI of the board, with no data until C8 measures it. C8 builds the dashboard after this test is written. Assert that no KPI has a value. Do not assert that the dashboard kind is not_built. Accept not_built or url."
+    },
+    {
+      "covered": true,
+      "id": "SCREEN-DEMO",
+      "kind": "screen",
+      "tests": [
+        "tests/test_api.py"
+      ],
+      "text": "C6-3 demo UI: mount_static mounts the built Playground at / when its dist folder exists. Test the mount with a built folder. In an installed package, set SOLUTION_PLAYGROUND_DIST to the built folder. The JSON routes under /playground stay ahead of the mount."
+    }
+  ],
+  "percent": 60.87,
+  "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+  "total": 46
+}
