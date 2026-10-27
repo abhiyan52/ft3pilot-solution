@@ -1,0 +1,294 @@
+{
+  "components": [
+    {
+      "component": "C1",
+      "consumed": {
+        "schemas/case.schema.json": "b465513ac6b83273273df410fde68597b8acf4808b31b4775e52fad53ce52977",
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/checkpoints.yaml": "079eb0be1a30c35723f7aaf5d6edc37b8db42fbf04f66ed916983f8382543d7a",
+        "spec/integration_map.yaml": "d70c549b97bf42c4502d46b09d2a46970dde73039208c28309fabe113333db97",
+        "spec/not_automated.csv": "4951572b8a9bcf99a915ee9e0e738f7d74b4b1c5708cead58b08b3194882ea53",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/orchestration.yaml": "457e025c57f1f791d5f2192a6dc44c36b1ca3387c16778eba8409c0bc47132dd",
+        "spec/stack.yaml": "cfca309056b22d88da402aa104680d6d1dee683daac489f6b419009cbcb3ce0f",
+        "spec/tools.yaml": "f7cd65b780b566b0da96811accf1f573709cc780517c34bf300169fc002adada"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "pack:C1": "50326a3510fe58503a81cdd6633961a52c6f321ce81f24f4175b3dad92850190",
+        "prompt:prompts/C1/agent.md": "92b10e1303f68fdd3f823f4b82c16ae0d98d7eead13f6893a61ec5947ebc7c0b"
+      },
+      "reason": "",
+      "revision": "24b526e6849f6fa59b8218760c0e90f43315c0b1",
+      "verdict": "built",
+      "write_set": [
+        "pyproject.toml",
+        "deploy/",
+        "src/solution/",
+        "scripts/",
+        ".gitignore",
+        ".specificity/resolved-versions.json",
+        ".specificity/deployment.json"
+      ]
+    },
+    {
+      "component": "C2",
+      "consumed": {
+        "schemas/case.schema.json": "b465513ac6b83273273df410fde68597b8acf4808b31b4775e52fad53ce52977",
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/checkpoints.yaml": "079eb0be1a30c35723f7aaf5d6edc37b8db42fbf04f66ed916983f8382543d7a",
+        "spec/not_automated.csv": "4951572b8a9bcf99a915ee9e0e738f7d74b4b1c5708cead58b08b3194882ea53",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/orchestration.yaml": "457e025c57f1f791d5f2192a6dc44c36b1ca3387c16778eba8409c0bc47132dd",
+        "spec/stack.yaml": "cfca309056b22d88da402aa104680d6d1dee683daac489f6b419009cbcb3ce0f"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "pack:C2": "0ad3a55f5d2725f285ad68b535ba620601b4d8550f99141b5a94206133506127",
+        "prompt:prompts/C2/agent.md": "4c6e5417599b886897e7514a2b38eb9f6cc14db27f54f545591d643d8607a16f",
+        "upstream:C1": "9455400d78a0039e10503c28c8d65ec6ff95813f0b68fd7477eda2ebf0ad5e8a"
+      },
+      "reason": "",
+      "revision": "6f28568ca2a7b5cfec14fe31da3b450f5224f98a",
+      "verdict": "built",
+      "write_set": [
+        ".github/",
+        ".specificity/tasks.json",
+        ".specificity/ide.json"
+      ]
+    },
+    {
+      "component": "C3",
+      "consumed": {
+        "context/process_steps.csv": "f2c2f55d7b4918c2fa29d82c477d8ca2157d8604d531630339718102e64617d7",
+        "context/tacit_knowledge.csv": "1b850793e9cf5e8d9093512bdd87ab7ecb704a4ac945dcf91d836d22d3d5c51e",
+        "prompts/BLK_01.md": "bb286bdad611ac7abbaff5e7315ce27caae7e7e21c3548b4cff82b2db759d5b4",
+        "prompts/BLK_02.md": "78087d4f43a599b966d385e9e4c93afb3657e22de05ef34e167496377f4cf005",
+        "schemas/BLK_01.in.schema.json": "d3f0bafcc40aa13a557678130fe8a0293ec418f3f4d56d63d30624048e3ca09b",
+        "schemas/BLK_01.out.schema.json": "d9bab91dd1da6139a2b1953358df5f16238cf6275fb742c4b1c938a7b0b3ce30",
+        "schemas/BLK_02.in.schema.json": "3c7d5f268ee3e2e7e58e989cb84333953dd75a319b36c776a67fcacbf2e35572",
+        "schemas/BLK_02.out.schema.json": "992e753ac9f1e28a194e83daae470fedf6c58feb9d00fa8e02cd22ab1bb0da94",
+        "schemas/case.schema.json": "b465513ac6b83273273df410fde68597b8acf4808b31b4775e52fad53ce52977",
+        "schemas/event.schema.json": "b370e3972706f7a35432e603c7c021f1280b79a29edbfcc22ec526008dc387cd",
+        "schemas/hil_task.schema.json": "10696aad78d1054a9f54cada7bd160f805898cf1e08c31180c14b4c4b52151ed",
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/checkpoints.yaml": "079eb0be1a30c35723f7aaf5d6edc37b8db42fbf04f66ed916983f8382543d7a",
+        "spec/events.csv": "d1ac1e5bb51fdd07cd9283b870ebf8608fbc1885731157cde750d3ec0f9f1cf4",
+        "spec/inbound_api.yaml": "c707f0c402f33d1cd9b18aa93ab160e6926a3bc5216872ad020a54acb0e33f2b",
+        "spec/integration_map.yaml": "d70c549b97bf42c4502d46b09d2a46970dde73039208c28309fabe113333db97",
+        "spec/not_automated.csv": "4951572b8a9bcf99a915ee9e0e738f7d74b4b1c5708cead58b08b3194882ea53",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/orchestration.yaml": "457e025c57f1f791d5f2192a6dc44c36b1ca3387c16778eba8409c0bc47132dd",
+        "spec/rules.csv": "30548a5d1c967010b7ef5959e6c7cf7ee1975b7f1d411370cf0c60b8def0c65a"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "prompt:prompts/C3/agent.md": "e7430f776d097425b6d34c2db359fa7af92a5d1c7c004e2bac5d21fff1300816",
+        "prompt:prompts/C3/agent_v2.md": "8b34c5bc6e60de5a4958ce4a9fc81a2e2f316ba2183b5ff5b7cc05b5e370df2c",
+        "prompt:prompts/C3/inbound_api.md": "73b611336a938d902399da9f05083cef84c8198ba13914035f7cb7f72f123dc8",
+        "prompt:prompts/C3/integration.md": "0c3a21e299aa2cf210baf324243fd48ab30ae04b0d29fd85d0fe0516d3e6240d",
+        "prompt:prompts/C3/mapped.md": "0801d3c8bec9790d2c0e43ced9b655f37511f6ee6a2de2483f3137c47919ed60",
+        "prompt:prompts/C3/orchestrator.md": "afd115c31f77f90cfc7bf64f1701bcada01e2f9adc22e9d4a4cb91b88c9825cf",
+        "prompt:prompts/C3/stub.md": "764d9254de8bc8b01f90437b4765a42ac63989c6bf1777f3710cab0caa49f75f",
+        "upstream:C1": "9455400d78a0039e10503c28c8d65ec6ff95813f0b68fd7477eda2ebf0ad5e8a",
+        "upstream:C2": "5ee8c01fc50b4452ec733d5bac257ce47b4a75fcc74c6cc82c61d88b4ad82c9f"
+      },
+      "reason": "",
+      "revision": "d0707ecf4b732e558f7fba622f35bc8c5b8386cb",
+      "verdict": "built",
+      "write_set": [
+        "src/agents/",
+        "src/integrations/",
+        "src/orchestrator/"
+      ]
+    },
+    {
+      "component": "C4",
+      "consumed": {
+        "evals/cases.jsonl": "fbb811836c2c55143b38588ae84acd713dfe028c30a4dc3222e6dcb1a96c94b5",
+        "evals/coverage.csv": "3585a25156562421e22d452f47f207b80548d707de9b6e972526fb9b62c2bae4",
+        "evals/graders.yaml": "ec63655cf3ab40d1f47a978bb653dc7f92cb977a1c5bee4fbae2f2dc9dca38d0",
+        "evals/thresholds.csv": "34412adc95c4192434b52c1f68cadc136cde206f47309248f71ab2856ee989ed",
+        "schemas/case.schema.json": "b465513ac6b83273273df410fde68597b8acf4808b31b4775e52fad53ce52977",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/profile.yaml": "0244383fa730c6d73fdf1eaef49a9488c109bcd1d9435eff4a003ac15e6d3ca8",
+        "spec/rules.csv": "30548a5d1c967010b7ef5959e6c7cf7ee1975b7f1d411370cf0c60b8def0c65a"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "prompt:prompts/C4/agent.md": "3b494c1227f84f5def9a2f2d64ba482889cc0c71a3fe980f4ec67418d0419152",
+        "prompt:prompts/C4/agent_v2.md": "bed3c1d018f9bd16d9ff58dc915de5fc40cb6389aed3442e366aa303791ee30c",
+        "upstream:C3": "a4414df486b521102142d16a476036239e9479fd67666677e84a95d9c5bc8026"
+      },
+      "reason": "",
+      "revision": "ac066ac757c8e8f51a8061a5b708a6f8f0d3c953",
+      "verdict": "built",
+      "write_set": [
+        "evals/"
+      ]
+    },
+    {
+      "component": "C5",
+      "consumed": {
+        "schemas/case.schema.json": "b465513ac6b83273273df410fde68597b8acf4808b31b4775e52fad53ce52977",
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/checkpoints.yaml": "079eb0be1a30c35723f7aaf5d6edc37b8db42fbf04f66ed916983f8382543d7a",
+        "spec/rules.csv": "30548a5d1c967010b7ef5959e6c7cf7ee1975b7f1d411370cf0c60b8def0c65a"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "prompt:prompts/C5/agent.md": "1af0830323a731c58f63cbdded49dc537b4c3fe1b350afee3e631cd785108a71",
+        "prompt:prompts/C5/agent_v2.md": "c9f7df7b41009994d2ac647f173ce14b18c6d61a54be6d7fd184594f79057be6",
+        "upstream:C3": "a4414df486b521102142d16a476036239e9479fd67666677e84a95d9c5bc8026"
+      },
+      "reason": "Readiness refused C5: No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+      "revision": "",
+      "verdict": "skipped",
+      "write_set": [
+        "src/checkpoints/",
+        "ui/checkpoints/"
+      ]
+    },
+    {
+      "component": "C6",
+      "consumed": {
+        "context/glossary.csv": "779533322ab96d0c1cd8845e20b1d333072ac5622887bb6a0e15b08125cc97ff",
+        "context/process_steps.csv": "f2c2f55d7b4918c2fa29d82c477d8ca2157d8604d531630339718102e64617d7",
+        "evals/cases.jsonl": "fbb811836c2c55143b38588ae84acd713dfe028c30a4dc3222e6dcb1a96c94b5",
+        "schemas/BLK_01.in.schema.json": "d3f0bafcc40aa13a557678130fe8a0293ec418f3f4d56d63d30624048e3ca09b",
+        "schemas/BLK_02.in.schema.json": "3c7d5f268ee3e2e7e58e989cb84333953dd75a319b36c776a67fcacbf2e35572",
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/checkpoints.yaml": "079eb0be1a30c35723f7aaf5d6edc37b8db42fbf04f66ed916983f8382543d7a",
+        "spec/deviations.csv": "290fff85c323df1f0c4460693d6e48e931e8f3afec71460660a252a6adade07e",
+        "spec/inbound_api.yaml": "c707f0c402f33d1cd9b18aa93ab160e6926a3bc5216872ad020a54acb0e33f2b",
+        "spec/integration_map.yaml": "d70c549b97bf42c4502d46b09d2a46970dde73039208c28309fabe113333db97",
+        "spec/kpi_views.csv": "ef246daf18a0a71cfe311d65cec40ee276f5d72495c3ec865d12aee3b739d9f7",
+        "spec/kpis.csv": "e605281de329e62fc71f6425968152e9b737a154954438c7a8365d3a8b81a89a",
+        "spec/not_automated.csv": "4951572b8a9bcf99a915ee9e0e738f7d74b4b1c5708cead58b08b3194882ea53",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/orchestration.yaml": "457e025c57f1f791d5f2192a6dc44c36b1ca3387c16778eba8409c0bc47132dd"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "pack:C6": "2cc1327f79629cd656b6d7eb2dfdaf9a806ffb697a0ae44938384e50b1c93642",
+        "prompt:prompts/C6/agent.md": "48a5c1aa4f41d699f31cfb5b55c0e2768cda5b19581097f3a63ff60f10044dc8",
+        "upstream:C1": "9455400d78a0039e10503c28c8d65ec6ff95813f0b68fd7477eda2ebf0ad5e8a",
+        "upstream:C2": "5ee8c01fc50b4452ec733d5bac257ce47b4a75fcc74c6cc82c61d88b4ad82c9f",
+        "upstream:C3": "a4414df486b521102142d16a476036239e9479fd67666677e84a95d9c5bc8026",
+        "upstream:C4": "aa675e69a7e3edead621903bc560dd9f963d01b76dd4102a9a3c94f3226eb3ca"
+      },
+      "reason": "C6 needs C5, and readiness refused C5",
+      "revision": "",
+      "verdict": "skipped",
+      "write_set": [
+        "playground/",
+        "src/solution/mock_service.py",
+        "src/solution/playground_bridge.py",
+        "src/solution/playground_data.json",
+        "src/solution/playground_paths.py",
+        "src/solution/preview_adk.py",
+        "src/solution/wiring.py"
+      ]
+    },
+    {
+      "component": "C7",
+      "consumed": {
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/checkpoints.yaml": "079eb0be1a30c35723f7aaf5d6edc37b8db42fbf04f66ed916983f8382543d7a",
+        "spec/not_automated.csv": "4951572b8a9bcf99a915ee9e0e738f7d74b4b1c5708cead58b08b3194882ea53",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/orchestration.yaml": "457e025c57f1f791d5f2192a6dc44c36b1ca3387c16778eba8409c0bc47132dd",
+        "spec/rules.csv": "30548a5d1c967010b7ef5959e6c7cf7ee1975b7f1d411370cf0c60b8def0c65a"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "prompt:prompts/C7/agent.md": "8367953568adb01c2d11155a0b46017958ddeccda5486c434acca33e9d6d1368",
+        "prompt:prompts/C7/agent_v2.md": "f130d0b28d1189db6e2dc341302b9e6ee7f03947efb92a312c0823a958be9df0",
+        "upstream:C3": "a4414df486b521102142d16a476036239e9479fd67666677e84a95d9c5bc8026",
+        "upstream:C4": "aa675e69a7e3edead621903bc560dd9f963d01b76dd4102a9a3c94f3226eb3ca"
+      },
+      "reason": "C7 needs C5, and readiness refused C5",
+      "revision": "",
+      "verdict": "skipped",
+      "write_set": [
+        "tests/"
+      ]
+    },
+    {
+      "component": "C8",
+      "consumed": {
+        "evals/thresholds.csv": "34412adc95c4192434b52c1f68cadc136cde206f47309248f71ab2856ee989ed",
+        "schemas/event.schema.json": "b370e3972706f7a35432e603c7c021f1280b79a29edbfcc22ec526008dc387cd",
+        "spec/events.csv": "d1ac1e5bb51fdd07cd9283b870ebf8608fbc1885731157cde750d3ec0f9f1cf4",
+        "spec/kpi_views.csv": "ef246daf18a0a71cfe311d65cec40ee276f5d72495c3ec865d12aee3b739d9f7",
+        "spec/kpis.csv": "e605281de329e62fc71f6425968152e9b737a154954438c7a8365d3a8b81a89a",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "prompt:prompts/C8/agent.md": "7aec267bca01519f60c6b8dd6585975085efb036ba64b50daa7169886ba366d6",
+        "prompt:prompts/C8/agent_v2.md": "8295bde4a68b3d5181ed06753c5fa88a63cf48a087283edb69066b22ce8588e4",
+        "upstream:C3": "a4414df486b521102142d16a476036239e9479fd67666677e84a95d9c5bc8026"
+      },
+      "reason": "C8 needs C5, and readiness refused C5",
+      "revision": "",
+      "verdict": "skipped",
+      "write_set": [
+        "src/kpis/",
+        "ui/kpis/",
+        "tests/test_kpis.py"
+      ]
+    },
+    {
+      "component": "C9",
+      "consumed": {
+        "schemas/case.schema.json": "b465513ac6b83273273df410fde68597b8acf4808b31b4775e52fad53ce52977",
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/checkpoints.yaml": "079eb0be1a30c35723f7aaf5d6edc37b8db42fbf04f66ed916983f8382543d7a",
+        "spec/not_automated.csv": "4951572b8a9bcf99a915ee9e0e738f7d74b4b1c5708cead58b08b3194882ea53",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/orchestration.yaml": "457e025c57f1f791d5f2192a6dc44c36b1ca3387c16778eba8409c0bc47132dd",
+        "spec/stack.yaml": "cfca309056b22d88da402aa104680d6d1dee683daac489f6b419009cbcb3ce0f"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "pack:C9": "9a4ae80da1342c1b2a874f3e4fce7f74be07333a326e3fee0a859ade3de369b8",
+        "prompt:prompts/C9/agent.md": "29e61bc27444f9ddae04e09603767e9805cefab2a60d0379a2e1d1845aa4db47"
+      },
+      "reason": "The Run did not start it. It waits for an earlier gate or for a rebuild.",
+      "revision": "",
+      "verdict": "skipped",
+      "write_set": [
+        "security/"
+      ]
+    },
+    {
+      "component": "C10",
+      "consumed": {
+        "context/process_steps.csv": "f2c2f55d7b4918c2fa29d82c477d8ca2157d8604d531630339718102e64617d7",
+        "evals/graders.yaml": "ec63655cf3ab40d1f47a978bb653dc7f92cb977a1c5bee4fbae2f2dc9dca38d0",
+        "evals/thresholds.csv": "34412adc95c4192434b52c1f68cadc136cde206f47309248f71ab2856ee989ed",
+        "spec/agents.yaml": "4e6c36093956de06ce09a5a2d12082faf9cd74a704eac3c24904cc8d17c91740",
+        "spec/baseline.csv": "8bc6a04b65557f314dc44aa0e0bde566d64699e9723694c76ca293b43b0a3055",
+        "spec/deviations.csv": "290fff85c323df1f0c4460693d6e48e931e8f3afec71460660a252a6adade07e",
+        "spec/inbound_api.yaml": "c707f0c402f33d1cd9b18aa93ab160e6926a3bc5216872ad020a54acb0e33f2b",
+        "spec/integration_map.yaml": "d70c549b97bf42c4502d46b09d2a46970dde73039208c28309fabe113333db97",
+        "spec/not_automated.csv": "4951572b8a9bcf99a915ee9e0e738f7d74b4b1c5708cead58b08b3194882ea53",
+        "spec/open_items.csv": "ab7cc2c7b29c567aeb2f5ea3e8b7634d6032c8097dc7520a93c68cf14073aa6f",
+        "spec/orchestration.yaml": "457e025c57f1f791d5f2192a6dc44c36b1ca3387c16778eba8409c0bc47132dd",
+        "spec/stack.yaml": "cfca309056b22d88da402aa104680d6d1dee683daac489f6b419009cbcb3ce0f"
+      },
+      "context": {
+        "builder": "code-d7a276eace58f32c836c59ccfffee659e54593802eeb1488ecf00dd44146b24a",
+        "prompt:prompts/C10/agent.md": "019bdefc7da5c277a316e07e6b153505ebf2fd6feaab32b156da7dd13a702b97",
+        "prompt:prompts/C10/agent_v2.md": "e8973af153e47c920188c982dd7e7a7aa6c814f79e7afc5a55e1f33aa242079c"
+      },
+      "reason": "C9 did not build.",
+      "revision": "",
+      "verdict": "skipped",
+      "write_set": [
+        "docs/"
+      ]
+    }
+  ]
+}
