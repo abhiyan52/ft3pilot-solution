@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>KPIs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font:14px/1.45 system-ui,sans-serif;margin:24px;color:#1b1f24;background:#fafafa}
+h1{font-size:20px;margin:0 0 4px}h2{font-size:16px;margin:28px 0 8px}h3{font-size:14px;margin:0}
+.note{color:#59636e;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:#fff;border:1px solid #d0d7de;border-radius:6px;padding:12px}
+.persona{border-left:4px solid #0969da}
+.kpi{margin-top:8px;padding-top:8px;border-top:1px solid #eaeef2}
+.val{font-size:20px;font-weight:600}.empty{color:#59636e;font-style:italic}
+.tag{display:inline-block;font-size:11px;border:1px solid #d0d7de;border-radius:10px;padding:0 6px;margin-left:4px}
+.degraded{color:#9a6700}.queue{margin:4px 0 0 18px;padding:0}
+</style></head><body>
+<h1>KPIs</h1>
+<div class="note" id="meta"></div>
+<div id="error" class="degraded"></div>
+<h2>By persona</h2><div class="grid" id="personas"></div>
+<h2>Technical KPIs</h2><div class="grid" id="technical"></div>
+<h2>Business KPIs</h2><div class="grid" id="business"></div>
+<h2>Measured from a later rung</h2><div class="grid" id="notowed"></div>
+<script>
+const SPEC = {"rung": "Pilot", "views": [{"id": "P1", "persona": "Executive sponsor", "question": "Is the reimagined process delivering the ROI case?", "cadence": "Monthly", "form": "Scorecard with value realised against the ROI case", "headline": ["KPI_O4", "KPI_O3"], "queue": ["KPI_O4 · budget burn above 90 percent of the monthly allocation → Product owner"]}, {"id": "P2", "persona": "Process owner / ops manager", "question": "Where are cases stuck right now, and why?", "cadence": "Daily", "form": "Trends annotated with model, prompt and agent releases", "headline": ["KPI_O8"], "queue": ["KPI_O8 · above 15 percent → AI / ML engineer"]}, {"id": "P3", "persona": "Frontline user", "question": "What do I work on next?", "cadence": "Monthly", "form": "Scorecard, once this persona has metrics assigned", "headline": [], "queue": []}, {"id": "P4", "persona": "Risk and compliance", "question": "Is the system operating within policy?", "cadence": "Real-time", "form": "Live queue, attention queue first", "headline": ["KPI_O10", "KPI_O9"], "queue": ["KPI_O10 · any PII event → Risk lead", "KPI_O9 · below 97 percent → Risk lead"]}, {"id": "P5", "persona": "Product owner", "question": "Is autonomy earning its keep?", "cadence": "Daily", "form": "Trends annotated with model, prompt and agent releases", "headline": ["KPI_O1", "KPI_O2", "KPI_O4", "KPI_O3"], "queue": ["KPI_O4 · budget burn above 90 percent of the monthly allocation → Product owner"]}, {"id": "P6", "persona": "AI / ML engineer", "question": "Is model quality holding after each release?", "cadence": "Real-time", "form": "Live queue, attention queue first", "headline": ["KPI_O6", "KPI_O7", "KPI_O8", "KPI_O9", "KPI_O5"], "queue": ["KPI_O6 · above 2 percent → AI / ML engineer", "KPI_O7 · above 3 percent → AI / ML engineer", "KPI_O8 · above 15 percent → AI / ML engineer", "KPI_O9 · below 97 percent → Risk lead"]}, {"id": "P7", "persona": "IT ops", "question": "Is the platform up?", "cadence": "Real-time", "form": "Live queue, attention queue first", "headline": ["KPI_O7", "KPI_O12", "KPI_O13", "KPI_O11"], "queue": ["KPI_O7 · above 3 percent → AI / ML engineer", "KPI_O12 · below the expected agent count → IT ops", "KPI_O13 · above 10 minutes at p90 → IT ops", "KPI_O11 · below 99 percent → IT ops"]}], "kpis": {"KPI_O8": {"name": "Override rate and direction", "unit": "percent", "grain": "per step", "formula": "count of reviews with override_flag set / count of agent decisions reviewed, split by direction", "source_ref": "kpi_board_definition@row:1", "test_name": "test_kpi_o8", "source_system": "platform"}, "KPI_O9": {"name": "Audited accuracy", "unit": "percent", "grain": "per step", "formula": "decisions found correct / decisions audited, with a Wilson 95 percent interval", "source_ref": "kpi_board_definition@row:2", "test_name": "test_kpi_o9", "source_system": "platform"}, "KPI_O6": {"name": "Agent error rate", "unit": "percent", "grain": "per agent per hour", "formula": "runs ending in error / total runs x 100", "source_ref": "kpi_board_definition@row:3", "test_name": "test_kpi_o6", "source_system": "agent runtime"}, "KPI_O7": {"name": "Tool error and retry rate", "unit": "percent", "grain": "per case", "formula": "count of tool calls not ending ok / count of cases", "source_ref": "kpi_board_definition@row:4", "test_name": "test_kpi_o7", "source_system": "agent runtime"}, "KPI_O4": {"name": "AI cost per case", "unit": "currency", "grain": "per case", "formula": "sum of cost where actor_type = agent / count of cases closed", "source_ref": "kpi_board_definition@row:5", "test_name": "test_kpi_o4", "source_system": "platform"}, "KPI_O5": {"name": "Tokens per agent per case", "unit": "tokens", "grain": "per agent per case", "formula": "sum of tokens grouped by agent / count of cases closed", "source_ref": "kpi_board_definition@row:6", "test_name": "test_kpi_o5", "source_system": "agent runtime"}, "KPI_O3": {"name": "Tokens per case", "unit": "tokens", "grain": "per case", "formula": "sum of prompt and completion tokens across all agents / count of cases closed", "source_ref": "kpi_board_definition@row:7", "test_name": "test_kpi_o3", "source_system": "platform"}, "KPI_O10": {"name": "Guardrail triggers", "unit": "count", "grain": "per event", "formula": "count of guardrail events by kind", "source_ref": "kpi_board_definition@row:11", "test_name": "test_kpi_o10", "source_system": "platform"}, "KPI_O1": {"name": "Inputs uploaded", "unit": "count", "grain": "per day", "formula": "count of raw sources uploaded", "source_ref": "kpi_board_definition@row:12", "test_name": "test_kpi_o1", "source_system": "platform"}, "KPI_O2": {"name": "Memory artifacts created", "unit": "count", "grain": "per day", "formula": "count of artifact versions committed", "source_ref": "kpi_board_definition@row:13", "test_name": "test_kpi_o2", "source_system": "platform"}}, "groups": {"business": ["KPI_O8", "KPI_O9", "KPI_O4", "KPI_O5", "KPI_O3", "KPI_O10", "KPI_O1", "KPI_O2"], "technical": ["KPI_O6", "KPI_O7"]}, "tiers": {"KPI_O1": "monitor", "KPI_O10": "monitor", "KPI_O2": "monitor", "KPI_O3": "monitor", "KPI_O4": "advisory", "KPI_O5": "monitor", "KPI_O6": "advisory", "KPI_O7": "advisory", "KPI_O8": "advisory", "KPI_O9": "advisory"}, "degraded": {"KPI_O1": "the event step.completed is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O10": "the event guardrail.triggered is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O2": "the event step.completed is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O3": "the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O4": "the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O5": "the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O6": "the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O7": "the event tool.call is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O8": "the event human.review is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)", "KPI_O9": "the event human.review is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT)"}, "not_owed": {"KPI_O11": "MVP", "KPI_O12": "MVP", "KPI_O13": "MVP"}, "log_sink": "The platform's own OpenTelemetry collector, until client IT names theirs"};
+let LIVE = {};
+const el = (tag, text, cls) => { const e = document.createElement(tag); if (text !== undefined) e.textContent = text; if (cls) e.className = cls; return e; };
+
+function valueNode(id) {
+  const box = el("div");
+  const live = LIVE[id];
+  const unit = SPEC.kpis[id].unit;
+  if (!live || live.value === null || live.value === undefined) {
+    box.append(el("div", "No data yet", "val empty"));
+  } else if (typeof live.value === "object") {
+    for (const [k, v] of Object.entries(live.value)) box.append(el("div", k + ": " + v + " " + unit, "val"));
+  } else {
+    box.append(el("div", live.value + " " + unit, "val"));
+  }
+  if (SPEC.degraded[id]) box.append(el("div", "DEGRADED: " + SPEC.degraded[id], "note degraded"));
+  return box;
+}
+
+function kpiBlock(id, withHeading) {
+  const k = SPEC.kpis[id];
+  const box = el("div", undefined, withHeading ? "card" : "kpi");
+  if (SPEC.not_owed[id]) {
+    box.append(el("h3", id));
+    box.append(el("div", "measured from " + SPEC.not_owed[id], "val empty"));
+    return box;
+  }
+  const head = el("h3", id + " · " + k.name);
+  head.append(el("span", SPEC.tiers[id] || "no tier", "tag"));
+  const live = LIVE[id];
+  head.append(el("span", live ? live.status : "unmeasured", "tag"));
+  box.append(head, valueNode(id));
+  box.append(el("div", "Unit: " + k.unit + " · grain: " + k.grain, "note"));
+  box.append(el("div", "Formula: " + k.formula, "note"));
+  box.append(el("div", "Source: " + k.source_system + " · " + k.source_ref + " · test " + k.test_name, "note"));
+  return box;
+}
+
+function render() {
+  const personas = document.getElementById("personas");
+  personas.replaceChildren();
+  for (const v of SPEC.views) {
+    const card = el("div", undefined, "card persona");
+    card.append(el("h3", v.persona), el("div", v.question), el("div", v.cadence + " · " + v.form, "note"));
+    card.append(el("div", "Headline metrics", "note"));
+    if (!v.headline.length) card.append(el("div", "No metrics assigned to this persona yet", "empty"));
+    for (const id of v.headline) card.append(kpiBlock(id, false));
+    card.append(el("div", "Attention queue", "note"));
+    if (!v.queue.length) card.append(el("div", "Nothing in the attention queue", "empty"));
+    const ul = el("ul", undefined, "queue");
+    for (const q of v.queue) ul.append(el("li", q));
+    card.append(ul);
+    personas.append(card);
+  }
+  for (const group of ["technical", "business"]) {
+    const host = document.getElementById(group);
+    host.replaceChildren();
+    for (const id of SPEC.groups[group]) host.append(kpiBlock(id, true));
+  }
+  const later = document.getElementById("notowed");
+  later.replaceChildren();
+  for (const id of Object.keys(SPEC.not_owed)) later.append(kpiBlock(id, true));
+  document.getElementById("meta").textContent = "Rung: " + SPEC.rung + " · alert destination: " + SPEC.log_sink;
+}
+
+async function load() {
+  try {
+    const response = await fetch("/playground/kpis");
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    LIVE = (await response.json()).kpis || {};
+    document.getElementById("error").textContent = "";
+  } catch (error) {
+    LIVE = {};
+    document.getElementById("error").textContent = "Runtime data unavailable: " + error.message;
+  }
+  render();
+}
+render();
+load();
+</script></body></html>
