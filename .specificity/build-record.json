@@ -923,6 +923,123 @@
           "detail": "C3 changed only files in its write set"
         }
       ]
+    },
+    {
+      "tenant_id": "local",
+      "component": "C4",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "b29e3c62b0389e14ce7ebbd8ea6a22d592b3fc31",
+      "report": {
+        "component": "C4",
+        "verdict": "built",
+        "wrote": [
+          "evals/runner.py"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "All 13 thresholds have a blank grader_id, min_sample, comparator and stage_applicability, so none is tied to a grader and none is validated (MONITOR_ONLY_EVALS).",
+          "Almost every case has a prose input and a prose expected result, not a JSON input for an agent input schema or a checkable decision, target, fields or tool sequence (EVAL_CASE_INPUT_PROSE, EVAL_EXPECTATION_NOT_CHECKABLE).",
+          "C4-1: no case has split test; acceptance cannot be decided and the runner scores nothing",
+          "C4-2: threshold agent_error_rate has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold agent_error_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold agent_error_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold agents_live has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold agents_live has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold agents_live has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold ai_cost_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold ai_cost_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold ai_cost_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold audited_accuracy has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold audited_accuracy has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold audited_accuracy has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold data_extraction_time has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold data_extraction_time has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold data_extraction_time has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold guardrail_triggers has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold guardrail_triggers has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold guardrail_triggers has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold inputs_uploaded has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold inputs_uploaded has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold inputs_uploaded has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold memory_artifacts_created has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold memory_artifacts_created has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold memory_artifacts_created has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold override_rate_and_direction has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold override_rate_and_direction has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold override_rate_and_direction has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tokens_per_agent_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tokens_per_agent_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tokens_per_agent_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tokens_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tokens_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tokens_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tool_error_and_retry_rate has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tool_error_and_retry_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tool_error_and_retry_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold verification_api_availability has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold verification_api_availability has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold verification_api_availability has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+          "C4-2a: the case schema names no field; no deterministic case-schema gate can run",
+          "G-01 lists rule IDs BR-ACT_01 to BR-ACT_07 but no decision, route or target field exists in any agent output schema, so no deterministic comparison can be written.",
+          "G-05 has a rubric for only 7 cases (EC-01, EC-02, EC-08, EC-16, EC-17, EC-24, EC-25). Its rubric headers use agent IDs for the EC-08 to EC-25 entries (RUB-EC-08 \u00b7 BLK_01). All other cases have no rubric of their own (EVAL_RUBRIC_GAP), and the case_id keys in the rubric headings cannot be matched reliably.",
+          "No case has split test (all 120 are dev), so scored_cases() returns [] and acceptance is unvalidated, not passed.",
+          "No test suite was written or run for this Component. The runner was only smoke-checked by loading it: 120 cases, 0 scored, 120 repair, and verdict() routing for tiers.",
+          "Precord owner: provide a grader_id, comparator and min_sample for each threshold.",
+          "Precord owner: provide a real judge model ID.",
+          "Precord owner: provide a rubric for each judged case.",
+          "Precord owner: provide cases with split test.",
+          "Precord owner: provide structured case inputs and expected decisions.",
+          "The context gives no answered_open_items, so no ANSWERED_OPEN_ITEMS constant was defined.",
+          "audited_accuracy, ai_cost_per_case and verification_api_availability have gate_tier blocking but tier_at_rung advisory. A miss goes to findings, and it must still be reported in the PR, the build record and the documents (V2_ADVISORY_TIER).",
+          "graders.yaml judge_model is 'openai-api', a provider label and not a model ID (EVAL_JUDGE_MODEL_INVALID). G-05 cannot run until the Precord owner names a model."
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        "evals/runner.py"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "801a3f3402f34b5e05b9ef59f8fb353f92a34cd3fef739c25ca65c251008e0ec",
+        "command_hash": "1c74877b4a108ff6ba102f96161d1bb06927c7a182da467afd78b54dbb3b96f3",
+        "output": ""
+      },
+      "review": {
+        "findings": [
+          {
+            "code": "TIER_FALLBACK_TO_GATE_TIER",
+            "severity": "low",
+            "message": "evals/runner.py:1671 `_tier_in` falls back to `gate_tier` when a row has no `tier_at_rung` key. The spec defines `tier_of` as the row's `tier_at_rung`. In the context, `audited_accuracy`, `ai_cost_per_case` and `verification_api_availability` have gate_tier blocking and tier_at_rung advisory. A row without the key would make a miss blocking and ignore the rung. The fallback should be monitor, with no gate_tier read. It does not trigger on the current THRESHOLDS."
+          },
+          {
+            "code": "VERDICT_FIRST_ROW_ONLY",
+            "severity": "low",
+            "message": "evals/runner.py:1661 `_row_of` returns the first row whose metric matches and ignores `agent_id`, `level` and `grader_id`. If a later Precord adds per-agent rows for one metric, `verdict` would apply the first row's tier to every result. All current rows use agent_id '*' with one row per metric, so it is not wrong today."
+          },
+          {
+            "code": "JUDGE_PROMPT_OMITS_RUBRIC_TEXT",
+            "severity": "low",
+            "message": "evals/runner.py:1702 `evaluate` builds a prompt that tells the judge to grade against 'the rubric you were given', but the prompt contains no rubric text. Correct grading therefore depends on the `rubric` callable that the harness passes in adding the case rubric. The spec says the harness sends the case rubric, so this is probably intended. A non-wrapping callable would grade with no criteria. Separately, the agent payload is embedded in the judge prompt with only a 'treat as data' sentence as protection against injection."
+          }
+        ],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "ed63594c5474131d8276eb8cfdb7b4028ded487238f517d19df28d30b9222bdb",
+        "4bedcf7541ae14dd3a548a0b722c194e7dae913177a7804122961c4486e27857",
+        "04e39dd358441b89990d59144a9ab66435c420f130479ccb5459af2bc48e260b",
+        "f753369ade52d02017eec79b02c643108c55263deb4dd7504b1143a85fd61761"
+      ],
+      "tool_versions": [],
+      "checks": []
     }
   ],
   "promotion_blockers": [
@@ -1008,5 +1125,5 @@
   ],
   "deployment": "user_owned",
   "solution_dir": "",
-  "agent_sessions_started": 44
+  "agent_sessions_started": 51
 }
