@@ -215,6 +215,714 @@
       ],
       "tool_versions": [],
       "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C3",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "e39a56b7a9497124ea91bc1b09806e0eb8bc7e79",
+      "report": {
+        "component": "C3",
+        "verdict": "built",
+        "wrote": [
+          "src/agents/blk_01.py",
+          "src/agents/blk_01_1.py",
+          "src/agents/blk_01_2.py",
+          "src/agents/blk_02.py",
+          "src/integrations/tool_01.py",
+          "src/integrations/tool_02.py",
+          "src/integrations/tool_03.py",
+          "src/integrations/int_ui1.py",
+          "src/integrations/int_ui2.py",
+          "src/integrations/int_ui3.py",
+          "src/integrations/int_ui4.py",
+          "src/integrations/int_ui5.py",
+          "src/integrations/int_ui6.py",
+          "src/integrations/int_ui7.py",
+          "src/integrations/int_ui8.py",
+          "src/integrations/int_api1.py",
+          "src/integrations/int_db1.py",
+          "src/integrations/inbound_api.py",
+          "src/orchestrator/orchestrator.py",
+          "src/agents/__init__.py",
+          "src/integrations/__init__.py",
+          "src/orchestrator/__init__.py"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "'System retry queue entry' and 'External KYC service response' have no declared shape or status values (STATUS_ENUM_MISSING), and EXC_02 detection (HTTP 503 or error banner) has no declared source field.",
+          "ACT_02 refusals (a rule or guardrail, not an outage) route as EXC_02 because on_failure maps them that way. The Precord gives no detection to tell them apart.",
+          "ADK has no model fallback (gemini-1.5-flash is declared as fallback_model) and no per-case token or latency budget (max_tokens_per_case 4096, max_latency_ms 30000). These are deviations.",
+          "ADK has no model fallback and no per-case token or latency budget. This is recorded as a deviation.",
+          "Auth is not checked: EP-06 declares an HMAC signature and EP-01 to EP-04 declare OAuth2 client credentials. No identity provider is configured, so the module reads no credential.",
+          "BLK_01.1 declares no actions, exceptions, interactions, audit_events or completion_conditions. ACTIONS, EXCEPTIONS, INTERACTIONS, AUDIT_EVENTS and COMPLETION_CONDITIONS are empty. The parent BLK_01 owns EXC_01, EXC_02 and INT_01.",
+          "BLK_01.2 and its siblings route failures to different escalation targets (human_review versus the FLS User / Employee queue). failure_behaviour names no exact target, so check C3-7 stays unverified.",
+          "BLK_01.2 declares no actions, exceptions, interactions, audit_events, completion_conditions or resume_strategy of its own. ACTIONS, EXCEPTIONS, INTERACTIONS, COMPLETION_CONDITIONS and AUDIT_EVENTS are empty, and RESUME_STRATEGY is omitted. BLK_01 owns ACT_01 to ACT_04.",
+          "BLK_01.in and BLK_01.out schemas declare no properties (INBOUND_CONTRACT_MISSING, EMPTY_SCHEMA). The agent's answer is {}. The agent reads and writes no case fields, so the surface registers must name them.",
+          "BLK_02 input and output schemas declare no properties, so the agent's reads and writes have no schema-level contract and the instruction lists no output keys.",
+          "BR-ACT_01 'mobile number unique' is not enforced: the Precord names no duplicate-lookup source and neither TOOL_01 stub returns one, so EXC_01 fires only on email or mobile format or presence. Detection source needs an open item.",
+          "BR-ACT_02 'received or queued' declares no status enum. A blank status is refused and a queued value cannot be told apart.",
+          "BR-ACT_03 'pincode and state match' is only a pincode format check. ACT_03 reads no State, and the Precord has no pincode-state table.",
+          "BR-ACT_04 'bank account verification passed' declares no status values, so only IFSC format and a non-blank status are checked.",
+          "BR-ACT_05 has no declared permitted extension list or maximum file size. PERMITTED_EXTENSIONS and MAX_FILE_SIZE_BYTES stay None, so only presence of an extension and a positive size is checked. The document shape (extension/filename, size_bytes/size) is not declared in the Precord.",
+          "BR-ACT_07 'required verification checks completed' has no declared check list. It is read as 'the three declared reads are present'.",
+          "C3-1a: BLK_01 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+          "C3-1a: BLK_01.1 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+          "C3-1a: BLK_01.2 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+          "C3-1a: BLK_02 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+          "C3-24: BLK_01 composes sub-agents; the orchestration graph was not executed end to end",
+          "C3-24: BLK_01 was not run against a model; the model run and its quality belong to C4",
+          "C3-24: BLK_01.1 was not run against a model; the model run and its quality belong to C4",
+          "C3-24: BLK_01.2 was not run against a model; the model run and its quality belong to C4",
+          "C3-24: BLK_02 was not run against a model; the model run and its quality belong to C4",
+          "C3-24: google-adk is not installed where the checks ran; the agent was built under a stand-in, so this is not ADK acceptance",
+          "C3-25: BLK_01 reads and writes of an action are field labels, not case keys; no check observes the fields that an action touches",
+          "C3-25: BLK_02 reads and writes of an action are field labels, not case keys; no check observes the fields that an action touches",
+          "C3-26: BLK_01 sensitive_data_policy of an interaction is text; no check observes a message",
+          "C3-26: BLK_02 sensitive_data_policy of an interaction is text; no check observes a message",
+          "C3-7: BLK_01 failure_behaviour names no exact target; the route is unverified",
+          "C3-7: BLK_02 failure_behaviour names no exact target; the route is unverified",
+          "CHK_01 declares no shown fields and no reason codes.",
+          "Cases are not rejected on a missing idempotency key for EP-06, which declares no idempotency rule.",
+          "Client IT (owner of SYS_A1): a confirmed access path and credential reference for the Operations QC Review screen",
+          "Client IT: a case_field for each FIELD_MAPPING entry, which needs the case schema populated in Module 1's surface registers.",
+          "Client IT: a declared browser-use tool entry in tools.yaml for INT_UI8, or a client answer to HR-306:INT_UI8 beyond 'Default accepted'.",
+          "Client IT: a real answer to HR-306:INT_UI1 and HR-201:BLK_01:TOOL_01. The current state is a default acceptance only.",
+          "Client IT: a tools.yaml declaration for INT_UI4, including whether browser use is permitted.",
+          "Client IT: an answer to HR-306:INT_UI4, since only the default has been accepted.",
+          "Client IT: confirm and declare a browser-use tool path for the User Verification screen in tools.yaml, plus an auth reference.",
+          "Client IT: confirmation of how the Consent and Declaration screen is reached, and a declared tools.yaml entry. Until then invoke() raises SystemNotConfiguredError.",
+          "Client IT: the browser-use path for INT_UI1 and a declaration in tools.yaml, which together would allow a real call to SYS_A1.",
+          "EP-02 returns the raw case fields. No response schema names them.",
+          "EP-07 auth is 'Not stated' and idempotency is null; no credential reference exists in the Precord.",
+          "EXC_02 detection (HTTP 503 or error banner) has no declared response field. TOOL_02 declares only 'KYC verification status', so EXC_02 fires only when the tool call raises or the status is blank.",
+          "Every case_field in FIELD_MAPPING is empty (7 entries); the Precord names no case-schema property for any core field, and case.schema.json has no properties.",
+          "FIELD_MAPPING entry 'record schema' has an empty case_field; the case schema declares no properties, so it cannot be mapped.",
+          "Few-shot examples are empty although H-16 is declared. ADK has no model fallback and no per-case token or latency budget (recorded as deviations).",
+          "H-01 says coordinator and the sub-agent definitions say single agent. Composition (sequential) was followed.",
+          "H-12 per-field extraction score has no declared confidence threshold. few_shot is empty (FEW_SHOT_EMPTY, H-16).",
+          "HR-201:BLK_01:TOOL_01",
+          "HR-201:BLK_01:TOOL_01 (Client IT architect): real TOOL_01 endpoint",
+          "HR-201:BLK_01:TOOL_01 (IT, no answer)",
+          "HR-201:BLK_01:TOOL_01 (client IT: build the real tool; answer is empty)",
+          "HR-201:BLK_01:TOOL_02",
+          "HR-201:BLK_01:TOOL_02 (IT, no answer)",
+          "HR-201:BLK_02:TOOL_03 (client IT architect): real TOOL_03 contract and endpoint",
+          "HR-306:INT_UI2 is marked approved with 'Default accepted: Mock the endpoint until it exists', which conflicts with the map row (kind=tool, status=existing). I copied the row (KIND=tool, IS_MOCK=False). The module is not a mock and gives no seeded sample data. The default stays an assumption, not an answer, and nobody has confirmed the KYC screen exists or how to reach it.",
+          "HR-306:INT_UI3 is 'Default accepted: Mock the endpoint until it exists', which is an accepted default and not a client answer. The row says KIND=tool, so the module is not a mock; the conflict is recorded here and the row is followed.",
+          "HR-306:INT_UI7 is 'approved' with the answer 'Default accepted: Mock the endpoint until it exists'. That is an accepted default, not a client answer. The integration_map row says KIND tool, mode rpa, status existing. The row wins, so the module is not a mock and IS_MOCK is False. This conflicts with the open item's mock default.",
+          "INPUT_SCHEMA and OUTPUT_SCHEMA are empty, with no surface mapped to S1-S4. Every field_mapping case_field is blank.",
+          "INT_UI1 is mapped as an existing client tool (KIND tool, MODE rpa, browser use) on SYS_A1. The system is not reachable in the build, so invoke() raises IntegrationNotConfigured. No browser path is built, because tools.yaml declares none (BROWSER_USE_UNDECLARED).",
+          "INT_UI2 is a browser-use (rpa) tool on an existing system. No tools.yaml entry or declared browser path exists (BROWSER_USE_UNDECLARED), so invoke() always raises IntegrationNotConfiguredError and the module cannot be exercised end to end.",
+          "INT_UI3 is a browser-use (rpa) tool on an existing client system and is not reachable in the build, so invoke() always raises IntegrationNotConfigured.",
+          "INT_UI4 has no tools.yaml entry; HR-306:INT_UI4 'Default accepted: Mock the endpoint until it exists' carries no client answer. The row says mechanism Browser use, mode rpa, kind tool, status existing, so the module is a tool, not a mock, and invoke() raises IntegrationNotConfigured. The open item's mock default conflicts with the row; the row wins.",
+          "INT_UI8 is a browser-use (rpa) integration against SYS_A1 and no tools.yaml entry declares it, so no browser path is built (BROWSER_USE_UNDECLARED). The module raises IntegrationNotConfigured.",
+          "KYC Verification Results has no declared shape. The QC draft derives no KYC mismatch from it.",
+          "No agent in mapped.agents serves INT_API1 (agents empty, step_id null)",
+          "No agent in mapped.agents serves INT_DB1 (agents is empty and step_id is null), so no agent can reach this lookup.",
+          "No agent in mapped.agents serves INT_UI6. S6 (Consent and Declaration) is in the not-automated register (EX_01, regulatory) and is owned by a person, so no agent is meant to call it.",
+          "No agent in mapped.agents serves INT_UI8: agents is empty, and S8 is in the not-automated register (EX_02, relationship), so the row is for a person step.",
+          "No browser path is built, because tools.yaml does not declare browser use for INT_UI4 (BROWSER_USE_UNDECLARED).",
+          "No browser path is built: INT_UI7 is browser use on an existing system, tools.yaml declares no entry for it, and BROWSER_USE_UNDECLARED applies. invoke() raises IntegrationNotConfigured.",
+          "No browser-use path is built because tools.yaml declares none (BROWSER_USE_UNDECLARED). The Document Upload screen cannot be driven until client IT declares a browser tool.",
+          "No duplicate-check or KYC-unavailable detection source is declared for EXC_01 and EXC_02, and the stub tools return none. The sub-agent cannot detect them.",
+          "No identity provider is configured for HMAC or OAuth2 verification.",
+          "No real DB connection is made in the build; invoke() always raises IntegrationNotConfiguredError.",
+          "No request or response schema for TOOL_03 exists beyond the ACT_05 reads and writes; BLK_02 input and output schemas are empty.",
+          "No request or response schema is given for any of the five endpoints (EP-06, EP-01, EP-02, EP-03, EP-04). The handlers check only the shape of the example bodies.",
+          "No sample_data in context; irrelevant for an adapter, which does not return mock data",
+          "No tool is declared in tools.yaml for TOOL_01; there is no real endpoint, auth or timeout to bind.",
+          "Not run: the Python here has no fastapi, so the module was checked for syntax only. Handlers were not exercised.",
+          "Open item HR-201:BLK_01:TOOL_01 (stub TOOL_01 on sample data) is still open. Its stub module, src/integrations/tool_01.py, does not exist in this worktree.",
+          "Open item HR-201:BLK_01:TOOL_01 is unanswered (status open); the stub implements its default assumption only and blocks promotion.",
+          "Open item HR-201:BLK_01:TOOL_02 has no answer. The stub implements its default assumption only, and the stub blocks promotion (IS_MOCK).",
+          "Open item HR-306:INT_API1 says 'Default accepted: Mock the endpoint until it exists' (no client answer), but the integration_map row says kind=adapter, status 'to build by solution'; the row wins, so IS_MOCK is False. Conflict recorded.",
+          "Open item HR-306:INT_DB1 is 'approved' with the answer 'Default accepted: Mock the endpoint until it exists'. The row says kind=tool, status=existing, mode=db, so the module follows the row (KIND=tool, IS_MOCK=False) and raises not-configured. The open item's 'not available' / mock default conflicts with the row and was not applied.",
+          "Open item HR-306:INT_UI1 reads 'Default accepted: Mock the endpoint until it exists', with no client-supplied answer. The mapped row decides KIND, so the module is not a mock and IS_MOCK is False. Record the conflict between the row and the open item.",
+          "Open item HR-306:INT_UI5 says to mock the endpoint ('Default accepted' with no client answer), but the integration_map row says kind=tool, mode=rpa, status=existing. The module follows the row (IS_MOCK=False, invoke raises IntegrationNotConfigured). Conflict recorded as a gap.",
+          "Open item HR-306:INT_UI6 has 'Default accepted: Mock the endpoint until it exists', but the integration_map row says kind=tool, mode=rpa, existing. The module follows the row (IS_MOCK=False). invoke() raises SystemNotConfiguredError and does not mock. The client has not answered with a value, so this stays unresolved.",
+          "Open item HR-306:INT_UI8 is 'approved' with the answer 'Default accepted: Mock the endpoint until it exists'. That is a default, not a client answer. The integration_map row says status existing, kind tool, so the module follows the row (KIND tool, IS_MOCK false) and not the mock default. This conflict is recorded as a gap.",
+          "Ownership lists S6 under both BLK_02 and person; the orchestrator treats S6 as person-owned and never assigns it to an agent.",
+          "Precord owner: case-schema property names for the INT_UI7 field mapping",
+          "Precord owner: case_field names for Training Status, Certification status and Active agent code.",
+          "Precord owner: case_field names for the four consent fields in schemas/case.schema.json.",
+          "Precord owner: case_field names in the case schema for the 8 mapped fields.",
+          "Precord owner: declare the KYC status and retry-queue values.",
+          "Precord owner: map the six core fields to case-schema properties so case_field can be filled.",
+          "Q9 model region in src/solution/model_residency.json (client IT)",
+          "SLA due time in the HIL task list is an empty string because the checkpoint store gives no value for it in the instructions.",
+          "TOOL_01 and TOOL_02 are labelled mocks (IS_MOCK). Open items HR-201:BLK_01:TOOL_01 and HR-201:BLK_01:TOOL_02 have no client answer. They block promotion.",
+          "TOOL_01 and TOOL_02 are mocks (HR-201:BLK_01:TOOL_01 and :TOOL_02 are open with no answer), which blocks promotion.",
+          "TOOL_01 is a labelled mock (HR-201:BLK_01:TOOL_01 is unanswered), so promotion is blocked.",
+          "TOOL_03 has no tools.yaml entry; open item HR-201:BLK_02:TOOL_03 is unanswered, so the module is a mock and blocks promotion.",
+          "TOOL_03 is a labelled mock (HR-201:BLK_02:TOOL_03 is open, unanswered, and blocks promotion). INT_UI5 and INT_UI7 are 'Default accepted' HR-306 items with no client answer.",
+          "The BLK_01 input and output schemas have no properties, so INPUT_SCHEMA and OUTPUT_SCHEMA are empty and the structured output model has no fields.",
+          "The C3 review findings in blk_01.py, blk_02.py, blk_01_2.py and inbound_api.py are outside this Unit's write set and were not touched.",
+          "The CheckpointStore API shape (pending(), read(), apply()) is assumed from the Unit instructions. checkpoints.service is not built yet (C5), so the HIL endpoints return 503 'not built' until it exists.",
+          "The H-12 confidence threshold is undeclared and few_shot is empty.",
+          "The H-12 confidence threshold is undeclared. EXC_05 detection therefore fires on a non-empty discrepancy list only, with no confidence test.",
+          "The Operations QC Review screen has no confirmed endpoint, credential reference (auth_ref is empty) or evidence of how to reach it.",
+          "The Precord case schema declares no properties, so nothing can be mapped to the case.",
+          "The Precord declares no KYC status values and no queued/unavailable response shape, so the stub cannot return the service-unavailable or queued states that BR-ACT_02 and EXC_02 refer to.",
+          "The Precord declares no case-field or tool-response key for the open-item or blocking-rule signals that GR-03 and GR-04 need. The enforcers therefore take explicit call parameters (failed_rules, open_fields) and read no invented case keys. Nothing in this module supplies them yet.",
+          "The Precord declares no tools.yaml entry and no browser-use path for INT_UI6 (BROWSER_USE_UNDECLARED). No browser path is built, so the module cannot reach the screen.",
+          "The case schema and BLK_01 input and output schemas declare no properties, so nothing ties these fields to the case object.",
+          "The case schema and BLK_01 input/output schemas declare no properties, so the request/response fields come only from the ACT_01, ACT_03 and ACT_04 reads and writes.",
+          "The case schema declares no open-item property, so GR-04 checks only the static BLOCKING_OPEN_ITEM_FIELDS, which is empty. No open item in the register blocks a BLK_02 field.",
+          "The case schema has no properties, so the EP-06 status callback cannot store its status. It validates the body, confirms the case exists and returns received.",
+          "The diagnosis findings (A11, C3-8, EXC_05, invented case fields, etc.) concern other modules (blk_01.py, blk_02.py, inbound_api.py) outside this unit's write set",
+          "The diagnosis findings concern src/agents/*, src/integrations/*, and src/solution/*, not this Unit; they are not addressed here.",
+          "The diagnosis in the context lists findings against src/agents/blk_01.py, src/agents/blk_02.py and src/integrations/inbound_api.py. None of them concern this unit and I did not touch those files.",
+          "The edge on 'agent_tool' fans out to BLK_01.1 and BLK_01.2; they run inside BLK_01 and are not on the case route.",
+          "The existing diagnosis findings concern src/agents/* and inbound_api.py, which are outside this unit's write set. None of them applies to int_ui4.py, and I did not touch them.",
+          "The invoke() credential parameter is accepted but unused and never read from anywhere.",
+          "The model residency file forbids a cross-border call and names no region (Q9). make_agent() raises LlmConfigError on a host until a region is set.",
+          "The record schema returned by EP-07 is not declared, so no response fields are defined.",
+          "The row lists State among the fields, but the ACT_03 reads in agents.yaml do not name State or City or Marital Status, so BR-ACT_03 'Pincode and state match' cannot be fed from this screen mapping.",
+          "The row lists no auth_ref and no credential binding, so none is wired in.",
+          "The row's field_mapping includes 'Bank verification submission payload', which has no declared structure, and the Precord gives no request or response schema for the screen.",
+          "The sub-agent BLK_01.1 declares no model, temperature, timeout, retries, autonomy, max_output_tokens or serves_steps. Each value comes from the parent BLK_01.",
+          "The sub-agent has no prompt file or schema file of its own (SUB_AGENT_NO_CONTRACT). It uses prompts/BLK_01.md and the BLK_01 schemas.",
+          "agents.yaml gives BLK_01.2 no model, temperature, timeout_s, max_retries, autonomy or max_output_tokens. The values are taken from the parent BLK_01.",
+          "auth_ref is empty for this row, so no credential binding is known.",
+          "auth_ref is empty in the row; no credential binding for mTLS is known",
+          "case.schema.json declares no properties. The GR-01 to GR-04 enforcers read the optional keys tool_id, tool_ids, step_id, step_ids, rule_violations, open_item_fields and required_fields. The Precord declares none of these keys.",
+          "case_field is empty for all 8 FIELD_MAPPING entries (Name, Gender, Date of Birth, Marital Status, Address, Pincode, City, State); no case schema property is mapped.",
+          "case_field is empty for all 9 FIELD_MAPPING entries (Profile Photo, PAN Card, Aadhaar Front, Aadhaar Back, Bank Proof, Education Document, Categorized document records, Validation status flags, Cropped image assets); the case schema declares no properties.",
+          "case_field is empty for all four field_mapping entries: Terms reviewed flag, Declaration checkbox, Consent date, Declaration PDF. The case schema declares no properties, so nothing can be mapped.",
+          "case_field is empty for all six FIELD_MAPPING entries (Full Name, Mobile Number, Email, RM Business Code, Application record draft, Validation error status); the case schema declares no properties, so no case field can be named.",
+          "case_field is empty for all six FIELD_MAPPING entries (PAN Number, Aadhaar Number, CKYC Number, External KYC service response, KYC verification status, System retry queue entry), so no case-schema property is known for any of them.",
+          "case_field is empty for all three FIELD_MAPPING entries (Training Status, Certification status, Active agent code); the Precord names no case-schema property for them.",
+          "case_field is empty for the only FIELD_MAPPING entry (payload_pending)",
+          "case_field is empty in all 8 FIELD_MAPPING entries for INT_UI4 (Account Type, Name As In Bank Account, Bank Account Number, IFSC Code, Bank Name, Bank City, Branch Name, Bank verification submission payload); the case schema declares no properties.",
+          "check C3-7 failed for agent-BLK_01: handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)",
+          "check C3-7 failed for agent-BLK_02: handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)",
+          "check verifier:contract failed for C3: failed: C3-7 agent-BLK_01, C3-7 agent-BLK_02",
+          "check verifier:oracle failed for C3: unverified, promotion blocked: C3-7 agent-BLK_01, C3-7 agent-BLK_02",
+          "checkpoints.service (C5) must exist for EP-03 and EP-04 to serve tasks.",
+          "context/sample_data.csv is empty, so there is nothing to seed with and no evidence of the KYC screen's real behaviour.",
+          "deviation: BLK_01 declares composition sequential and the orchestration edge BLK_01 -> BLK_01.1 on 'agent_tool'. The builder runs BLK_01.1 under BLK_01 as the composition field says. The orchestrator records the edge and does not hand a case to it.",
+          "deviation: BLK_01 declares composition sequential and the orchestration edge BLK_01 -> BLK_01.2 on 'agent_tool'. The builder runs BLK_01.2 under BLK_01 as the composition field says. The orchestrator records the edge and does not hand a case to it.",
+          "deviation: BLK_01.1.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+          "deviation: BLK_01.1.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+          "deviation: BLK_01.1.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+          "deviation: BLK_01.1.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+          "deviation: BLK_01.2.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+          "deviation: BLK_01.2.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+          "deviation: BLK_01.2.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+          "deviation: BLK_01.2.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+          "deviation: BLK_01.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+          "deviation: BLK_01.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+          "deviation: BLK_01.fallback_model: ADK has no model fallback. The agent runs on 'gemini-2.5-flash' only. The declared fallback 'gemini-1.5-flash' is not applied.",
+          "deviation: BLK_01.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+          "deviation: BLK_01.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+          "deviation: BLK_02.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+          "deviation: BLK_02.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+          "deviation: BLK_02.fallback_model: ADK has no model fallback. The agent runs on 'gemini-2.5-flash' only. The declared fallback 'gemini-1.5-flash' is not applied.",
+          "deviation: BLK_02.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+          "deviation: BLK_02.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+          "failure_behaviour names no exact escalation target. handle_failure routes to the EXC_01 queue (FLS User / Employee) and the target is unverified.",
+          "failure_behaviour names no exact routing target, so handle_failure routing to the Operations / QC reviewer queue is unverified (C3-7).",
+          "few_shot is empty (H-16). No H-12 confidence threshold is declared. ADK has no model fallback and no per-case token or latency budget.",
+          "gap: BLK_01.1 declares no audit_events; the Precord gives C8 no runtime source for this agent",
+          "gap: BLK_01.1 declares no exception route; handle_failure is its only failure path",
+          "gap: BLK_01.1 input_schema has no schema file; the INPUT_SCHEMA check was skipped",
+          "gap: BLK_01.1 names no served steps; the served-step check was skipped",
+          "gap: BLK_01.1 output_schema has no schema file; the OUTPUT_SCHEMA check was skipped",
+          "gap: BLK_01.2 declares no audit_events; the Precord gives C8 no runtime source for this agent",
+          "gap: BLK_01.2 declares no exception route; handle_failure is its only failure path",
+          "gap: BLK_01.2 input_schema has no schema file; the INPUT_SCHEMA check was skipped",
+          "gap: BLK_01.2 names no served steps; the served-step check was skipped",
+          "gap: BLK_01.2 output_schema has no schema file; the OUTPUT_SCHEMA check was skipped",
+          "gap: assumption: EP-05 PUT /adapter/sys-a1/int-api1/{id} is tagged Solution-provided and names the adapter INT_API1; the builder treats it as an outbound call of that adapter, not an inbound route. Module 1 confirms the direction",
+          "gap: inbound_api.yaml has no endpoint-to-trigger-kind field; the builder takes the POST endpoint that is not a HIL endpoint and whose summary says 'trigger' as the one that starts a case",
+          "gap: these declared error actions are not triggered by any check, because the handler checks no x-auth value, keeps no rate limit and calls no failing dependency: EP-06 ['401', '403', '404', '409', '429', '5xx', 'timeout']; EP-01 ['401', '403', '404', '429', '5xx', 'timeout']; EP-02 ['401', '403', '409', '422', '429', '5xx', 'timeout']; EP-03 ['401', '403', '404', '409', '422', '429', '5xx', 'timeout']; EP-04 ['401', '403', '404', '409', '422', '429', '5xx', 'timeout']",
+          "handover/sequences.mmd is cited in REQUIREMENT_REFS as the handover reference. This unit did not read that file.",
+          "mapped.agents lists BLK_02 but the agent's tools are only TOOL_03, so no declared agent tool calls INT_UI7.",
+          "mapped.endpoints is empty, so OUTBOUND_ENDPOINTS is not defined.",
+          "rate_limit and timeout values are declared but not enforced in this module.",
+          "sample_data holds no rows, so the response field 'KYC verification status' is the placeholder string 'sample'.",
+          "sample_data is empty, so both response fields take the literal 'sample'.",
+          "sample_data is empty, so every response field of TOOL_01 takes the literal 'sample'.",
+          "sample_data is empty, so there is nothing to seed. This does not matter here because the module is not a mock.",
+          "tools.yaml has no entry for INT_UI3, and no browser path is built because browser use is undeclared."
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        "src/agents/blk_01.py",
+        "src/agents/blk_01_1.py",
+        "src/agents/blk_01_2.py",
+        "src/agents/blk_02.py",
+        "src/integrations/tool_01.py",
+        "src/integrations/tool_02.py",
+        "src/integrations/tool_03.py",
+        "src/integrations/int_ui1.py",
+        "src/integrations/int_ui2.py",
+        "src/integrations/int_ui3.py",
+        "src/integrations/int_ui4.py",
+        "src/integrations/int_ui5.py",
+        "src/integrations/int_ui6.py",
+        "src/integrations/int_ui7.py",
+        "src/integrations/int_ui8.py",
+        "src/integrations/int_api1.py",
+        "src/integrations/int_db1.py",
+        "src/integrations/inbound_api.py",
+        "src/orchestrator/orchestrator.py",
+        "src/agents/__init__.py",
+        "src/integrations/__init__.py",
+        "src/orchestrator/__init__.py"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "35c1ff4bb1387ec96c1bec48061dfbdb3159db10a34ed17b3433cd1a5457bb66",
+        "command_hash": "e388fc9ea6ec6016ac73ef10ea9871537e377116a09a01d22931f8170485db51",
+        "output": "EXC_01 on case case-1: forced\nEXC_02 on case case-1: forced\nEXC_01 on case case-1: GR-01 refuses\nEXC_01 on case case-1: GR-02 refuses\nEXC_01 on case case-1: GR-03 refuses\nEXC_01 on case case-1: GR-04 refuses\nBLK_01 failed on case case-1: RuntimeError('forced')\n/Users/abhiyanhaze/specificity/.scratch/ft3/run4/solution-builder/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\nNOTE agent-BLK_01: C3-24: google-adk is not installed where the checks ran; the agent was built under a stand-in, so this is not ADK acceptance\nCHECK A11 PASS agent-BLK_01: code has no hand-written retry, routing, scheduling, or tracing (syntax tree)\nCHECK C3-23 PASS agent-BLK_01: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-8 PASS agent-BLK_01: the agent module does no arithmetic; deterministic code does it\nCHECK C3-24 PASS agent-BLK_01: make_agent builds under the stub ADK\nCHECK C3-24 PASS agent-BLK_01: a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA\nCHECK C3-1 PASS agent-BLK_01: MODEL equals the declared model 'gemini-2.5-flash'\nCHECK C3-1 PASS agent-BLK_01: TEMPERATURE equals the declared temperature 0.0\nCHECK C3-1 PASS agent-BLK_01: TIMEOUT_S equals the declared timeout_s 30\nCHECK C3-1 PASS agent-BLK_01: MAX_RETRIES equals the declared max_retries 3\nCHECK C3-1 PASS agent-BLK_01: AUTONOMY equals the declared autonomy 'act_with_review'\nCHECK C3-1 PASS agent-BLK_01: each leaf agent of the sequential composition carries its declared model: {'*': 'gemini-2.5-flash'}\nCHECK C3-1 PASS agent-BLK_01: each leaf agent of the sequential composition carries its declared temperature: {'*': 0.0}\nCHECK C3-1 PASS agent-BLK_01: each leaf agent of the sequential composition carries its declared retries: {'*': 4}\nCHECK C3-7 PASS agent-BLK_01: FAILURE_BEHAVIOUR text equals the declared failure_behaviour\nCHECK C3-7 PASS agent-BLK_01: handle_failure sets a status tag and raises an alert\nCHECK C3-7 FAIL agent-BLK_01: handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)\nNOTE agent-BLK_01_1-fed3cbb0: C3-24: google-adk is not installed where the checks ran; the agent was built under a stand-in, so this is not ADK acceptance\nCHECK A11 PASS agent-BLK_01_1-fed3cbb0: code has no hand-written retry, routing, scheduling, or tracing (syntax tree)\nCHECK C3-23 PASS agent-BLK_01_1-fed3cbb0: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-8 PASS agent-BLK_01_1-fed3cbb0: the agent module does no arithmetic; deterministic code does it\nCHECK C3-24 PASS agent-BLK_01_1-fed3cbb0: make_agent builds under the stub ADK\nCHECK C3-24 PASS agent-BLK_01_1-fed3cbb0: a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA\nNOTE agent-BLK_01_2-fba1eff4: C3-24: google-adk is not installed where the checks ran; the agent was built under a stand-in, so this is not ADK acceptance\nCHECK A11 PASS agent-BLK_01_2-fba1eff4: code has no hand-written retry, routing, scheduling, or tracing (syntax tree)\nCHECK C3-23 PASS agent-BLK_01_2-fba1eff4: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-8 PASS agent-BLK_01_2-fba1eff4: the agent module does no arithmetic; deterministic code does it\nCHECK C3-24 PASS agent-BLK_01_2-fba1eff4: make_agent builds under the stub ADK\nCHECK C3-24 PASS agent-BLK_01_2-fba1eff4: a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA\nNOTE agent-BLK_02: C3-24: google-adk is not installed where the checks ran; the agent was built under a stand-in, so this is not ADK acceptance\nCHECK A11 PASS agent-BLK_02: code has no hand-written retry, routing, scheduling, or tracing (syntax tree)\nCHECK C3-23 PASS agent-BLK_02: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-8 PASS agent-BLK_02: the agent module does no arithmetic; deterministic code does it\nCHECK C3-24 PASS agent-BLK_02: make_agent builds under the stub ADK\nCHECK C3-24 PASS agent-BLK_02: a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA\nCHECK C3-1 PASS agent-BLK_02: MODEL equals the declared model 'gemini-2.5-flash'\nCHECK C3-1 PASS agent-BLK_02: TEMPERATURE equals the declared temperature 0.0\nCHECK C3-1 PASS agent-BLK_02: TIMEOUT_S equals the declared timeout_s 60\nCHECK C3-1 PASS agent-BLK_02: MAX_RETRIES equals the declared max_retries 2\nCHECK C3-1 PASS agent-BLK_02: AUTONOMY equals the declared autonomy 'draft_for_approval'\nCHECK C3-1 PASS agent-BLK_02: make_agent builds an agent with the declared model 'gemini-2.5-flash'\nCHECK C3-1 PASS agent-BLK_02: make_agent passes the declared temperature 0.0\nCHECK C3-1 PASS agent-BLK_02: make_agent gives ADK the declared retries: 2 retries are 3 attempts\nCHECK C3-7 PASS agent-BLK_02: FAILURE_BEHAVIOUR text equals the declared failure_behaviour\nCHECK C3-7 PASS agent-BLK_02: handle_failure sets a status tag and raises an alert\nCHECK C3-7 FAIL agent-BLK_02: handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)\nCHECK C3-23 PASS stub-TOOL_01: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS stub-TOOL_02: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS stub-TOOL_03: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI1: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI2: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI3: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI4: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI5: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI6: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI7: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_UI8: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_API1: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS mapped-INT_DB1: no credential value in code; secrets resolve from the declared store at runtime\nCHECK C3-23 PASS inbound-api: no credential value in code; secrets resolve from the declared store at runtime\n"
+      },
+      "review": {
+        "findings": [
+          {
+            "code": "PERSON_STEP_CLAIMED",
+            "severity": "medium",
+            "message": "src/agents/blk_02.py:46 sets SERVES_STEPS = (\"S5\", \"S6\", \"S7\"). agents.yaml gives BLK_02 serves_steps S5 and S7. S6 is person-owned and in the not-automated register (EX_01). The dismissed open item HR-107:BLK_02:S6 has the default \"Keep S6 manual; remove it from the agent's steps\". allowed_step() and FORBIDDEN_STEPS still refuse S6, so the code is safe. The declared constant still claims a step the business kept manual, and the module docstring repeats it. Set SERVES_STEPS to (\"S5\", \"S7\")."
+          },
+          {
+            "code": "INTERACTION_NOT_IMPLEMENTED",
+            "severity": "low",
+            "message": "src/agents/blk_02.py holds INT_02 (Operations Work Queue, fallback Email alert) only as the INTERACTIONS data dict. No function builds or sends a message on that channel, applies the fallback, or applies the sensitive_data_policy. BLK_01 has build_notification for INT_01. EXC_05 containment only names the channel."
+          },
+          {
+            "code": "EXCEPTION_ROUTE_CONFLATION",
+            "severity": "low",
+            "message": "Every non-guardrail error in an action is routed to that action's declared exception. In src/agents/blk_02.py an ACT_05 TOOL_03 transport error becomes EXC_03, which says the user must re-upload the document. In src/agents/blk_01.py an ACT_01, ACT_03 or ACT_04 tool error becomes EXC_01, which says duplicate record. The Precord gives no detection to tell these cases apart. BLK_01 records this gap only for ACT_02. The wrong human work item is shown to the reviewer."
+          },
+          {
+            "code": "AUDIT_EVENT_NOT_RESTRICTED",
+            "severity": "low",
+            "message": "emit_event in src/agents/blk_02.py, blk_01_1.py and blk_01_2.py does not check event_name against AUDIT_EVENTS. The instructions say an agent emits only declared events. blk_01.py does check. blk_02.py emits agent.decision after each successful action, where the Precord's step-level event is step.completed, which BLK_02 does not declare."
+          },
+          {
+            "code": "OUTPUT_SCHEMA_WITH_TOOLS_UNRECORDED",
+            "severity": "low",
+            "message": "BLK_01.1, BLK_01.2 and BLK_02 pass output_schema together with tools to ADK Agent. The instructions say to record a gap if ADK refuses this combination. No gap is recorded and the combination was not exercised, because google-adk was not installed. The risk is that make_agent() fails at runtime. The enforce_gr_01 check before tool calls is also missing in blk_01_2.validate_bank_details, which calls invoke directly."
+          }
+        ],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "775d80a72e4a6f475b6b8cc2820fdf4a0b86b1e52c3cdda617380c417458338b",
+        "a67211206cc40446593473db3dbaeb1c2c626968e1f968b9a6b452a59fae102d",
+        "dceddd1a53b9c08d726212f665d1b2883ba304c439dc08eae6ad31e14790f61c",
+        "18a78b44056369a80b6138e54293437204944b8f3ed0228fd9631aa3e66c26ba",
+        "6c94d0e756a9624bcabb3ea00ee56d308bd1d00391aba63759072bdc33838b80",
+        "64bf252843025e7a071dcffff3e2561a803d23e17fd0fe0a94e7ad2255275b43",
+        "d9d8e212717fefb3e799f62f2376c7369eae681b0f773989d826441b9d6fbf46",
+        "dacdde8c41e474091a0d77b0bc1e0646627a343571a44cb68e6e78e6286a589a",
+        "6257e93651101b7473da18f939098068ceff55e984ff29a28078def53008b036",
+        "99883fd33885022c14f3b606682e9fd4d0fef55f3997b326d74e3332a95a0cd9",
+        "00f14c25e19822a65c738f387fae65c8f79ed4765e6243fdf84ff77bd00666d2",
+        "47f7c8a8a0d68238fae6df0d2a1968317ead35cca5c15c8148c128950832a73a",
+        "2472f166a134b4f7f1187e961157f23f6762c00ce73e41bc189e2b5cc89e2b0f",
+        "3be475d7d0395375a6d8b6a76165b43b1076993d725740599449dbdc1c160188",
+        "9441e549feeec4fb76f70918538a2b37493f292a10ba0b7b9698f9431d0273cc",
+        "ecf34817303f38f22cb441dec61163241a54fe36ec0bc1e69aaca69a700e0bf3",
+        "28c1b47fe189a879921acf06c123b5256057de902d06cf891cb1eb6556aa7e68",
+        "2fcecb9e12a85658538aea6b33e994595a9e4d1e3c38aba80d3c637492272495",
+        "0dd34fe3594db7fe722e349675edf50e89bdf15cc26f1b590312dedd2d2f2b07",
+        "fe115515879430f978d4f299bd5a315076402d932aaa8cbc2a24c959259a38a2",
+        "0345834a8c2b88b4f11369561a5b1c60caf371f57383397f7b2cc09281396ca2",
+        "8ce0db840f4a4a3efc53a8a531bdef3a135af921f336989411988e157b65d98e",
+        "c27b473dcc565beb97115e6a96c4a049b040fb6a9ed81eb0fcf34d3cac76083d",
+        "2feaf15ba287f9f6116b647e780c2aad9f8fe3bb158356f7e49c44310c1db985",
+        "d766dba5c13aa5d27c5cbc90daf117c8563e6999259b9562249a3ea181392145",
+        "a487e419e064dcc779e28075f636934fd46f3499edfffe66628e1ff1a8c2f2af",
+        "cfbbee2327f1e1190b46c92b08b3133e2f49643176c7b2d416f3c7bac26f9f8e",
+        "fc14eac4d00eb584ec1723291bb6ded646d594a3afbce873c15179869a0aeccb",
+        "c1f5b0e1b98a445ed077269a1e564bfae3532834bdd7cfee69883827ad7c253c",
+        "b137d0a04c30f094287551ba2bf1adce596b2c560d71247a86e574460668f651",
+        "724ad6499d825faf17c3aaadd702afaea2138e7a14b46c1c887b24a9fb5fe2ea",
+        "7a14d83884a6d302300de3e815589368c395c621d665cedcb1f7cf97a586ea94",
+        "7af1c9ae1ae9359dd5f9b14ddf3460ad9be0805924ee8680e97cb39fcd0cd8d0",
+        "24487e062d5711ed38a07ed33c22409015e682aad68e89fe763f59c9b9197a99",
+        "69ed18bdd62e4656a941fe0e8e49d1910834da44362952546a0829db9216c4ce",
+        "5a5a15306fffc36935ca0b6f7bbdfc42df8d79e7c9723424226a34f696279f85",
+        "ba0b8180be65993197a16e3d57fd1ff45794a4adca71070731129335a05fab16",
+        "2ef7fe87106a59c4d5469f8ccf04366116ac3b524680e10754352b99de7bf61b",
+        "da1585e7394adda3d7bc07318a05fc1396cc831170affade60c2fa439a3e83dd",
+        "eb9d67ec9442ef1b4d7df741795ec8c6b2a58975c447f37fd7700235b340cd23",
+        "f5580990c18c9e290c9b34ffae45dcd3095b3983fdd288d1f9d771069bc04d5f",
+        "8a6c9709fe398fbe0ca5c279fe582bbbb918081fa622ffc4631da9ee7b8af172"
+      ],
+      "tool_versions": [],
+      "checks": [
+        {
+          "check_id": "A11",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "code has no hand-written retry, routing, scheduling, or tracing (syntax tree)"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-8",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "the agent module does no arithmetic; deterministic code does it"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "make_agent builds under the stub ADK"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "MODEL equals the declared model 'gemini-2.5-flash'"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "TEMPERATURE equals the declared temperature 0.0"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "TIMEOUT_S equals the declared timeout_s 30"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "MAX_RETRIES equals the declared max_retries 3"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "AUTONOMY equals the declared autonomy 'act_with_review'"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "each leaf agent of the sequential composition carries its declared model: {'*': 'gemini-2.5-flash'}"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "each leaf agent of the sequential composition carries its declared temperature: {'*': 0.0}"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "each leaf agent of the sequential composition carries its declared retries: {'*': 4}"
+        },
+        {
+          "check_id": "C3-7",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "FAILURE_BEHAVIOUR text equals the declared failure_behaviour"
+        },
+        {
+          "check_id": "C3-7",
+          "unit": "agent-BLK_01",
+          "passed": true,
+          "detail": "handle_failure sets a status tag and raises an alert"
+        },
+        {
+          "check_id": "C3-7",
+          "unit": "agent-BLK_01",
+          "passed": false,
+          "detail": "handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)"
+        },
+        {
+          "check_id": "A11",
+          "unit": "agent-BLK_01_1-fed3cbb0",
+          "passed": true,
+          "detail": "code has no hand-written retry, routing, scheduling, or tracing (syntax tree)"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "agent-BLK_01_1-fed3cbb0",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-8",
+          "unit": "agent-BLK_01_1-fed3cbb0",
+          "passed": true,
+          "detail": "the agent module does no arithmetic; deterministic code does it"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_01_1-fed3cbb0",
+          "passed": true,
+          "detail": "make_agent builds under the stub ADK"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_01_1-fed3cbb0",
+          "passed": true,
+          "detail": "a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA"
+        },
+        {
+          "check_id": "A11",
+          "unit": "agent-BLK_01_2-fba1eff4",
+          "passed": true,
+          "detail": "code has no hand-written retry, routing, scheduling, or tracing (syntax tree)"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "agent-BLK_01_2-fba1eff4",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-8",
+          "unit": "agent-BLK_01_2-fba1eff4",
+          "passed": true,
+          "detail": "the agent module does no arithmetic; deterministic code does it"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_01_2-fba1eff4",
+          "passed": true,
+          "detail": "make_agent builds under the stub ADK"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_01_2-fba1eff4",
+          "passed": true,
+          "detail": "a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA"
+        },
+        {
+          "check_id": "A11",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "code has no hand-written retry, routing, scheduling, or tracing (syntax tree)"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-8",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "the agent module does no arithmetic; deterministic code does it"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "make_agent builds under the stub ADK"
+        },
+        {
+          "check_id": "C3-24",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "a stub input validates against INPUT_SCHEMA and a stub output against OUTPUT_SCHEMA"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "MODEL equals the declared model 'gemini-2.5-flash'"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "TEMPERATURE equals the declared temperature 0.0"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "TIMEOUT_S equals the declared timeout_s 60"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "MAX_RETRIES equals the declared max_retries 2"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "AUTONOMY equals the declared autonomy 'draft_for_approval'"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "make_agent builds an agent with the declared model 'gemini-2.5-flash'"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "make_agent passes the declared temperature 0.0"
+        },
+        {
+          "check_id": "C3-1",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "make_agent gives ADK the declared retries: 2 retries are 3 attempts"
+        },
+        {
+          "check_id": "C3-7",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "FAILURE_BEHAVIOUR text equals the declared failure_behaviour"
+        },
+        {
+          "check_id": "C3-7",
+          "unit": "agent-BLK_02",
+          "passed": true,
+          "detail": "handle_failure sets a status tag and raises an alert"
+        },
+        {
+          "check_id": "C3-7",
+          "unit": "agent-BLK_02",
+          "passed": false,
+          "detail": "handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "stub-TOOL_01",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "stub-TOOL_02",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "stub-TOOL_03",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI1",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI2",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI3",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI4",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI5",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI6",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI7",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_UI8",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_API1",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "mapped-INT_DB1",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "C3-23",
+          "unit": "inbound-api",
+          "passed": true,
+          "detail": "no credential value in code; secrets resolve from the declared store at runtime"
+        },
+        {
+          "check_id": "verifier:oracle",
+          "unit": "C3",
+          "passed": false,
+          "detail": "unverified, promotion blocked: C3-7 agent-BLK_01, C3-7 agent-BLK_02"
+        },
+        {
+          "check_id": "verifier:contract",
+          "unit": "C3",
+          "passed": false,
+          "detail": "failed: C3-7 agent-BLK_01, C3-7 agent-BLK_02"
+        },
+        {
+          "check_id": "verifier:provenance",
+          "unit": "C3",
+          "passed": true,
+          "detail": "every Unit names its requirement in REQUIREMENT_REFS"
+        },
+        {
+          "check_id": "verifier:immutable-authority",
+          "unit": "C3",
+          "passed": true,
+          "detail": "C3 changed only files in its write set"
+        }
+      ]
     }
   ],
   "promotion_blockers": [
@@ -299,5 +1007,6 @@
     }
   ],
   "deployment": "user_owned",
-  "solution_dir": ""
+  "solution_dir": "",
+  "agent_sessions_started": 44
 }
