@@ -215,6 +215,43 @@
       ],
       "tool_versions": [],
       "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C3",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "621277f0ba568c0f57fad2f1bd74d8cc2dce2a71",
+      "report": {
+        "component": "C3",
+        "verdict": "failed",
+        "wrote": [],
+        "did_not_write": [],
+        "gaps": [
+          "ComponentExhausted: C3 conformance/review exhausted repair budget: C3 conformance failed: FAIL agent-BLK_01_1-fed3cbb0: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_01_2-fba1eff4: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_02: run_case runs the actions ['ACT_05', 'ACT_07'] in on_success order, then reports next 'CHK_02': run_case called ['ACT_05'], declared order ['ACT_05', 'ACT_07']\nFAIL agent-BLK_02: a failure of ACT_07 stops the case and routes it to EXC_05 through handle_exception: a failure of ACT_07 routed to [], declared 'EXC_05'\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: forced\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_02 to Async retry queue / Operations exception handler: forced\nBLK_01 case case-1 halted: GuardrailRefusal: GR-01 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-01 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-02 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-02 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-03 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-03 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-04 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-04 refuses\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_05 routed to Operations / QC reviewer workbench\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1 flagged for human inspection: RuntimeError"
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "failed",
+        "version": "1",
+        "input_hash": "c035e5185bb501480a02aab5fd8098e4d5fccb2071125a880573e0caa07eb557",
+        "command_hash": "c035e5185bb501480a02aab5fd8098e4d5fccb2071125a880573e0caa07eb557",
+        "output": "ComponentExhausted: C3 conformance/review exhausted repair budget: C3 conformance failed: FAIL agent-BLK_01_1-fed3cbb0: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_01_2-fba1eff4: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_02: run_case runs the actions ['ACT_05', 'ACT_07'] in on_success order, then reports next 'CHK_02': run_case called ['ACT_05'], declared order ['ACT_05', 'ACT_07']\nFAIL agent-BLK_02: a failure of ACT_07 stops the case and routes it to EXC_05 through handle_exception: a failure of ACT_07 routed to [], declared 'EXC_05'\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: forced\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_02 to Async retry queue / Operations exception handler: forced\nBLK_01 case case-1 halted: GuardrailRefusal: GR-01 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-01 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-02 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-02 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-03 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-03 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-04 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-04 refuses\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_05 routed to Operations / QC reviewer workbench\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1 flagged for human inspection: RuntimeError"
+      },
+      "review": {
+        "findings": [],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [],
+      "tool_versions": [],
+      "checks": []
     }
   ],
   "promotion_blockers": [
@@ -275,5 +312,6 @@
     }
   ],
   "deployment": "user_owned",
-  "solution_dir": ""
+  "solution_dir": "",
+  "agent_sessions_started": 0
 }
