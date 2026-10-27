@@ -1633,7 +1633,6 @@ GRADERS = {'cannot_cover': 'Deterministic checks do not cover semantic nuances o
  'judge_model': 'openai-api',
  'version': 2}
 
-_TIERS = ("monitor", "advisory", "blocking")
 _LOWER_IS_BETTER = ("latency", "cost", "token", "time", "error", "override", "review_rate", "retry", "duration")
 _SCHEMA_GRADER = "G-02"
 _JUDGE_GRADER = "G-05"
@@ -1711,10 +1710,12 @@ def evaluate(payload: dict, rubric) -> dict:
 
 
 def verdict(results: list[dict], thresholds: list[dict] | None = None) -> dict:
-    """Sort results by the tier of their threshold row.
+    """Sort the misses by the tier_at_rung of their threshold row.
 
-    A blocking miss fails. An advisory miss is a finding. A monitor result, a result
-    with no row, and a result whose threshold is blank or not numeric are recorded.
+    A blocking miss fails. An advisory miss is a finding. A monitor miss is recorded.
+    A result with no row is recorded. A threshold that states a value that is not
+    numeric can only be monitor. A blank threshold is an incomplete specification,
+    not a pass, so its miss keeps the tier of its row.
     Only passed True counts as a hit; a missing or unknown result is a miss.
     """
     thresholds = THRESHOLDS if thresholds is None else thresholds
@@ -1723,13 +1724,19 @@ def verdict(results: list[dict], thresholds: list[dict] | None = None) -> dict:
     recorded: list[dict] = []
     for result in results:
         row = _row(result["metric"], thresholds)
-        tier = row.get("tier_at_rung") if row is not None else None
-        if row is None or tier not in _TIERS or tier == "monitor" or not _is_numeric(row.get("threshold")):
+        if row is None:
             recorded.append(result)
-        elif result.get("passed") is True:
             continue
-        elif tier == "blocking":
+        if result.get("passed") is True:
+            continue
+        tier = row.get("tier_at_rung")
+        value = row.get("threshold")
+        if value not in (None, "") and not _is_numeric(value):
+            tier = "monitor"
+        if tier == "blocking":
             failed.append(result)
-        else:
+        elif tier == "advisory":
             findings.append(result)
+        else:
+            recorded.append(result)
     return {"passed": not failed, "failed": failed, "findings": findings, "recorded": recorded}
