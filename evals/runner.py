@@ -1665,10 +1665,27 @@ def _row_of(metric, thresholds=None):
     return None
 
 
-def tier_of(metric):
-    row = _row_of(metric)
+def _tier_in(row):
+    """Tier of a threshold row. A threshold that is not numeric can only be monitor."""
     tier = (row or {}).get("tier_at_rung", "")
-    return tier if tier in _TIERS else "monitor"
+    if tier not in _TIERS:
+        return "monitor"
+    try:
+        float(str(row.get("threshold", "")).strip())
+    except ValueError:
+        return "monitor"
+    return tier
+
+
+def tier_of(metric):
+    return _tier_in(_row_of(metric))
+
+
+def acceptance_status():
+    """Reports that acceptance is unvalidated when no case has split test."""
+    n = len(scored_cases())
+    return {"validated": n > 0, "scored_cases": n,
+            "note": "" if n else "no case has split test; acceptance is unvalidated, not passed"}
 
 
 def comparator_of(metric):
@@ -1706,14 +1723,26 @@ def _rubric_text(case_id):
     return ""
 
 
+_VERBS = ("route", "refer", "degrade", "unknown")
+
+
+def _g01_agents():
+    for grader in GRADERS.get("graders", []):
+        if grader.get("grader_id") == "G-01":
+            return grader.get("applies_to", [])
+    return []
+
+
 def _decided(case, payload):
-    """G-01: exact decision or routing, only when the case expects one and the payload states it."""
-    expected = case.get("expected", "")
+    """G-01: exact decision or routing, only for its agents and when the payload states one."""
+    if case.get("agent_id") not in _g01_agents():
+        return None
+    want = _norm(case.get("expected", ""))
+    head, _, rest = want.partition(" ")
+    accepted = {want} | ({rest} if head in _VERBS and rest else set())
     for key in ("decision", "route", "target", "checkpoint_id"):
         if key in payload and payload[key] not in (None, ""):
-            got = _norm(payload[key])
-            want = _norm(expected)
-            return {"check": "G-01", "passed": got == want or got in want.split()}
+            return {"check": "G-01", "passed": _norm(payload[key]) in accepted}
     return None
 
 
@@ -1725,7 +1754,9 @@ def _verdict_of(answer):
 def evaluate(payload, rubric):
     """Judge step (G-05). A deterministic check decides first where the payload states a decision."""
     case = _case_of(payload) if isinstance(payload, dict) else None
-    if case is not None and case.get("scenario_type") in ("hil", "exception", "notauto", "toolfail", "missing"):
+    if case is None:
+        return {"check": "G-01", "passed": False}
+    if case.get("scenario_type") in ("hil", "exception", "notauto", "toolfail", "missing"):
         decided = _decided(case, payload)
         if decided is not None:
             return decided
@@ -1745,8 +1776,8 @@ def verdict(results, thresholds=None):
     out = {"passed": True, "failed": [], "findings": [], "recorded": []}
     for result in results:
         row = _row_of(result.get("metric"), thresholds)
-        tier = (row or {}).get("tier_at_rung", "")
-        if row is None or tier not in _TIERS or tier == "monitor":
+        tier = _tier_in(row)
+        if row is None or tier == "monitor":
             out["recorded"].append(result)
         elif result.get("passed"):
             continue
