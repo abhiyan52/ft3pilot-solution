@@ -1160,6 +1160,78 @@
         "@specificity/playground@0.2.2"
       ],
       "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C7",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "f3f56421159cf73b5b25f1ff0ec9bdbdd53335b3",
+      "report": {
+        "component": "C7",
+        "verdict": "built",
+        "wrote": [
+          "tests/test_api.py",
+          "tests/test_features.py"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "BR-ACT_01 mobile uniqueness is not provable. The Precord names no duplicate-lookup source, so the test covers only the email format and a present mobile number.",
+          "BR-ACT_03 pincode and state match is not provable. ACT_03 does not read State and no pincode table exists, so the test covers only the pincode format.",
+          "BR-ACT_04 and BR-ACT_02 declare no verification status values. The tests assert only that a status is present.",
+          "BR-ACT_05 declares no permitted extensions and no size limit. The test covers a missing extension and a non-positive size. It covers the limits only by setting them on the module.",
+          "C5",
+          "No hil_task test is planned: both checkpoints deliver through hosted_ui, and the hil_task schema excludes the hosted review UI. Whether a hil_task is owed for hosted_ui is a team question (U3, BUG-079).",
+          "Not tested, owned by failed Component C5: the two checkpoints, the declared decisions of both, the checkpoint API routes (create, pending, read, decide, decisions, review rate), the two hosted review screens and the two checkpoint state machines. The code is not merged, so no test names them and none tests their absence.",
+          "TOOL_01, TOOL_02 and TOOL_03 are mocks that return the literal 'sample' for each response field (open items HR-201:BLK_01:TOOL_01, HR-201:BLK_01:TOOL_02, HR-201:BLK_02:TOOL_03). They block promotion.",
+          "The KPI surface returns no per-KPI list in this build (no kpis module). The SCREEN-KPIS test asserts that the dashboard kind is not_built or url, that the response has no value field, and that any KPI entries present have no value.",
+          "The Precord has no sample_data rows. Every fixture is built from the declared reads of each action and marked synthetic.",
+          "The case-list test uses an in-memory double for CaseStore because no database exists in the test environment. The SQL of list_cases is not exercised.",
+          "The input and output schemas of BLK_01 and BLK_02 declare no properties, so schema validation accepts any object. The tests assert nothing about field-level schema validation."
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        "tests/test_api.py",
+        "tests/test_features.py"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "0d8c1d220ed60e0dba8f7e3650e8f8cb260bf40281b04191b9040205f497d2e2",
+        "command_hash": "19ef24c6474795481cec104855ac165643f65f46407c71226e0f7ca2dd7625af",
+        "output": ".......................EXC_01 on case c-1: mobile already registered\n.EXC_01 on case c-1: ACT_01 refuses to proceed: Mobile number unique; Email valid format\n.EXC_02 on case c-2: HTTP 503\n.EXC_02 on case c-2: 503 Service Temporarily Unavailable\n.......BLK_01 failed on case c-9: <ValidationError: \"[] is not of type 'object'\">\n.........\n----------------------------------------------------------------------\nRan 42 tests in 0.005s\n\nOK\n/Users/abhiyanhaze/specificity/.scratch/ft3/run4/solution-builder/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n........The Playground bundle is missing: /var/folders/nn/ht7xfp4j0ld_91xnz3l26pch0000gp/T/tmp5kqww_of/index.html is not a file. Build it with npm, or set SOLUTION_PLAYGROUND_DIST to the folder that holds it.\n....\n----------------------------------------------------------------------\nRan 12 tests in 0.047s\n\nOK\n"
+      },
+      "review": {
+        "findings": [
+          {
+            "code": "TEST_STATE_LEAK",
+            "severity": "low",
+            "message": "tests/test_api.py: FakeCaseStore.rows and MemoryState.data are class-level mutable state. They are assigned in individual tests and never reset in setUp or a cleanup. Test order can therefore change results (for example the empty-state assertion in the inbound failure test). Reset them in ApiTestCase.setUp with addCleanup."
+          },
+          {
+            "code": "WEAK_KPI_ASSERTION",
+            "severity": "low",
+            "message": "tests/test_api.py test_screen_kpis_gives_no_value_for_any_kpi: when a KPI entry is not a dict, the test asserts the entry itself is None or empty. A bare KPI id string would fail, though it carries no value. The test also asserts body['casesWalked'] == 0, a field the SCREEN-KPIS contract does not declare. Assert only that no KPI has a value."
+          },
+          {
+            "code": "KNOWN_GAP_LIMITS_ONLY_BY_PATCH",
+            "severity": "low",
+            "message": "tests/test_features.py test_br_act_05_applies_the_declared_limits_when_they_are_set: the Precord declares no extension list or size limit, so the test sets PERMITTED_EXTENSIONS and MAX_FILE_SIZE_BYTES on the module itself. It proves only that the mechanism exists, not the client rule. This is recorded in the gaps (BR-ACT_05) and stays unvalidated."
+          }
+        ],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "2958cbe93db77e10e774440fdf2b12cd8f92ad496ca3becb6f1e93e06e9f83a1"
+      ],
+      "tool_versions": [],
+      "checks": []
     }
   ],
   "promotion_blockers": [
@@ -1245,5 +1317,5 @@
   ],
   "deployment": "user_owned",
   "solution_dir": "",
-  "agent_sessions_started": 51
+  "agent_sessions_started": 53
 }
