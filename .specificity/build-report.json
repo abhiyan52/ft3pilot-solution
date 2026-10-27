@@ -1,0 +1,3610 @@
+{
+  "assumptions": [
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "APPROVING_DECISION_ASSUMED",
+      "message": "CHK_01: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Confirm and proceed', approves. It moves the case on; the other decisions do not.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "spec/checkpoints.yaml#CHK_01.decisions"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "APPROVING_DECISION_ASSUMED",
+      "message": "CHK_02: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Approve agent', approves. It releases a write and moves the case on; the other decisions do not.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "spec/checkpoints.yaml#CHK_02.decisions"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "OPEN_ITEM_DEFAULT",
+      "message": "These open items have no answer. The build uses each item's default_assumption and writes it down where it is used.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "HR-201:BLK_01:TOOL_01",
+        "HR-201:BLK_01:TOOL_02",
+        "HR-201:BLK_02:TOOL_03",
+        "HR-306:INT_API1",
+        "HR-306:INT_DB1",
+        "HR-306:INT_UI1",
+        "HR-306:INT_UI2",
+        "HR-306:INT_UI3",
+        "HR-306:INT_UI4",
+        "HR-306:INT_UI5",
+        "HR-306:INT_UI6",
+        "HR-306:INT_UI7",
+        "HR-306:INT_UI8"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "STACK_KEY_BLANK",
+      "message": "The confirmed stack has no observability at Pilot. The platform default applies.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "spec/stack.yaml#build.observability"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "USER_OWNED_DEPLOYMENT",
+      "message": "Client IT did not choose. The answers to Q1, Q8, Q9 have answer_source Default: they are platform defaults, not client answers. The user selects the deployment target. The build is L0 only.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "Q1",
+        "Q8",
+        "Q9"
+      ]
+    },
+    {
+      "affects": [
+        "C3"
+      ],
+      "classification": "assumption",
+      "code": "PERSON_STEP_CLAIMED",
+      "message": "Step S6 is person-owned or not automated, and the Precord also gives it to an agent (BLK_02 action ACT_06; BLK_02 serves_steps; CHK_02 resume_action_id ACT_06; integration_map INT_UI6; orchestration ownership BLK_02; rule BR-ACT_06 (no agent enforces it)). The builder keeps the person as owner and does not automate the step. The builder removes the actions and integrations of that step from the agent checks, bindings and context. Module 1 must settle the conflict.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "S6"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "SCHEMA_CHECK_SKIPPED",
+      "message": "The package ships no standard/schemas/, so the builder did not validate the files against schemas (RD-5). It trusts the close gate in manifest.gate instead (D-11).",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "standard/schemas/"
+      ]
+    }
+  ],
+  "build_id": "1b9526a934714498a126aae36491511f",
+  "components": [
+    {
+      "component": "C1",
+      "diagnosis": "",
+      "gaps": [
+        "C1-4: INT_UI1 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI2 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI3 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI4 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI5 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI6 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI7 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI8 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_DB1 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-11: default stack item 'Python 3.12 + uv' (ai language, owed at PoC): the C1 pack does not install uv. The pack installs with pip and a pinned lock file. No pack file calls uv.",
+        "C1-11: default stack item 'DeepEval' (ai eval_framework, owed at PoC): the C1 pack does not install deepeval. No generated code imports it. scripts/run_evals.py runs the ADK evalsets only. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'Docling + multimodal LLM' (ai document_ai, owed at PoC): the C1 pack does not install docling. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'pgvector in solution Postgres' (ai vector_store, owed at PoC): the C1 pack does not install or provide it. A Postgres extension. The compose Postgres image does not load it.",
+        "C1-11: default stack item 'ADK browser use' (ai browser_use, owed at Pilot): the C1 pack does not install playwright. No generated code imports it. It needs a browser runtime in the image. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'Microsoft Presidio' (solution pii, owed at Pilot): the C1 pack does not install presidio-analyzer, presidio-anonymizer. src/solution/masking.py masks fields with its own code. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'pytest + pytest-asyncio' (solution software_testing, owed at Pilot): the C1 pack does not install pytest, pytest-asyncio. The pack pyproject has no test dependency. The generated CI runs `pip install .` only.",
+        "C1-11: default stack item 'Testcontainers' (solution software_testing, owed at Pilot): the C1 pack does not install testcontainers. The pack pyproject has no test dependency. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'Playwright (UI end-to-end)' (solution software_testing, owed at Pilot): the C1 pack does not install playwright. The pack pyproject has no test dependency. It needs browser binaries. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Stoplight Prism (OpenAPI mocks)' (solution software_testing, owed at Pilot): the C1 pack does not install or provide it. An npm tool. No pack file installs or runs it.",
+        "C1-11: default stack item 'Postgres queue (FOR UPDATE SKIP LOCKED)' (solution messaging, owed at Pilot): the C1 pack does not install or provide it. SQL on the solution Postgres. The pack has no queue table.",
+        "C1-11: default stack item 'Jinja2 + WeasyPrint (PDF)' (solution doc_generation, owed at Pilot): the C1 pack does not install weasyprint. No generated code imports it. WeasyPrint needs system libraries. litellm already brings Jinja2. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'python-docx + openpyxl' (solution doc_generation, owed at Pilot): the C1 pack does not install python-docx, openpyxl. No generated code imports it.",
+        "C1-11: default stack item 'Google OIDC' (connector identity, owed at Pilot): the C1 pack does not install google-auth. No generated code imports it. signin.py does not call Google. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Google Sheets' (connector case_tracking, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Email alerts (SMTP)' (connector alerts, owed at Pilot): the C1 pack does not install or provide it. Python standard library (smtplib). The pack has no alert sender.",
+        "C1-11: default stack item 'Slack' (connector alerts, owed at Pilot): the C1 pack does not install slack-sdk. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'SFTP batch (CSV, fixed-width)' (connector integration_adapter, owed at Pilot): the C1 pack does not install paramiko. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Gmail API' (connector email, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Google Drive' (connector files, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'WhatsApp Business Platform (Cloud API)' (connector messaging_channel, owed at Pilot): the C1 pack does not install or provide it. No WhatsApp adapter exists in the pack. It is a REST API; httpx is declared."
+      ],
+      "merge_state": "unknown",
+      "merged": true,
+      "merged_pull_request": "",
+      "pull_request": "",
+      "revision": "e875734a28d1713ff6be12bf33e53cfcd115df48",
+      "status": "degraded"
+    },
+    {
+      "component": "C2",
+      "diagnosis": "",
+      "gaps": [],
+      "merge_state": "unknown",
+      "merged": true,
+      "merged_pull_request": "",
+      "pull_request": "",
+      "revision": "8aabd58f4d43ecaa23289d2188e5cfe52135bf57",
+      "status": "built"
+    },
+    {
+      "component": "C3",
+      "diagnosis": "ComponentExhausted: C3 conformance/review exhausted repair budget: C3 conformance failed: FAIL agent-BLK_01_1-fed3cbb0: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_01_2-fba1eff4: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_02: run_case runs the actions ['ACT_05', 'ACT_07'] in on_success order, then reports next 'CHK_02': run_case called ['ACT_05'], declared order ['ACT_05', 'ACT_07']\nFAIL agent-BLK_02: a failure of ACT_07 stops the case and routes it to EXC_05 through handle_exception: a failure of ACT_07 routed to [], declared 'EXC_05'\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: forced\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_02 to Async retry queue / Operations exception handler: forced\nBLK_01 case case-1 halted: GuardrailRefusal: GR-01 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-01 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-02 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-02 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-03 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-03 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-04 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-04 refuses\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_05 routed to Operations / QC reviewer workbench\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1 flagged for human inspection: RuntimeError",
+      "gaps": [
+        "ComponentExhausted: C3 conformance/review exhausted repair budget: C3 conformance failed: FAIL agent-BLK_01_1-fed3cbb0: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_01_2-fba1eff4: GUARDRAILS has one entry for every rule that binds this agent\nFAIL agent-BLK_02: run_case runs the actions ['ACT_05', 'ACT_07'] in on_success order, then reports next 'CHK_02': run_case called ['ACT_05'], declared order ['ACT_05', 'ACT_07']\nFAIL agent-BLK_02: a failure of ACT_07 stops the case and routes it to EXC_05 through handle_exception: a failure of ACT_07 routed to [], declared 'EXC_05'\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: forced\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_01 case case-1 routed by EXC_02 to Async retry queue / Operations exception handler: forced\nBLK_01 case case-1 halted: GuardrailRefusal: GR-01 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-01 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-02 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-02 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-03 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-03 refuses\nBLK_01 case case-1 halted: GuardrailRefusal: GR-04 refuses\nBLK_01 case case-1 routed by EXC_01 to FLS User / Employee manual resolution queue: GR-04 refuses\nBLK_01 case case-1 halted: RuntimeError: forced\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_05 routed to Operations / QC reviewer workbench\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1 flagged for human inspection: ClassificationAmbiguity\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1: EXC_03 routed to Prospective agent upload interface\nBLK_02 case case-1 flagged for human inspection: RuntimeError"
+      ],
+      "merge_state": "open",
+      "merged": false,
+      "merged_pull_request": "",
+      "pull_request": "refs/heads/solution/c3-01b930002c79",
+      "revision": "621277f0ba568c0f57fad2f1bd74d8cc2dce2a71",
+      "status": "failed"
+    },
+    {
+      "component": "C4",
+      "diagnosis": "",
+      "gaps": [
+        "C4-1: no case has split test; acceptance cannot be decided and the runner scores nothing",
+        "C4-2: threshold agent_error_rate has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold agent_error_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold agent_error_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold agents_live has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold agents_live has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold agents_live has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold ai_cost_per_case has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold ai_cost_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold ai_cost_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold audited_accuracy has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold audited_accuracy has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold audited_accuracy has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold data_extraction_time has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold data_extraction_time has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold data_extraction_time has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold guardrail_triggers has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold guardrail_triggers has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold guardrail_triggers has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold inputs_uploaded has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold inputs_uploaded has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold inputs_uploaded has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold memory_artifacts_created has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold memory_artifacts_created has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold memory_artifacts_created has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold override_rate_and_direction has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold override_rate_and_direction has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold override_rate_and_direction has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold tokens_per_agent_per_case has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold tokens_per_agent_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold tokens_per_agent_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold tokens_per_case has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold tokens_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold tokens_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold tool_error_and_retry_rate has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold tool_error_and_retry_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold tool_error_and_retry_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold verification_api_availability has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold verification_api_availability has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold verification_api_availability has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+        "C4-2a: the case schema names no field; no deterministic case-schema gate can run",
+        "Coverage declares only a total minimum (30) per agent; no per-scenario_type minimum is declared, and the 30 is met only by dev cases",
+        "EVAL_NO_TEST_CASES: all 120 Precord cases are split dev; splits.test is empty, so scored_cases() returns nothing and no quantitative acceptance can be claimed (C4 degraded)",
+        "G-06 human sample review is '5% of test cases' but the test split is empty, so it has nothing to sample",
+        "audited_accuracy (97 percent), ai_cost_per_case (90 currency) and verification_api_availability (99 percent) have gate_tier blocking but tier_at_rung advisory at Pilot; a miss there is a finding only now and blocks the next rung",
+        "evals/thresholds.csv: comparator, grader_id, min_sample, level and threshold_id are blank on all 13 rows; comparator_of() applies the name-based fallback and no threshold is bound to a grader or a minimum sample"
+      ],
+      "merge_state": "merged",
+      "merged": true,
+      "merged_pull_request": "refs/heads/solution/c4-47a25ef6d98e",
+      "pull_request": "refs/heads/solution/c4-47a25ef6d98e",
+      "revision": "64b79111add20a4a5c3a4100644ee25944180176",
+      "status": "degraded"
+    }
+  ],
+  "conformance": {
+    "matrix": ".specificity/conformance-matrix.json",
+    "not_met": [
+      {
+        "id": "C3-1:BLK_01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1"
+      },
+      {
+        "id": "C3-1b:BLK_01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1b"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-02",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-03",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-04",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-05",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-06",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-07",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-08",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-09",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-10",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-12",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-13",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-14",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-15",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-16",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-19",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01:H-21",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-6:BLK_01:GR-01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01:GR-02",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01:GR-03",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01:GR-04",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01:BR-ACT_01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01:BR-ACT_02",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01:BR-ACT_03",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01:BR-ACT_04",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-25:ACT_01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-25"
+      },
+      {
+        "id": "C3-25:ACT_02",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-25"
+      },
+      {
+        "id": "C3-25:ACT_03",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-25"
+      },
+      {
+        "id": "C3-25:ACT_04",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-25"
+      },
+      {
+        "id": "C3-7:EXC_01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-7"
+      },
+      {
+        "id": "C3-7:EXC_02",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-7"
+      },
+      {
+        "id": "C3-26:INT_01",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-26"
+      },
+      {
+        "id": "C3-27:BLK_01:memory",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-27:BLK_01:grounding",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-28:BLK_01:agent.decision",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-28"
+      },
+      {
+        "id": "C3-28:BLK_01:tool.call",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-28"
+      },
+      {
+        "id": "C3-28:BLK_01:step.completed",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-28"
+      },
+      {
+        "id": "C3-1:BLK_01.1",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1"
+      },
+      {
+        "id": "C3-1b:BLK_01.1",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1b"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-01",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-02",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-03",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-04",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-05",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-06",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-07",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-08",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-09",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-10",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-12",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-13",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-14",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-15",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-16",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-19",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.1:H-21",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-6:BLK_01.1:GR-01",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01.1:GR-02",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01.1:GR-03",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01.1:GR-04",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-27:BLK_01.1:memory",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-27:BLK_01.1:grounding",
+        "reason": "blk_01_1.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-1:BLK_01.2",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1"
+      },
+      {
+        "id": "C3-1b:BLK_01.2",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1b"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-01",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-02",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-03",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-04",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-05",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-06",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-07",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-08",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-09",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-10",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-12",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-13",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-14",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-15",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-16",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-19",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_01.2:H-21",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-6:BLK_01.2:GR-01",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01.2:GR-02",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01.2:GR-03",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_01.2:GR-04",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-27:BLK_01.2:memory",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-27:BLK_01.2:grounding",
+        "reason": "blk_01_2.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-1:BLK_02",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1"
+      },
+      {
+        "id": "C3-1b:BLK_02",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1b"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-01",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-02",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-03",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-04",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-05",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-06",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-07",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-08",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-09",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-10",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-12",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-13",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-14",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-15",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-16",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-19",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-1a:BLK_02:H-21",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-1a"
+      },
+      {
+        "id": "C3-6:BLK_02:GR-01",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_02:GR-02",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_02:GR-03",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_02:GR-04",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_02:BR-ACT_05",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-6:BLK_02:BR-ACT_07",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-6"
+      },
+      {
+        "id": "C3-25:ACT_05",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-25"
+      },
+      {
+        "id": "C3-25:ACT_07",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-25"
+      },
+      {
+        "id": "C3-7:EXC_03",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-7"
+      },
+      {
+        "id": "C3-7:EXC_05",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-7"
+      },
+      {
+        "id": "C3-26:INT_02",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-26"
+      },
+      {
+        "id": "C3-27:BLK_02:memory",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-27:BLK_02:grounding",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-27"
+      },
+      {
+        "id": "C3-28:BLK_02:agent.decision",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-28"
+      },
+      {
+        "id": "C3-28:BLK_02:human.review",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-28"
+      },
+      {
+        "id": "C3-28:BLK_02:guardrail.triggered",
+        "reason": "blk_02.py does not exist",
+        "requirement": "C3-28"
+      },
+      {
+        "id": "C3-18:TOOL_01",
+        "reason": "tool_01.py does not exist",
+        "requirement": "C3-18"
+      },
+      {
+        "id": "C3-18:TOOL_02",
+        "reason": "tool_02.py does not exist",
+        "requirement": "C3-18"
+      },
+      {
+        "id": "C3-18:TOOL_03",
+        "reason": "tool_03.py does not exist",
+        "requirement": "C3-18"
+      },
+      {
+        "id": "C3-5:S6",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-5"
+      },
+      {
+        "id": "C3-5:S8",
+        "reason": "blk_01.py does not exist",
+        "requirement": "C3-5"
+      },
+      {
+        "id": "C3-9:trigger:BLK_01",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:edge:BLK_01>BLK_02",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:edge:BLK_01>BLK_01.1",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:edge:BLK_01>BLK_01.2",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:ownership:BLK_01:S1,S2,S3,S4",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:ownership:BLK_02:S5,S6,S7",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:ownership:person:S6,S8",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:checkpoint:CHK_01",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:checkpoint:CHK_02",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:output:BLK_01",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C3-9:output:BLK_02",
+        "reason": "orchestrator.py does not exist",
+        "requirement": "C3-9"
+      },
+      {
+        "id": "C5-2:CHK_01",
+        "reason": "service.py does not exist",
+        "requirement": "C5-2"
+      },
+      {
+        "id": "C5-4:CHK_01:Confirm and proceed",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-4:CHK_01:Edit details",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-2:CHK_02",
+        "reason": "service.py does not exist",
+        "requirement": "C5-2"
+      },
+      {
+        "id": "C5-4:CHK_02:Approve agent",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-4:CHK_02:Raise discrepancy",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-4:CHK_02:Reject",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C8-1:KPI_O8",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O9",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O6",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O7",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O4",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O5",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O3",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O10",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O1",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O2",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      }
+    ],
+    "summary": {
+      "checkable_share": 1.0,
+      "met": 0,
+      "not_met": 157,
+      "not_owed": 7,
+      "owed": 157,
+      "rung": "Pilot",
+      "tested_share": 0.0,
+      "unchecked": 0
+    }
+  },
+  "cost_and_time": {
+    "cost": 36.750904,
+    "elapsed": {
+      "components": {
+        "C1": 10.248,
+        "C3": 1572.089,
+        "C4": 422.456
+      },
+      "phase_a": 2004.793,
+      "phase_b": null,
+      "total": 2008.662
+    },
+    "missing_input": "",
+    "sessions_started": 46
+  },
+  "deployment": {
+    "mocked_integrations": [],
+    "revision": null,
+    "tier": "not deployed",
+    "urls": []
+  },
+  "deviations": [],
+  "evals": {
+    "authority_problems": [],
+    "cases": [],
+    "coverage": [
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      }
+    ],
+    "error": "",
+    "gaps": [
+      "C4-1: case EC-92 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-93 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-94 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-95 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-96 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-97 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-98 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-99 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-100 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-101 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-102 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-103 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-104 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-105 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-106 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-107 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-108 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-109 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-110 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-111 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-112 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-113 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-114 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-115 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-116 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-117 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-118 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-119 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-120 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+      "C4-1: no test split, 0/120 measured. Acceptance cannot be decided, so the build is unvalidated."
+    ],
+    "groups": [],
+    "human_review": [],
+    "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+    "revision": "975ddc77e4d59ac203729798dd594afd9c97b34b",
+    "rows": [
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "override_rate_and_direction",
+        "reason": "The harness has no measurement for override_rate_and_direction. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O8",
+        "status": "not_measured",
+        "threshold": "15",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "audited_accuracy",
+        "reason": "The harness has no measurement for audited_accuracy. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O9",
+        "status": "not_measured",
+        "threshold": "97",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "agent_error_rate",
+        "reason": "No case of agent * gave a measurement for agent_error_rate.",
+        "source_row": "KPI_O6",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "tool_error_and_retry_rate",
+        "reason": "The harness has no measurement for tool_error_and_retry_rate. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O7",
+        "status": "not_measured",
+        "threshold": "3",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "ai_cost_per_case",
+        "reason": "The harness has no measurement for ai_cost_per_case. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O4",
+        "status": "not_measured",
+        "threshold": "90",
+        "tier": "advisory",
+        "unit": "currency",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "tokens_per_agent_per_case",
+        "reason": "The harness has no measurement for tokens_per_agent_per_case. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O5",
+        "status": "not_measured",
+        "threshold": "10000",
+        "tier": "monitor",
+        "unit": "tokens",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "tokens_per_case",
+        "reason": "The harness has no measurement for tokens_per_case. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O3",
+        "status": "not_measured",
+        "threshold": "10000000",
+        "tier": "monitor",
+        "unit": "tokens",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "agents_live",
+        "reason": "The harness has no measurement for agents_live. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O12",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "data_extraction_time",
+        "reason": "The harness has no measurement for data_extraction_time. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O13",
+        "status": "not_measured",
+        "threshold": "10",
+        "tier": "monitor",
+        "unit": "minutes",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "verification_api_availability",
+        "reason": "The harness has no measurement for verification_api_availability. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O11",
+        "status": "not_measured",
+        "threshold": "99",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "guardrail_triggers",
+        "reason": "The harness has no measurement for guardrail_triggers. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O10",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "inputs_uploaded",
+        "reason": "The harness has no measurement for inputs_uploaded. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O1",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "memory_artifacts_created",
+        "reason": "The harness has no measurement for memory_artifacts_created. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O2",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      }
+    ],
+    "runtime_unavailable": false
+  },
+  "generated_suite": {
+    "checked_after": "C4",
+    "durable": {
+      "outcome": "not_configured"
+    },
+    "error": "no generated tests yet (C7 not built)",
+    "errors": null,
+    "failures": null,
+    "limits": "Tested without DATABASE_URL. No database is configured for the preview, so the database mode was not tested.",
+    "mode": "default",
+    "outcome": "not_run",
+    "output": "",
+    "ran": null,
+    "revision": "3fb9a4050af339aed7ff4c087cd05132a942f17f"
+  },
+  "omitted_components": {
+    "C5": "Readiness refused C5: No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+    "C6": "C6 needs C5, and readiness refused C5",
+    "C7": "C7 needs C5, and readiness refused C5",
+    "C8": "C8 needs C5, and readiness refused C5"
+  },
+  "partial_build": true,
+  "preliminary": false,
+  "promotion": {
+    "refusals": [
+      "a blocks-promotion item is open: MOCK_INTEGRATION, L1_TARGET_MISSING, MODEL_RESIDENCY_PROVIDER, RUNG_BELOW_MVP, COMPONENT_OMITTED:C5, COMPONENT_OMITTED:C6, COMPONENT_OMITTED:C7, COMPONENT_OMITTED:C8, COMPONENT_FAILED:C3, GENERATED_SUITE_NOT_RUN",
+      "a required security scan did not run: sast, dependencies, secrets (no security report)",
+      "the build is labelled unvalidated: no test split, 0/120 measured. Acceptance cannot be decided, so the build is unvalidated; 30 more eval gaps"
+    ],
+    "state": "building"
+  },
+  "promotion_blockers": [
+    "MOCK_INTEGRATION",
+    "L1_TARGET_MISSING",
+    "MODEL_RESIDENCY_PROVIDER",
+    "RUNG_BELOW_MVP",
+    "COMPONENT_OMITTED:C5",
+    "COMPONENT_OMITTED:C6",
+    "COMPONENT_OMITTED:C7",
+    "COMPONENT_OMITTED:C8",
+    "COMPONENT_FAILED:C3",
+    "GENERATED_SUITE_NOT_RUN"
+  ],
+  "readiness": {
+    "assumptions": [
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "APPROVING_DECISION_ASSUMED",
+        "message": "CHK_01: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Confirm and proceed', approves. It moves the case on; the other decisions do not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/checkpoints.yaml#CHK_01.decisions"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "APPROVING_DECISION_ASSUMED",
+        "message": "CHK_02: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Approve agent', approves. It releases a write and moves the case on; the other decisions do not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/checkpoints.yaml#CHK_02.decisions"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "OPEN_ITEM_DEFAULT",
+        "message": "These open items have no answer. The build uses each item's default_assumption and writes it down where it is used.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "HR-201:BLK_01:TOOL_01",
+          "HR-201:BLK_01:TOOL_02",
+          "HR-201:BLK_02:TOOL_03",
+          "HR-306:INT_API1",
+          "HR-306:INT_DB1",
+          "HR-306:INT_UI1",
+          "HR-306:INT_UI2",
+          "HR-306:INT_UI3",
+          "HR-306:INT_UI4",
+          "HR-306:INT_UI5",
+          "HR-306:INT_UI6",
+          "HR-306:INT_UI7",
+          "HR-306:INT_UI8"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "STACK_KEY_BLANK",
+        "message": "The confirmed stack has no observability at Pilot. The platform default applies.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#build.observability"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "USER_OWNED_DEPLOYMENT",
+        "message": "Client IT did not choose. The answers to Q1, Q8, Q9 have answer_source Default: they are platform defaults, not client answers. The user selects the deployment target. The build is L0 only.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "Q1",
+          "Q8",
+          "Q9"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "assumption",
+        "code": "PERSON_STEP_CLAIMED",
+        "message": "Step S6 is person-owned or not automated, and the Precord also gives it to an agent (BLK_02 action ACT_06; BLK_02 serves_steps; CHK_02 resume_action_id ACT_06; integration_map INT_UI6; orchestration ownership BLK_02; rule BR-ACT_06 (no agent enforces it)). The builder keeps the person as owner and does not automate the step. The builder removes the actions and integrations of that step from the agent checks, bindings and context. Module 1 must settle the conflict.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "S6"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "SCHEMA_CHECK_SKIPPED",
+        "message": "The package ships no standard/schemas/, so the builder did not validate the files against schemas (RD-5). It trusts the close gate in manifest.gate instead (D-11).",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "standard/schemas/"
+        ]
+      }
+    ],
+    "builder_gaps": [
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Python 3.12 + uv' (ai language, owed at PoC): the C1 pack does not install uv. The pack installs with pip and a pinned lock file. No pack file calls uv.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.language"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'DeepEval' (ai eval_framework, owed at PoC): the C1 pack does not install deepeval. No generated code imports it. scripts/run_evals.py runs the ADK evalsets only. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.eval_framework"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Docling + multimodal LLM' (ai document_ai, owed at PoC): the C1 pack does not install docling. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.document_ai"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'pgvector in solution Postgres' (ai vector_store, owed at PoC): the C1 pack does not install or provide it. A Postgres extension. The compose Postgres image does not load it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.vector_store"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'ADK browser use' (ai browser_use, owed at Pilot): the C1 pack does not install playwright. No generated code imports it. It needs a browser runtime in the image. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.browser_use"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Microsoft Presidio' (solution pii, owed at Pilot): the C1 pack does not install presidio-analyzer, presidio-anonymizer. src/solution/masking.py masks fields with its own code. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.pii"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'pytest + pytest-asyncio' (solution software_testing, owed at Pilot): the C1 pack does not install pytest, pytest-asyncio. The pack pyproject has no test dependency. The generated CI runs `pip install .` only.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Testcontainers' (solution software_testing, owed at Pilot): the C1 pack does not install testcontainers. The pack pyproject has no test dependency. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Playwright (UI end-to-end)' (solution software_testing, owed at Pilot): the C1 pack does not install playwright. The pack pyproject has no test dependency. It needs browser binaries. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Stoplight Prism (OpenAPI mocks)' (solution software_testing, owed at Pilot): the C1 pack does not install or provide it. An npm tool. No pack file installs or runs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Postgres queue (FOR UPDATE SKIP LOCKED)' (solution messaging, owed at Pilot): the C1 pack does not install or provide it. SQL on the solution Postgres. The pack has no queue table.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.messaging"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Jinja2 + WeasyPrint (PDF)' (solution doc_generation, owed at Pilot): the C1 pack does not install weasyprint. No generated code imports it. WeasyPrint needs system libraries. litellm already brings Jinja2. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.doc_generation"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'python-docx + openpyxl' (solution doc_generation, owed at Pilot): the C1 pack does not install python-docx, openpyxl. No generated code imports it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.doc_generation"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Google OIDC' (connector identity, owed at Pilot): the C1 pack does not install google-auth. No generated code imports it. signin.py does not call Google. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.identity"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Google Sheets' (connector case_tracking, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.case_tracking"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Email alerts (SMTP)' (connector alerts, owed at Pilot): the C1 pack does not install or provide it. Python standard library (smtplib). The pack has no alert sender.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.alerts"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Slack' (connector alerts, owed at Pilot): the C1 pack does not install slack-sdk. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.alerts"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'SFTP batch (CSV, fixed-width)' (connector integration_adapter, owed at Pilot): the C1 pack does not install paramiko. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.integration_adapter"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Gmail API' (connector email, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.email"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Google Drive' (connector files, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.files"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'WhatsApp Business Platform (Cloud API)' (connector messaging_channel, owed at Pilot): the C1 pack does not install or provide it. No WhatsApp adapter exists in the pack. It is a REST API; httpx is declared.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.messaging_channel"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "blocked_by": [],
+        "component": "C1",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C2",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [],
+        "component": "C3",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C4",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C5",
+        "precord_dependent": true,
+        "verdict": "refuse"
+      },
+      {
+        "blocked_by": [
+          "C5"
+        ],
+        "component": "C6",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [
+          "C5"
+        ],
+        "component": "C7",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [
+          "C5"
+        ],
+        "component": "C8",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C9",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [],
+        "component": "C10",
+        "precord_dependent": false,
+        "verdict": "build"
+      }
+    ],
+    "model_access": [],
+    "not_owed": [],
+    "open_items": [
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event agent.decision. KPIs that use it: KPI_O12, KPI_O3, KPI_O4, KPI_O5, KPI_O6",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=agent.decision"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event guardrail.triggered. KPIs that use it: KPI_O10",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=guardrail.triggered"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event human.review. KPIs that use it: KPI_O8, KPI_O9",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=human.review"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event step.completed. KPIs that use it: KPI_O1, KPI_O13, KPI_O2",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=step.completed"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event tool.call. KPIs that use it: KPI_O11, KPI_O7",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=tool.call"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "PRECORD_BASELINE_MISMATCH",
+        "message": "Cited artifact agent_channels has baseline state missing",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "agent_channels"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "PRECORD_BASELINE_MISMATCH",
+        "message": "Cited artifact agent_decision_types has baseline state missing",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "agent_decision_types"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "PRECORD_BASELINE_MISMATCH",
+        "message": "Cited package artifact precord_eval_cases is not in the manifest",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "precord_eval_cases"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_01.in.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_01.out.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_02.in.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_02.out.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/case.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "STATUS_ENUM_MISSING",
+        "message": "The case status has no enum: the build enforces no state transitions (C3-10).",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/case.schema.json#status"
+        ]
+      },
+      {
+        "affects": [
+          "C5"
+        ],
+        "classification": "open_item",
+        "code": "EMPTY_REVIEW_FIELDS",
+        "message": "These checkpoints show no field to the reviewer. A person cannot review what they cannot see.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "CHK_01.shown",
+          "CHK_02.shown"
+        ]
+      },
+      {
+        "affects": [
+          "C5"
+        ],
+        "classification": "open_item",
+        "code": "REFUSED_NO_REVIEW_FIELDS",
+        "message": "No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [
+          "C5"
+        ],
+        "sources": [
+          "spec/checkpoints.yaml"
+        ]
+      },
+      {
+        "affects": [
+          "C4"
+        ],
+        "classification": "open_item",
+        "code": "EVAL_NO_TEST_CASES",
+        "message": "These agents have no eval case in the `test` split. The evaluator scores only that split, so it cannot prove acceptance for them. Do not generate client acceptance data.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "BLK_01",
+          "BLK_01.1",
+          "BLK_01.2",
+          "BLK_02"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "MISSING_OWED_FILE",
+        "message": "spec/baseline.csv says sample_data is accepted, but the package has no context/sample_data.csv. Module 1 writes context/sample_data.csv only when sample_data holds records, so the artifact may be accepted but empty. Ship the file. Confirm that sample_data is empty when it is. The builder does not write client data in its place.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "context/sample_data.csv"
+        ]
+      }
+    ],
+    "overall": "build_degraded",
+    "promotion_blockers": [
+      {
+        "affects": [],
+        "classification": "blocks_promotion",
+        "code": "MOCK_INTEGRATION",
+        "message": "A stub or mock stands in for a tool. Replace it before promotion (C3-18).",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "TOOL_01",
+          "TOOL_02",
+          "TOOL_03"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "blocks_promotion",
+        "code": "L1_TARGET_MISSING",
+        "message": "L1 has no target: no region and no UAT address.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "Q1 (answer_source Default)"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "blocks_promotion",
+        "code": "MODEL_RESIDENCY_PROVIDER",
+        "message": "Q8 and Q9 forbid a cross-border model call, but no client answer to Q9 names a Google Cloud region id. Only Vertex with a region inside the jurisdiction keeps the call in the country. The builder chooses no region. Client IT answers Q9 with a Google Cloud region id, or allows the call.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "Q8 (answer_source Default, spec/stack.yaml#client_it.deployment)",
+          "Q9 (answer_source Default, spec/stack.yaml#client_it.deployment)"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "blocks_promotion",
+        "code": "RUNG_BELOW_MVP",
+        "message": "The Precord is at Pilot. Promotion to L2 needs an MVP Precord (OD-13).",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/profile.yaml#solution_stage"
+        ]
+      }
+    ],
+    "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+    "resolved_stack": {
+      "agent_framework": "google-adk-python",
+      "datastore": "PostgreSQL 16+",
+      "language": "Python",
+      "language_version": "3.12",
+      "locator": "build",
+      "model_provider": "Google Gemini (Vertex AI or paid Gemini API)",
+      "observability": "",
+      "runtime": "Docker Engine + Compose",
+      "source_path": "spec/stack.yaml"
+    },
+    "tenant_id": "local"
+  },
+  "refused_components": [
+    "C5"
+  ],
+  "remediation": [
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 13,
+      "classification": "assumption",
+      "code": "OPEN_ITEM_DEFAULT",
+      "dependents": [],
+      "message": "These open items have no answer. The build uses each item's default_assumption and writes it down where it is used.",
+      "rank": 1,
+      "root_cause": "OPEN_ITEM_DEFAULT",
+      "sources": [
+        "HR-201:BLK_01:TOOL_01",
+        "HR-201:BLK_01:TOOL_02",
+        "HR-201:BLK_02:TOOL_03",
+        "HR-306:INT_API1",
+        "HR-306:INT_DB1",
+        "HR-306:INT_UI1",
+        "HR-306:INT_UI2",
+        "HR-306:INT_UI3",
+        "HR-306:INT_UI4",
+        "HR-306:INT_UI5",
+        "HR-306:INT_UI6",
+        "HR-306:INT_UI7",
+        "HR-306:INT_UI8"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 5,
+      "classification": "open_item",
+      "code": "PRECORD_EMPTY_SCHEMA",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/BLK_01.out.schema.json"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/BLK_02.in.schema.json"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/BLK_02.out.schema.json"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/case.schema.json"
+          ]
+        }
+      ],
+      "message": "The schema names no field. The build has no data model for it.",
+      "rank": 2,
+      "root_cause": "PRECORD_EMPTY_SCHEMA",
+      "sources": [
+        "schemas/BLK_01.in.schema.json"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C8"
+      ],
+      "checks_cleared": 5,
+      "classification": "open_item",
+      "code": "PRECORD_UNDECLARED_EVENT",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event guardrail.triggered. KPIs that use it: KPI_O10",
+          "sources": [
+            "spec/kpis.csv#emitted_by=guardrail.triggered"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event human.review. KPIs that use it: KPI_O8, KPI_O9",
+          "sources": [
+            "spec/kpis.csv#emitted_by=human.review"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event step.completed. KPIs that use it: KPI_O1, KPI_O13, KPI_O2",
+          "sources": [
+            "spec/kpis.csv#emitted_by=step.completed"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event tool.call. KPIs that use it: KPI_O11, KPI_O7",
+          "sources": [
+            "spec/kpis.csv#emitted_by=tool.call"
+          ]
+        }
+      ],
+      "message": "No file declares the event agent.decision. KPIs that use it: KPI_O12, KPI_O3, KPI_O4, KPI_O5, KPI_O6",
+      "rank": 3,
+      "root_cause": "PRECORD_UNDECLARED_EVENT",
+      "sources": [
+        "spec/kpis.csv#emitted_by=agent.decision"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C4"
+      ],
+      "checks_cleared": 4,
+      "classification": "open_item",
+      "code": "EVAL_NO_TEST_CASES",
+      "dependents": [],
+      "message": "These agents have no eval case in the `test` split. The evaluator scores only that split, so it cannot prove acceptance for them. Do not generate client acceptance data.",
+      "rank": 4,
+      "root_cause": "EVAL_NO_TEST_CASES",
+      "sources": [
+        "BLK_01",
+        "BLK_01.1",
+        "BLK_01.2",
+        "BLK_02"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Name the fields that each checkpoint shows to the reviewer.",
+      "affects": [
+        "C5"
+      ],
+      "checks_cleared": 3,
+      "classification": "open_item",
+      "code": "EMPTY_REVIEW_FIELDS",
+      "dependents": [
+        {
+          "action": "Declare a checkpoint that shows at least one field.",
+          "affects": [
+            "C5"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "REFUSED_NO_REVIEW_FIELDS",
+          "message": "No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+          "sources": [
+            "spec/checkpoints.yaml"
+          ]
+        }
+      ],
+      "message": "These checkpoints show no field to the reviewer. A person cannot review what they cannot see.",
+      "rank": 5,
+      "root_cause": "empty_design",
+      "sources": [
+        "CHK_01.shown",
+        "CHK_02.shown"
+      ],
+      "stage": "Agent specification"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 3,
+      "classification": "open_item",
+      "code": "PRECORD_BASELINE_MISMATCH",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_BASELINE_MISMATCH",
+          "message": "Cited artifact agent_decision_types has baseline state missing",
+          "sources": [
+            "agent_decision_types"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_BASELINE_MISMATCH",
+          "message": "Cited package artifact precord_eval_cases is not in the manifest",
+          "sources": [
+            "precord_eval_cases"
+          ]
+        }
+      ],
+      "message": "Cited artifact agent_channels has baseline state missing",
+      "rank": 6,
+      "root_cause": "export_completeness",
+      "sources": [
+        "agent_channels"
+      ],
+      "stage": "Precord export"
+    },
+    {
+      "action": "Confirm each mocked endpoint with the client and replace the mock before promotion.",
+      "affects": [],
+      "checks_cleared": 3,
+      "classification": "blocks_promotion",
+      "code": "MOCK_INTEGRATION",
+      "dependents": [],
+      "message": "A stub or mock stands in for a tool. Replace it before promotion (C3-18).",
+      "rank": 7,
+      "root_cause": "integration_evidence",
+      "sources": [
+        "TOOL_01",
+        "TOOL_02",
+        "TOOL_03"
+      ],
+      "stage": "Integration inventory"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 3,
+      "classification": "assumption",
+      "code": "USER_OWNED_DEPLOYMENT",
+      "dependents": [],
+      "message": "Client IT did not choose. The answers to Q1, Q8, Q9 have answer_source Default: they are platform defaults, not client answers. The user selects the deployment target. The build is L0 only.",
+      "rank": 8,
+      "root_cause": "USER_OWNED_DEPLOYMENT",
+      "sources": [
+        "Q1",
+        "Q8",
+        "Q9"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Ask client IT to answer Q9 with a cloud region id inside the jurisdiction, or to allow a cross-border model call.",
+      "affects": [
+        "C1"
+      ],
+      "checks_cleared": 2,
+      "classification": "blocks_promotion",
+      "code": "MODEL_RESIDENCY_PROVIDER",
+      "dependents": [],
+      "message": "Q8 and Q9 forbid a cross-border model call, but no client answer to Q9 names a Google Cloud region id. Only Vertex with a region inside the jurisdiction keeps the call in the country. The builder chooses no region. Client IT answers Q9 with a Google Cloud region id, or allows the call.",
+      "rank": 9,
+      "root_cause": "MODEL_RESIDENCY_PROVIDER",
+      "sources": [
+        "Q8 (answer_source Default, spec/stack.yaml#client_it.deployment)",
+        "Q9 (answer_source Default, spec/stack.yaml#client_it.deployment)"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 2,
+      "classification": "assumption",
+      "code": "APPROVING_DECISION_ASSUMED",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "assumption",
+          "code": "APPROVING_DECISION_ASSUMED",
+          "message": "CHK_02: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Approve agent', approves. It releases a write and moves the case on; the other decisions do not.",
+          "sources": [
+            "spec/checkpoints.yaml#CHK_02.decisions"
+          ]
+        }
+      ],
+      "message": "CHK_01: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Confirm and proceed', approves. It moves the case on; the other decisions do not.",
+      "rank": 10,
+      "root_cause": "APPROVING_DECISION_ASSUMED",
+      "sources": [
+        "spec/checkpoints.yaml#CHK_01.decisions"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Ship the file that spec/baseline.csv says Module 1 accepted.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 1,
+      "classification": "open_item",
+      "code": "MISSING_OWED_FILE",
+      "dependents": [],
+      "message": "spec/baseline.csv says sample_data is accepted, but the package has no context/sample_data.csv. Module 1 writes context/sample_data.csv only when sample_data holds records, so the artifact may be accepted but empty. Ship the file. Confirm that sample_data is empty when it is. The builder does not write client data in its place.",
+      "rank": 11,
+      "root_cause": "MISSING_OWED_FILE",
+      "sources": [
+        "context/sample_data.csv"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Declare the status values of the case in Module 1.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 1,
+      "classification": "open_item",
+      "code": "STATUS_ENUM_MISSING",
+      "dependents": [],
+      "message": "The case status has no enum: the build enforces no state transitions (C3-10).",
+      "rank": 12,
+      "root_cause": "standard_1_1_inputs",
+      "sources": [
+        "schemas/case.schema.json#status"
+      ],
+      "stage": "Standard 1.1"
+    },
+    {
+      "action": "Name the cloud region and the UAT address in the deployment answers of client IT, then close the Precord again.",
+      "affects": [
+        "C1"
+      ],
+      "checks_cleared": 1,
+      "classification": "blocks_promotion",
+      "code": "L1_TARGET_MISSING",
+      "dependents": [],
+      "message": "L1 has no target: no region and no UAT address.",
+      "rank": 13,
+      "root_cause": "L1_TARGET_MISSING",
+      "sources": [
+        "Q1 (answer_source Default)"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "blocks_promotion",
+      "code": "RUNG_BELOW_MVP",
+      "dependents": [],
+      "message": "The Precord is at Pilot. Promotion to L2 needs an MVP Precord (OD-13).",
+      "rank": 14,
+      "root_cause": "RUNG_BELOW_MVP",
+      "sources": [
+        "spec/profile.yaml#solution_stage"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 1,
+      "classification": "assumption",
+      "code": "PERSON_STEP_CLAIMED",
+      "dependents": [],
+      "message": "Step S6 is person-owned or not automated, and the Precord also gives it to an agent (BLK_02 action ACT_06; BLK_02 serves_steps; CHK_02 resume_action_id ACT_06; integration_map INT_UI6; orchestration ownership BLK_02; rule BR-ACT_06 (no agent enforces it)). The builder keeps the person as owner and does not automate the step. The builder removes the actions and integrations of that step from the agent checks, bindings and context. Module 1 must settle the conflict.",
+      "rank": 15,
+      "root_cause": "PERSON_STEP_CLAIMED",
+      "sources": [
+        "S6"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "assumption",
+      "code": "SCHEMA_CHECK_SKIPPED",
+      "dependents": [],
+      "message": "The package ships no standard/schemas/, so the builder did not validate the files against schemas (RD-5). It trusts the close gate in manifest.gate instead (D-11).",
+      "rank": 16,
+      "root_cause": "SCHEMA_CHECK_SKIPPED",
+      "sources": [
+        "standard/schemas/"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "assumption",
+      "code": "STACK_KEY_BLANK",
+      "dependents": [],
+      "message": "The confirmed stack has no observability at Pilot. The platform default applies.",
+      "rank": 17,
+      "root_cause": "STACK_KEY_BLANK",
+      "sources": [
+        "spec/stack.yaml#build.observability"
+      ],
+      "stage": "Module 1 owner"
+    }
+  ],
+  "repository": {
+    "branch": "main",
+    "commit": "892bd35b3edfc48d70941ad4e391d86550fae24a",
+    "tags": []
+  },
+  "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+  "roi_comparison": [
+    {
+      "achieved": null,
+      "assumed": null,
+      "assumption": "automation_rate",
+      "basis": "",
+      "composition": "none: no input was available",
+      "difference": null,
+      "missing_input": "A measured automation rate: the build has no run of real or synthetic cases that report it."
+    },
+    {
+      "achieved": 1.0,
+      "assumed": null,
+      "assumption": "review_rate",
+      "basis": "Checkpoint CHK_02 is always on (trigger: always, or required with no review_rate_percent), so every case is reviewed.",
+      "composition": "real: checkpoint configuration",
+      "difference": null,
+      "missing_input": "review_rate in a threshold row of evals/thresholds.csv that cites roi_assumptions."
+    }
+  ],
+  "run_evidence": {
+    "adapter": "claude_code",
+    "gateway_required": false,
+    "model": null,
+    "models": [
+      "claude-opus-5-5"
+    ],
+    "sessions": [
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "928033abb69e879a9ccbad0b5e8b7915b58be35fa27f3110ed4ef7fc876e95a1"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "583e6ac983e8b648a2a9484c6225a3ab51df0017fdbef993f6a27d23a8005856"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "b0d09a16aa5d0a01be6cc1123c208a81ad7e31864ced64e2e0b0c2a4192811d2"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "e13d55c855071aaa71b6098a1640127c2ac1d2d06229b844b4fdbd48df785d20"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "75e9fc93dfd5a5ffab7c4552d0d62d13f1091d4ef5ed85b395cff25d0ca9f03b"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "ca94bd1ff08a8af1f028a59a76d1649f706f908a143fb4d7fed8018a89f63ddb"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "2c4ba8e69973c0d0bdae241bea2253f8c18e7a56d432c57ba13603a473f81949"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "185e98e95c33f79061683fdbb2d6057ee4d1ca5329ccc67991de59af3984da5c"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "c5737bcf24b50371b68ca77ffd7bf5fcbe5f6dd1cdaf7f60f73f85d5ec21d8af"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "489780ef6f4e9e76892cdbfb57a335c7277bd05d529e3fae1daa9b7a7b1f047b"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "c2955d57db4564cd4a63f088d7432204e48bc778fc9758ed4cbb14686a487e92"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "b48e66bfa43cb076f1465e6446647d9e1b5061e3a436e4a82d469169b9a68ce9"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "82cc41888ca519a3bcf58285063d477a07f85ebadc850b4d4573b9f4c368d0a5"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "ffc4479c24c1b032d8d8994ddd030ed53252a3552075bf4f2f11fd6659f4b421"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "ff2184c5a4d7418c2efcf7b3e8d552ccfcff22e22f8010b982298b9d546ba7f6"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "8a5e44d6d5b5a18d50b9279414b065be54a7b1788ac66ec9cffe094b6de8a5b4"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "1b256e0bd2cbf7e756ebe5c964a29f0c45cf3b149f9c6887a9bff87db942569f"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "ab39610962f7353b73bf8b905f759a9246fb63c266c3243dac33d3c5990a2e66"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "bf7bf6348776a78b267cf71cee94bc9547bbe629eeb227f6c720ad24c9a8c7fc"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "e7ea71c9e6ef7d677abf3f74b6d84f13484b0938ae56819190ceef406903b317"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "85f50e65c68ec0c1ff8de99b3b5ede6f6ea162c9a4b2889f8781c83504a8edd0"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "7d03d64f409bcdbca0ce8d660009ab484b1621432038f039f5bb5746e5bf1bc8"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "b9f696f3eceb58151a487ead1596be1c3b1d53652057a9fd7df7d8dfad38b3a5"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "5ffdfbc2d60ec1271fd1780f8acb56526d2eefac7ac6c22ca65a81ce90145339"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "07c39adac38e9bf2fc0009a39ea49c2f0d840717e3c72c3c0ec05aca66c04001"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "188b086dfc429df494bfefce1e40b98b0b8b63d8863b95ef3f1d8afae43bbb76"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "6893a6b57a413a60b084741cbea59af570b53cc6adb21ce47da6efffead0c918"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "8a439fcab204d85eb05280a9a7a1e7e919ece8c272891dc11a7369fc059df685"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "864c61649defbaa54978c10ac18d0a6fecf9bdce1a3729f6f4605d59ec907b56"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "f58ae6f5f269694fcd32f5602a03a875312e5aea1f5f96b94406d60c42b22d52"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "32790c21977297c733c7bdf0ce4604a1bab68443c1aedd591609082bfc9553e7"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "b209fad696252bded832f4e3c18e174c9df7789b073154f75de8e45ebd0ca5e8"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "4cc0814c15c4b757bbe0e40068fdbc6f6dab4bd9915b95c1c8e399130515cafe"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "679edb8da236cbb0187b1ea9576bbc4d876a2b6815c1a6a63d03c087cedf826a"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "09d312eb8489d9d224a7748a6c1112743fbc8eab40132c070815fc36391c1e68"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "4dc395f291f3384a0beb74130e3de95fcb0e1bf528c9a7b966f8c06d02cb5e84"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "57c1024deb2afc5a1a2eb69b8f0fbdb6c52008e2d33d0027334d715ff282f2d2"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "a869b1efc9b4bc8baa518321d3bdfdd4fb1455cdd1384ee2fe72495b76f289f2"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "69d47de9a24046bcf9e936b3247f5cd1f4552d593f91c94d07e5fa34dbdb54bc"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "2d7d1632edf30c758ff2dac9251d9d850c06b7ff5cea9596704c45f0779f4a2c"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "477b64c1dd75f2aa6c08e9ba7e3a93528ca118f10d61eda2eb3f90b0be019128"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "aa18fd17951ec0888871e3fd799a2372d76159930a706c98393fe565dccb2df6"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "f6a160f41a0c93032fa731539fdf9324bba922dbc5f0c10818e657e4e1b21028"
+      },
+      {
+        "access_type": "",
+        "component": "C4",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "6573ac985653eb754673b9f4ea6a6c622527cfd11ef52a41a36a2e356b78b004"
+      },
+      {
+        "access_type": "",
+        "component": "C4",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "cc8f5880be0522649f6911e4cbf61c0254a6dd1cd15154b4b343060dabd9b861"
+      },
+      {
+        "access_type": "",
+        "component": "C4",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "cc8f5880be0522649f6911e4cbf61c0254a6dd1cd15154b4b343060dabd9b861-review"
+      }
+    ],
+    "substitutions": [
+      {
+        "from_adapter": null,
+        "from_model": null,
+        "reason": "start",
+        "resume_revision": "621277f0ba568c0f57fad2f1bd74d8cc2dce2a71",
+        "to_adapter": "claude_code",
+        "to_model": null
+      },
+      {
+        "from_adapter": null,
+        "from_model": null,
+        "reason": "start",
+        "resume_revision": "68737632d5fcbe52aa37c195ff9e1e1a9927a74c",
+        "to_adapter": "claude_code",
+        "to_model": null
+      }
+    ]
+  },
+  "security": null,
+  "stage_inputs": [
+    {
+      "added": [],
+      "changed": [],
+      "component": "C1",
+      "inputs": 12,
+      "reason": "",
+      "removed": [],
+      "verdict": "built"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C2",
+      "inputs": 11,
+      "reason": "",
+      "removed": [],
+      "verdict": "built"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C3",
+      "inputs": 30,
+      "reason": "",
+      "removed": [],
+      "verdict": "failed"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C4",
+      "inputs": 11,
+      "reason": "",
+      "removed": [],
+      "verdict": "built"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C5",
+      "inputs": 7,
+      "reason": "Readiness refused C5: No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C6",
+      "inputs": 21,
+      "reason": "C6 needs C5, and readiness refused C5",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C7",
+      "inputs": 10,
+      "reason": "C7 needs C5, and readiness refused C5",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C8",
+      "inputs": 9,
+      "reason": "C8 needs C5, and readiness refused C5",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C9",
+      "inputs": 10,
+      "reason": "The Run did not start it. It waits for an earlier gate or for a rebuild.",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C10",
+      "inputs": 14,
+      "reason": "C9 did not build.",
+      "removed": [],
+      "verdict": "skipped"
+    }
+  ],
+  "test_coverage": null,
+  "user_testing": [],
+  "versions": {
+    "build_manifest": "# C1-2: the exact tool versions of this Solution. The builder resolves them from installed package metadata.\n# An entry with a range was not resolvable at build time. `deploy/tool-versions-resolved.txt` is written by the image build.\npython: \"3.12\"\npostgres: \"16\"\nalembic: \"1.20.1\"\nasyncpg: \"0.32.0\"\nauthlib: \"1.9.1\"\nfastapi: \"0.141.1\"\nfsspec: \"2026.9.0\"\ngoogle-adk: \"2.6.1\"\ngreenlet: \"3.5.6\"\nhttpx: \"0.28.1\"\njsonschema: \"4.26.0\"\nlitellm: \"1.106.4\"\nmcp: \"1.30.0\"\npsycopg: \"3.3.6\"\npsycopg-binary: \"3.3.6\"\npydantic: \"2.14.1\"\npython-multipart: \"0.0.32\"\nsqlalchemy: \"2.1.6\"\nuvicorn: \"0.54.0\"\n",
+    "manifest": {
+      "adk_version": "2.6.1",
+      "coding_agent_version": "1.4.3",
+      "missing": [],
+      "model_notes": [
+        {
+          "agent_id": "BLK_01",
+          "detail": "The agent runs its declared model only. Only deploy/smoke.py calls the fallback.",
+          "kind": "fallback_not_applied",
+          "model": "gemini-1.5-flash"
+        },
+        {
+          "agent_id": "BLK_02",
+          "detail": "The agent runs its declared model only. Only deploy/smoke.py calls the fallback.",
+          "kind": "fallback_not_applied",
+          "model": "gemini-1.5-flash"
+        },
+        {
+          "agent_id": "",
+          "detail": "Q8 and Q9 keep the model call in the client's country, but Q9 (answer_source Default) names no cloud region id. The builder chose none. Set GOOGLE_CLOUD_LOCATION with the Vertex provider.",
+          "kind": "model_region_not_chosen",
+          "model": ""
+        }
+      ],
+      "model_versions": {
+        "BLK_01": {
+          "fallback_model": "gemini-1.5-flash",
+          "model": "gemini-2.5-flash"
+        },
+        "BLK_02": {
+          "fallback_model": "gemini-1.5-flash",
+          "model": "gemini-2.5-flash"
+        }
+      },
+      "open_item_assumptions": [
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Stub the tool on sample data until it exists",
+          "item_id": "HR-201:BLK_01:TOOL_01",
+          "status": "open"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Stub the tool on sample data until it exists",
+          "item_id": "HR-201:BLK_01:TOOL_02",
+          "status": "open"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Stub the tool on sample data until it exists",
+          "item_id": "HR-201:BLK_02:TOOL_03",
+          "status": "open"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_API1",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_DB1",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI1",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI2",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI3",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI4",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI5",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI6",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI7",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI8",
+          "status": "approved"
+        }
+      ],
+      "precord_version": 1,
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "rung": "Pilot",
+      "seeds": {
+        "build_random_seed": null,
+        "note": "The builder sets no random seed. Model temperature comes from the Precord."
+      },
+      "skill_shas": {
+        "adk-native-first": "a070ee2428e271b787ae3797e9b9690ac412ce1d5c77cfaa909ea499079334b3",
+        "autonomy-and-guardrails": "56313dd4c263aa5f437f90f1736e940e72533c4828fb8d7a5b51dd2ecc513f57",
+        "case-object-first-schema": "40b3080b6efb7c70a49ebabbe1f527cf60670145d2b7c328ff9d1901f9e32e9c",
+        "checkpoint-implementation": "899bec843a38f628f0022680c3271f9dbacf3524ac238d7d1dcbba5469b3f7f6",
+        "context7-documentation": "d76c98ad243dc9e25c773c8667d99912db8bda8c8fe9d1851a2cd9f7e7567f07",
+        "deviation-recording": "0fede00822a4a6d1f7c51fa182b4cb77bb77583b5c8839c4ee8b8a74f34aae0a",
+        "eval-compilation": "95b2bf713ca4a067f23f0433d33d25ce87dcf5346b6eaee893dd43e315614ca5",
+        "harness-implementation": "61e4b349cf44cea4496b1b052c0485902e9b0d88cc3fbbdf92b1edb7b0a29799",
+        "precord-reading": "d5fd4238eb6bce7ecd86783c0081ad72c31f1ff82ef437ed276730b21d8dbbdb",
+        "provenance-discipline": "125f5f032b3a4b5da1d9c556f3fa5664d4edb95ecdfa01bdc0805df53b867d7c",
+        "rung-scoping": "2550097a247121204e5e64616bb6da1cde1bf8c025527d7960202faa19d5f8aa",
+        "tool-from-tools-yaml": "60e3df7152b299967ae84132f7e4c43e2e3e16f3756d3d42c5bdfaea4c46e993"
+      },
+      "standard_sha": "865fcebd32e3d9783be960c29a63589f7f8a6cac091e88c490196d82276e1b4b",
+      "standard_version": "2.0.0",
+      "stubs": [
+        {
+          "agents": [
+            "BLK_01",
+            "BLK_01.1",
+            "BLK_01.2"
+          ],
+          "open_items": [
+            "HR-201:BLK_01:TOOL_01"
+          ],
+          "tool_id": "TOOL_01"
+        },
+        {
+          "agents": [
+            "BLK_01",
+            "BLK_01.1"
+          ],
+          "open_items": [
+            "HR-201:BLK_01:TOOL_02"
+          ],
+          "tool_id": "TOOL_02"
+        },
+        {
+          "agents": [
+            "BLK_02"
+          ],
+          "open_items": [
+            "HR-201:BLK_02:TOOL_03"
+          ],
+          "tool_id": "TOOL_03"
+        }
+      ],
+      "tag": "precord-v1",
+      "tier_at_rung": [
+        {
+          "agent_id": "*",
+          "gate_tier": "advisory",
+          "metric": "override_rate_and_direction",
+          "threshold": "15",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "blocking",
+          "metric": "audited_accuracy",
+          "threshold": "97",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "advisory",
+          "metric": "agent_error_rate",
+          "threshold": "2",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "advisory",
+          "metric": "tool_error_and_retry_rate",
+          "threshold": "3",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "blocking",
+          "metric": "ai_cost_per_case",
+          "threshold": "90",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "tokens_per_agent_per_case",
+          "threshold": "10000",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "tokens_per_case",
+          "threshold": "10000000",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "agents_live",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "data_extraction_time",
+          "threshold": "10",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "blocking",
+          "metric": "verification_api_availability",
+          "threshold": "99",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "guardrail_triggers",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "inputs_uploaded",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "memory_artifacts_created",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        }
+      ],
+      "tool_versions": {
+        "alembic": "1.20.1",
+        "asyncpg": "0.32.0",
+        "authlib": "1.9.1",
+        "datastore": "PostgreSQL 16+",
+        "fastapi": "0.141.1",
+        "fsspec": "2026.9.0",
+        "google-adk": "2.6.1",
+        "greenlet": "3.5.6",
+        "httpx": "0.28.1",
+        "jsonschema": "4.26.0",
+        "litellm": "1.106.4",
+        "mcp": "1.30.0",
+        "psycopg": "3.3.6",
+        "psycopg-binary": "3.3.6",
+        "pydantic": "2.14.1",
+        "python": "3.12",
+        "python-multipart": "0.0.32",
+        "sqlalchemy": "2.1.6",
+        "uvicorn": "0.54.0"
+      }
+    },
+    "tools": []
+  }
+}
