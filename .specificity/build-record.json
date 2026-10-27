@@ -1077,6 +1077,89 @@
       "effect_ids": [],
       "tool_versions": [],
       "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C6",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "6c30a3ef27672e7a7b21c3b5b427a093b1f71f69",
+      "report": {
+        "component": "C6",
+        "verdict": "built",
+        "wrote": [
+          "playground/.gitignore",
+          "playground/dist/assets/index-CD42duaY.js",
+          "playground/dist/assets/index-CpIfAgCt.css",
+          "playground/dist/index.html",
+          "playground/index.html",
+          "playground/package-lock.json",
+          "playground/package.json",
+          "playground/preview_server.py",
+          "playground/src/kpiEntry.js",
+          "playground/src/main.jsx",
+          "playground/src/precord.json",
+          "playground/vendor/specificity-playground-0.2.2.tgz",
+          "src/solution/mock_service.py",
+          "src/solution/playground_bridge.py",
+          "src/solution/playground_data.json",
+          "src/solution/playground_paths.py",
+          "src/solution/preview_adk.py",
+          "src/solution/wiring.py"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "C6: context/glossary.csv has no rows, so the field labels are empty.",
+          "C6: context/sample_data.csv is missing, so the sample inputs for a try-out are empty.",
+          "C6: agent BLK_01 has no input fields in its input schema, so its try-out form is empty.",
+          "C6: agent BLK_02 has no input fields in its input schema, so its try-out form is empty.",
+          "C6: C5 is not built (it failed or was refused), so the Playground has no review surface and shows no review stage. The Precord checkpoints are not shown. The build record or readiness names why."
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        "playground/.gitignore",
+        "playground/dist/assets/index-CD42duaY.js",
+        "playground/dist/assets/index-CpIfAgCt.css",
+        "playground/dist/index.html",
+        "playground/index.html",
+        "playground/package-lock.json",
+        "playground/package.json",
+        "playground/preview_server.py",
+        "playground/src/kpiEntry.js",
+        "playground/src/main.jsx",
+        "playground/src/precord.json",
+        "playground/vendor/specificity-playground-0.2.2.tgz",
+        "src/solution/mock_service.py",
+        "src/solution/playground_bridge.py",
+        "src/solution/playground_data.json",
+        "src/solution/playground_paths.py",
+        "src/solution/preview_adk.py",
+        "src/solution/wiring.py"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "b3e6caebe75b227e5d0cc877260d929a7f0da522020773ef077faf9046387ff0",
+        "command_hash": "9bad790c3b453a672a6ed1d94504c25547f87d4db09b3ba49d21cbd01123285a",
+        "output": "Pinned SDK integrity, frozen Precord adapter and production bundle verified"
+      },
+      "review": {
+        "findings": [],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "56dcec16ebd244fd653a66df3392981ba2c5fcf9a9946f80aacebd302b4f25cd"
+      ],
+      "tool_versions": [
+        "@specificity/playground@0.2.2"
+      ],
+      "checks": []
     }
   ],
   "promotion_blockers": [
