@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "branch": "default",
+  "note": "GH-9: protect the default branch. A person merges the final pull request. The builder never pushes to this branch. Do not apply until the team confirms Git Sync can push through protection (ADR 0008, task 17).",
+  "apply": "PUT /repos/{owner}/{repo}/branches/{default_branch}/protection",
+  "steps": [
+    "Do not apply until the team confirms Git Sync can push through protection (ADR 0008, task 17).",
+    "Open the repository settings on GitHub, then Branches.",
+    "Add a protection rule for the default branch.",
+    "Require a pull request with 1 approval and a review by the code owners listed in .github/CODEOWNERS.",
+    "Require the status checks verify and evals to pass, on an up-to-date branch.",
+    "Block force pushes and branch deletion. Apply the rule to administrators."
+  ],
+  "rules": {
+    "required_status_checks": {"strict": true, "contexts": ["verify", "evals"]},
+    "enforce_admins": true,
+    "required_pull_request_reviews": {"required_approving_review_count": 1, "require_code_owner_reviews": true, "dismiss_stale_reviews": true},
+    "restrictions": null,
+    "allow_force_pushes": false,
+    "allow_deletions": false,
+    "required_linear_history": false
+  }
+}

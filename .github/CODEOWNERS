@@ -1,0 +1,6 @@
+# GH-9: the platform owns Module 1's output and the read-only parts of the Precord.
+/artifacts/ @Specificity-AI/platform
+/precord/context/ @Specificity-AI/platform
+/precord/standard/ @Specificity-AI/platform
+/precord/evals/ @Specificity-AI/platform
+/precord/handover/ @Specificity-AI/platform
