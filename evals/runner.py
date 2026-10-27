@@ -1666,15 +1666,10 @@ def _row_of(metric, thresholds=None):
 
 
 def _tier_in(row):
-    """Tier of a threshold row. A threshold that is not numeric can only be monitor."""
-    tier = (row or {}).get("tier_at_rung", "")
-    if tier not in _TIERS:
-        return "monitor"
-    try:
-        float(str(row.get("threshold", "")).strip())
-    except ValueError:
-        return "monitor"
-    return tier
+    """Tier of a threshold row: its tier_at_rung. A row with no valid tier is monitor."""
+    row = row or {}
+    tier = row.get("tier_at_rung") if "tier_at_rung" in row else row.get("gate_tier")
+    return tier if tier in _TIERS else "monitor"
 
 
 def tier_of(metric):
@@ -1776,14 +1771,17 @@ def verdict(results, thresholds=None):
     out = {"passed": True, "failed": [], "findings": [], "recorded": []}
     for result in results:
         row = _row_of(result.get("metric"), thresholds)
-        tier = _tier_in(row)
-        if row is None or tier == "monitor":
+        if row is None:
             out["recorded"].append(result)
-        elif result.get("passed"):
             continue
-        elif tier == "blocking":
+        if result.get("passed"):
+            continue
+        tier = _tier_in(row)
+        if tier == "blocking":
             out["failed"].append(result)
-        else:
+        elif tier == "advisory":
             out["findings"].append(result)
+        else:
+            out["recorded"].append(result)
     out["passed"] = not out["failed"]
     return out
