@@ -1,0 +1,505 @@
+{
+  "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+  "revision": "b0b9678a952f2221dd1534d066cd378a2e9fa927",
+  "cases": [],
+  "rows": [
+    {
+      "agent_id": "*",
+      "metric": "override_rate_and_direction",
+      "value": null,
+      "threshold": "15",
+      "unit": "percent",
+      "tier": "advisory",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O8",
+      "comparator": "<=",
+      "reason": "The harness has no measurement for override_rate_and_direction. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "audited_accuracy",
+      "value": null,
+      "threshold": "97",
+      "unit": "percent",
+      "tier": "advisory",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O9",
+      "comparator": ">=",
+      "reason": "The harness has no measurement for audited_accuracy. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "agent_error_rate",
+      "value": null,
+      "threshold": "2",
+      "unit": "percent",
+      "tier": "advisory",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O6",
+      "comparator": "<=",
+      "reason": "No case of agent * gave a measurement for agent_error_rate."
+    },
+    {
+      "agent_id": "*",
+      "metric": "tool_error_and_retry_rate",
+      "value": null,
+      "threshold": "3",
+      "unit": "percent",
+      "tier": "advisory",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O7",
+      "comparator": "<=",
+      "reason": "The harness has no measurement for tool_error_and_retry_rate. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "ai_cost_per_case",
+      "value": null,
+      "threshold": "90",
+      "unit": "currency",
+      "tier": "advisory",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O4",
+      "comparator": "<=",
+      "reason": "The harness has no measurement for ai_cost_per_case. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "tokens_per_agent_per_case",
+      "value": null,
+      "threshold": "10000",
+      "unit": "tokens",
+      "tier": "monitor",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O5",
+      "comparator": "<=",
+      "reason": "The harness has no measurement for tokens_per_agent_per_case. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "tokens_per_case",
+      "value": null,
+      "threshold": "10000000",
+      "unit": "tokens",
+      "tier": "monitor",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O3",
+      "comparator": "<=",
+      "reason": "The harness has no measurement for tokens_per_case. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "agents_live",
+      "value": null,
+      "threshold": "2",
+      "unit": "count",
+      "tier": "monitor",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O12",
+      "comparator": ">=",
+      "reason": "The harness has no measurement for agents_live. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "data_extraction_time",
+      "value": null,
+      "threshold": "10",
+      "unit": "minutes",
+      "tier": "monitor",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O13",
+      "comparator": "<=",
+      "reason": "The harness has no measurement for data_extraction_time. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "verification_api_availability",
+      "value": null,
+      "threshold": "99",
+      "unit": "percent",
+      "tier": "advisory",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O11",
+      "comparator": ">=",
+      "reason": "The harness has no measurement for verification_api_availability. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "guardrail_triggers",
+      "value": null,
+      "threshold": "2",
+      "unit": "count",
+      "tier": "monitor",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O10",
+      "comparator": ">=",
+      "reason": "The harness has no measurement for guardrail_triggers. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "inputs_uploaded",
+      "value": null,
+      "threshold": "2",
+      "unit": "count",
+      "tier": "monitor",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O1",
+      "comparator": ">=",
+      "reason": "The harness has no measurement for inputs_uploaded. It stays unmeasured until a source supplies the value."
+    },
+    {
+      "agent_id": "*",
+      "metric": "memory_artifacts_created",
+      "value": null,
+      "threshold": "2",
+      "unit": "count",
+      "tier": "monitor",
+      "grader": "none",
+      "status": "not_measured",
+      "source_row": "KPI_O2",
+      "comparator": ">=",
+      "reason": "The harness has no measurement for memory_artifacts_created. It stays unmeasured until a source supplies the value."
+    }
+  ],
+  "error": "",
+  "authority_problems": [],
+  "runtime_unavailable": false,
+  "gaps": [
+    "C4-1: case EC-92 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-93 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-94 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-95 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-96 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-97 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-98 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-99 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-100 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-101 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-102 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-103 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-104 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-105 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-106 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-107 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-108 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-109 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-110 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-111 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-112 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-113 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-114 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-115 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-116 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-117 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-118 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-119 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-1: case EC-120 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+    "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+    "C4-1: no test split, 0/120 measured. Acceptance cannot be decided, so the build is unvalidated.",
+    "The eval runtime is not ready: The interpreter /Users/abhiyanhaze/specificity/.scratch/ft3/run4/solution-builder/.venv/bin/python cannot import fastapi, google.adk, litellm, psycopg. Set SOLUTION_BUILDER_SERVE_PYTHON to a Python that has the Solution dependencies installed."
+  ],
+  "groups": [],
+  "coverage": [
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "happy",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "exception",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "hil",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "notauto",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "missing",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "toolfail",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "adversarial",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "language",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01",
+      "scenario_type": "total",
+      "declared": 30,
+      "measured": 0,
+      "minimum": 30,
+      "met": false
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "happy",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "exception",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "hil",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "notauto",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "missing",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "toolfail",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "adversarial",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "language",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.1",
+      "scenario_type": "total",
+      "declared": 30,
+      "measured": 0,
+      "minimum": 30,
+      "met": false
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "happy",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "exception",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "hil",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "notauto",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "missing",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "toolfail",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "adversarial",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "language",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_01.2",
+      "scenario_type": "total",
+      "declared": 30,
+      "measured": 0,
+      "minimum": 30,
+      "met": false
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "happy",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "exception",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "hil",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "notauto",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "missing",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "toolfail",
+      "declared": 4,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "adversarial",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "language",
+      "declared": 3,
+      "measured": 0,
+      "minimum": null,
+      "met": null
+    },
+    {
+      "agent_id": "BLK_02",
+      "scenario_type": "total",
+      "declared": 30,
+      "measured": 0,
+      "minimum": 30,
+      "met": false
+    }
+  ],
+  "human_review": []
+}
