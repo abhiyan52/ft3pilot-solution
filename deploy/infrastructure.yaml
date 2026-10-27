@@ -1,0 +1,17 @@
+# D-8: the one deployment definition. It names services, ports, and secrets. It holds no secret value.
+schema_version: 1
+services:
+  - name: app
+    image: built from deploy/Dockerfile
+    port: 8000
+    health: /health
+    depends_on: [db]
+  - name: db
+    image: postgres:16
+    port: 5432
+    volume: solution_db
+secrets:
+  - SOLUTION_DB_PASSWORD
+  - GOOGLE_API_KEY
+start: docker compose -f deploy/compose.yaml up --build
+check: python deploy/smoke.py

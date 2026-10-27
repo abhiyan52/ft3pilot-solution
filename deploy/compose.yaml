@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: solution
+      POSTGRES_USER: solution
+      POSTGRES_PASSWORD: ${SOLUTION_DB_PASSWORD:?Set a secret through the runtime environment}
+    volumes:
+      - solution_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U solution -d solution"]
+      interval: 5s
+      retries: 10
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    # The model settings of the Solution (provider, model, key) come from deploy/.env. See src/solution/llm_config.py.
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # C1-3: the case store and the ADK sessions use the db service. The password comes from the runtime.
+      DATABASE_URL: postgresql://solution:${SOLUTION_DB_PASSWORD:?Set a secret through the runtime environment}@db:5432/solution
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  solution_db:
