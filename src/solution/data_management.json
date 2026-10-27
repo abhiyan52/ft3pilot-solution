@@ -1,0 +1,32 @@
+{
+  "backup": null,
+  "client_it": [
+    {
+      "answer": "All case data stays in the client's primary jurisdiction, with no cross-region replication of personal data",
+      "answer_source": "Default",
+      "question_id": "Q8"
+    },
+    {
+      "answer": "The client's own jurisdiction, with no cross-border model calls",
+      "answer_source": "Default",
+      "question_id": "Q9"
+    },
+    {
+      "answer": "Case records retained for seven years; agent traces and prompts for ninety days",
+      "answer_source": "Default",
+      "question_id": "Q7"
+    }
+  ],
+  "declared": true,
+  "encryption": null,
+  "masking": [],
+  "missing": [
+    "backup",
+    "redundancy",
+    "masking",
+    "encryption"
+  ],
+  "redundancy": null,
+  "retention": "Case records retained for seven years; agent traces and prompts for ninety days",
+  "unknown_fields": []
+}

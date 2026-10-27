@@ -1,0 +1,23 @@
+{
+  "kit": {
+    "files": [
+      "deploy/.env.example",
+      "deploy/Dockerfile",
+      "deploy/Dockerfile.dockerignore",
+      "deploy/backup.py",
+      "deploy/compose.yaml",
+      "deploy/environment.json",
+      "deploy/infrastructure.yaml",
+      "deploy/requirements.lock",
+      "deploy/select_target.py",
+      "deploy/smoke.py",
+      "deploy/tool-versions.yaml"
+    ],
+    "implemented": true
+  },
+  "smoke": {
+    "ran": false
+  },
+  "verification_needed": "Run `docker compose -f deploy/compose.yaml up --build` and `python deploy/smoke.py` on a clean machine. Paid infrastructure is not applied by the builder.",
+  "verified": false
+}

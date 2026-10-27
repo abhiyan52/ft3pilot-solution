@@ -1,0 +1,8 @@
+# BuildKit reads this file beside deploy/Dockerfile. The context is the Solution folder (..).
+# The image holds the Solution only. Secrets, the Precord copy, and build output stay out.
+.git
+deploy/.env
+precord/
+playground/node_modules
+**/__pycache__
+.specificity/

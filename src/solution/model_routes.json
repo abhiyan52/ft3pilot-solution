@@ -1,0 +1,1 @@
+{"BLK_01": {"fallback_model": "gemini-1.5-flash", "max_output_tokens": 1024, "model": "gemini-2.5-flash", "temperature": 0.0}, "BLK_02": {"fallback_model": "gemini-1.5-flash", "max_output_tokens": 1024, "model": "gemini-2.5-flash", "temperature": 0.0}}
