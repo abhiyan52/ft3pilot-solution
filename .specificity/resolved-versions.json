@@ -1,0 +1,109 @@
+{
+  "adk_compatibility": {
+    "checked": false,
+    "conflicts": [],
+    "reason": "google-adk is not resolved, or its requirements cannot be read."
+  },
+  "adk_pin": {
+    "requested": "2.6.1",
+    "resolved": null,
+    "status": "unresolved"
+  },
+  "adk_version": null,
+  "coding_agent": {
+    "name": "opencode",
+    "reason": "",
+    "version": "1.4.3"
+  },
+  "coding_agent_version": "1.4.3",
+  "interpreter": {
+    "origin": "builder_host",
+    "path": null,
+    "setting": null
+  },
+  "model_notes": [
+    {
+      "agent_id": "BLK_01",
+      "detail": "The agent runs its declared model only. Only deploy/smoke.py calls the fallback.",
+      "kind": "fallback_not_applied",
+      "model": "gemini-1.5-flash"
+    },
+    {
+      "agent_id": "BLK_02",
+      "detail": "The agent runs its declared model only. Only deploy/smoke.py calls the fallback.",
+      "kind": "fallback_not_applied",
+      "model": "gemini-1.5-flash"
+    },
+    {
+      "agent_id": "",
+      "detail": "Q8 and Q9 keep the model call in the client's country, but Q9 (answer_source Default) names no Google Cloud region. The builder chose none. Client IT answers Q9 with a Google Cloud region id, and the builder rebuilds it into src/solution/model_residency.json. On a host, an operator sets \"region\" in that file to the region the client named. GOOGLE_CLOUD_LOCATION alone does not clear the refusal.",
+      "kind": "model_region_not_chosen",
+      "model": ""
+    }
+  ],
+  "model_versions": {
+    "BLK_01": {
+      "fallback_model": "gemini-1.5-flash",
+      "model": "gemini-2.5-flash"
+    },
+    "BLK_02": {
+      "fallback_model": "gemini-1.5-flash",
+      "model": "gemini-2.5-flash"
+    }
+  },
+  "resolved_packages": {
+    "alembic": "1.20.1",
+    "fastapi": "0.162.0",
+    "httpx": "0.28.1",
+    "jsonschema": "4.26.0",
+    "psycopg": "3.3.6",
+    "psycopg-binary": "3.3.6",
+    "pydantic": "2.14.1",
+    "python-multipart": "0.0.32",
+    "sqlalchemy": "2.1.6",
+    "uvicorn": "0.54.0"
+  },
+  "seeds": {
+    "build_random_seed": null,
+    "note": "The builder sets no random seed. Model temperature comes from the Precord."
+  },
+  "skill_shas": {
+    "adk-native-first": "a070ee2428e271b787ae3797e9b9690ac412ce1d5c77cfaa909ea499079334b3",
+    "autonomy-and-guardrails": "56313dd4c263aa5f437f90f1736e940e72533c4828fb8d7a5b51dd2ecc513f57",
+    "case-object-first-schema": "40b3080b6efb7c70a49ebabbe1f527cf60670145d2b7c328ff9d1901f9e32e9c",
+    "checkpoint-implementation": "259c45939d7acd68590c19bd46b006ed53f6ff1430d184f4ed107c0ac33092e9",
+    "context7-documentation": "d76c98ad243dc9e25c773c8667d99912db8bda8c8fe9d1851a2cd9f7e7567f07",
+    "deviation-recording": "0fede00822a4a6d1f7c51fa182b4cb77bb77583b5c8839c4ee8b8a74f34aae0a",
+    "eval-compilation": "95b2bf713ca4a067f23f0433d33d25ce87dcf5346b6eaee893dd43e315614ca5",
+    "harness-implementation": "61e4b349cf44cea4496b1b052c0485902e9b0d88cc3fbbdf92b1edb7b0a29799",
+    "precord-reading": "d5fd4238eb6bce7ecd86783c0081ad72c31f1ff82ef437ed276730b21d8dbbdb",
+    "provenance-discipline": "125f5f032b3a4b5da1d9c556f3fa5664d4edb95ecdfa01bdc0805df53b867d7c",
+    "rung-scoping": "2550097a247121204e5e64616bb6da1cde1bf8c025527d7960202faa19d5f8aa",
+    "tool-from-tools-yaml": "60e3df7152b299967ae84132f7e4c43e2e3e16f3756d3d42c5bdfaea4c46e993"
+  },
+  "source": "installed package metadata of the builder host, not runtime metadata. SOLUTION_BUILDER_SERVE_PYTHON is not set, so these versions can differ from the interpreter that runs the Solution",
+  "standard_version": "2.0.0",
+  "tool_versions": {
+    "alembic": "1.20.1",
+    "datastore": "PostgreSQL 16+",
+    "fastapi": "0.162.0",
+    "httpx": "0.28.1",
+    "jsonschema": "4.26.0",
+    "psycopg": "3.3.6",
+    "psycopg-binary": "3.3.6",
+    "pydantic": "2.14.1",
+    "python": "3.12",
+    "python-multipart": "0.0.32",
+    "sqlalchemy": "2.1.6",
+    "uvicorn": "0.54.0"
+  },
+  "unresolved_packages": [
+    "asyncpg",
+    "authlib",
+    "fsspec",
+    "google-adk",
+    "greenlet",
+    "litellm",
+    "mcp"
+  ]
+}

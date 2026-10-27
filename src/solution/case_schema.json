@@ -1,0 +1,10 @@
+{
+  "$id": "case.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "_provenance": {},
+  "description": "The shared case object every agent reads and writes. Generated from the surface data-point register under the ontology's canonical names; edit the registers rather than this file.",
+  "properties": {},
+  "required": [],
+  "title": "Case",
+  "type": "object"
+}
