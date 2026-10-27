@@ -1734,12 +1734,17 @@ def verdict(results: list[dict[str, Any]], thresholds: list[dict[str, str]] | No
     """Sort each result by the tier_at_rung of its metric. Only a blocking miss makes passed false.
 
     A miss at advisory is a finding, a miss at monitor is recorded, and a result with no row is recorded.
-    Each list holds the result dicts unchanged."""
+    A result that passes at a row of its own is no miss and goes in no list. Each list holds the result
+    dicts unchanged."""
     rows = THRESHOLDS if thresholds is None else thresholds
     out: dict[str, Any] = {"passed": True, "failed": [], "findings": [], "recorded": []}
     for result in results:
         tier = tier_of(result.get("metric"), rows)
-        if tier is None or tier == "monitor" or result.get("passed") is True:
+        if tier is None:
+            out["recorded"].append(result)
+        elif result.get("passed") is True:
+            continue
+        elif tier == "monitor":
             out["recorded"].append(result)
         elif tier == "blocking":
             out["failed"].append(result)
