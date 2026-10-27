@@ -982,6 +982,134 @@
           "detail": "C3 changed only files in its write set"
         }
       ]
+    },
+    {
+      "tenant_id": "local",
+      "component": "C4",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "ac066ac757c8e8f51a8061a5b708a6f8f0d3c953",
+      "report": {
+        "component": "C4",
+        "verdict": "built",
+        "wrote": [
+          "evals/runner.py"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "C4-1: no case has split test; acceptance cannot be decided and the runner scores nothing",
+          "C4-2: threshold agent_error_rate has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold agent_error_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold agent_error_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold agents_live has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold agents_live has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold agents_live has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold ai_cost_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold ai_cost_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold ai_cost_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold audited_accuracy has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold audited_accuracy has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold audited_accuracy has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold data_extraction_time has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold data_extraction_time has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold data_extraction_time has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold guardrail_triggers has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold guardrail_triggers has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold guardrail_triggers has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold inputs_uploaded has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold inputs_uploaded has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold inputs_uploaded has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold memory_artifacts_created has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold memory_artifacts_created has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold memory_artifacts_created has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold override_rate_and_direction has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold override_rate_and_direction has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold override_rate_and_direction has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tokens_per_agent_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tokens_per_agent_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tokens_per_agent_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tokens_per_case has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tokens_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tokens_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold tool_error_and_retry_rate has no comparator; the OD-17 default applies: '<='",
+          "C4-2: threshold tool_error_and_retry_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold tool_error_and_retry_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2: threshold verification_api_availability has no comparator; the OD-17 default applies: '>='",
+          "C4-2: threshold verification_api_availability has no grader_id; OD-17 gives no default, so no grader is named for it",
+          "C4-2: threshold verification_api_availability has no min_sample; OD-17 gives no default, so no minimum sample applies",
+          "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+          "C4-2a: the case schema names no field; no deterministic case-schema gate can run",
+          "EVAL_CASE_INPUT_PROSE: every case input (e.g. EC-03 'a complete, clean case', EC-08 'instruction injected in a free-text field') is prose, not a JSON object for the agent input schema",
+          "EVAL_EXPECTATION_NOT_CHECKABLE: expected values are prose (e.g. 'completes with every field filled', 'extract the fields correctly'); G-01..G-04 have no structured decision, target, fields or tool sequence to compare",
+          "EVAL_JUDGE_MODEL_INVALID: graders.yaml judge_model (top level and G-05) is 'openai-api', a provider label and not a model ID; the runner names no model and the harness must resolve a judge model distinct from the agent model",
+          "EVAL_NO_TEST_CASES: evals/cases.jsonl has 120 cases, all split dev, and none in split test or example; scored_cases() is empty, so no quantitative acceptance can be claimed and C4 acceptance is unvalidated",
+          "EVAL_RUBRIC_GAP: G-05 rubric has sections only for EC-01, EC-02, EC-08, EC-16, EC-17, EC-24, EC-25; every other case (including all BLK_02 cases that G-05 applies to) has no rubric of its own and the judge receives the whole G-05 rubric",
+          "G-06 human sample review applies only to BLK_02 and samples 5% of test cases; with no test cases it samples nothing",
+          "MONITOR_ONLY_EVALS: all 13 rows of evals/thresholds.csv leave comparator, grader_id, min_sample, level, threshold_id and stage_applicability blank; comparators fall back to the metric-name rule, and no threshold is bound to a grader or a minimum sample",
+          "Thresholds audited_accuracy (KPI_O9), ai_cost_per_case (KPI_O4) and verification_api_availability (KPI_O11) have gate_tier blocking but tier_at_rung advisory at Pilot; misses are reported as findings, not failures"
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        "evals/runner.py"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "131e12bf9c74bb010dfbac8b4bef113b7f1b42d5397fe5177f8f369f4df65d18",
+        "command_hash": "a39f95022f1a5279373294265697415d8fb735031dd1e73357ef7ac4644e29df",
+        "output": ""
+      },
+      "review": {
+        "findings": [
+          {
+            "code": "RUBRIC_SELECTED_BY_AGENT_PAYLOAD",
+            "severity": "medium",
+            "message": "evals/runner.py:350 and :323-332: evaluate() picks the rubric section from payload['case_id'], and payload is the agent's own JSON answer. The judged agent therefore chooses which rubric it is graded against. For example, an answer that claims case_id EC-02 is graded by RUB-EC-02, which passes approving 'immediately without opening View action on files'. Normal agent output carries no case_id, so the per-case path is almost never reached and the judge gets the whole G-05 rubric. That whole rubric also includes the tacit-knowledge EC-01 and EC-02 sections. The rubric must be bound by the harness, from the case under evaluation, not taken from the agent's answer."
+          },
+          {
+            "code": "TACIT_RUBRIC_REWARDS_PERSON_STEP_AUTOMATION",
+            "severity": "medium",
+            "message": "evals/runner.py:325-332, 355: the judge prompt can carry RUB-EC-01 and RUB-EC-02, either as the selected section or inside the whole-rubric fallback. These rubrics describe how people work today: proceeding past an outage banner at S2, and rubber-stamp approval at S7/CHK_02. Applied to an agent's answer, they pass an agent that approves at CHK_02 without inspecting the documents. That is exactly what the component instructions forbid: 'Do not treat narrative cases about human judgement as permission to automate a person-owned step.' The module docstring (lines 13-14) states the rule, but evaluate() does not enforce it. It should exclude tacit_knowledge rubric sections from agent judging, or refuse them."
+          },
+          {
+            "code": "EVALUATE_IGNORES_G05_APPLIES_TO",
+            "severity": "low",
+            "message": "evals/runner.py:343-358: evaluate() calls the judge for any non-empty payload. It never checks that G-05 applies_to is ['BLK_02']. The G-05 rubric sections themselves name BLK_01 (RUB-EC-08/16/17/24/25), so the Precord disagrees with itself here. The runner passes that disagreement on to the judge without surfacing it. This is related to the recorded EVAL_RUBRIC_GAP, so it stays low."
+          },
+          {
+            "code": "VERDICT_DROPS_PASSING_RESULTS",
+            "severity": "low",
+            "message": "evals/runner.py:374-375: verdict() discards a passing result at tier advisory or blocking (`continue`), so it lands in none of the returned lists. The eval-compilation skill requires reporting each threshold with its value, tier and grader. With this output, a met advisory or blocking threshold cannot be told apart from one that was never measured."
+          },
+          {
+            "code": "TIER_DEFAULT_INVENTED",
+            "severity": "low",
+            "message": "evals/runner.py:301-303: tier_of() quietly maps a blank or unrecognised tier_at_rung to 'monitor'. The Precord gives no such default: a blank cell is an incomplete specification, not a monitor tier. Every current row declares a tier, so nothing is affected today. A future blank row, though, would be downgraded without anyone noticing, when it should be reported as unvalidated."
+          },
+          {
+            "code": "EMPTY_PAYLOAD_ATTRIBUTED_TO_G02",
+            "severity": "low",
+            "message": "evals/runner.py:348-349: an empty or non-dict payload returns check 'G-02' (schema validity) without validating against any out.schema.json. The harness, not this module, runs G-02. The short-circuit is needed by scripts/run_evals.py (no judge call on an empty case, passed false). However, attributing the verdict to G-02 claims a schema check that never ran (SCHEMA_CHECK_SKIPPED)."
+          },
+          {
+            "code": "CASES_MUTABLE_THROUGH_ACCESSORS",
+            "severity": "low",
+            "message": "evals/runner.py:279-286: scored_cases() and repair_cases() return the live dicts from CASES, so a caller that changes a returned case also changes the module's copy of the Precord cases. The component instructions say the cases are immutable. Returning copies, or storing the cases as read-only mappings, would enforce that."
+          }
+        ],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "72d990c4fe615ee087d520180f4059e84f8369fd45d443a681353f69b7a82e07"
+      ],
+      "tool_versions": [],
+      "checks": []
     }
   ],
   "promotion_blockers": [
@@ -1067,5 +1195,5 @@
   ],
   "deployment": "user_owned",
   "solution_dir": "",
-  "agent_sessions_started": 29
+  "agent_sessions_started": 31
 }
