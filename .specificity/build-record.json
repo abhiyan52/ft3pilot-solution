@@ -1040,6 +1040,43 @@
       ],
       "tool_versions": [],
       "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C5",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "677a2c6f3d5a5bfc41dd51af437569c851bd95ee",
+      "report": {
+        "component": "C5",
+        "verdict": "failed",
+        "wrote": [],
+        "did_not_write": [],
+        "gaps": [
+          "ComponentExhausted: C5 verification or review exhausted repair budget: Deterministic verification failed: Traceback (most recent call last):\n  File \"<string>\", line 62, in <module>\n  File \"/Users/abhiyanhaze/specificity/.scratch/ft3/run4/solution-builder/src/solution_builder/components/c5/driver.py\", line 358, in check_screens\n    assert \"/v1/checkpoints/cases/\" in page and \"/decisions\" in page, \\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: CHK_01: C5-9: the screen must post a decision to /v1/checkpoints/cases/{case_id}/decisions"
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "failed",
+        "version": "1",
+        "input_hash": "44db0f7fd3f8cc7103ec0cf0ead4b0fb722024f3754323233594abdfc7b12e64",
+        "command_hash": "44db0f7fd3f8cc7103ec0cf0ead4b0fb722024f3754323233594abdfc7b12e64",
+        "output": "ComponentExhausted: C5 verification or review exhausted repair budget: Deterministic verification failed: Traceback (most recent call last):\n  File \"<string>\", line 62, in <module>\n  File \"/Users/abhiyanhaze/specificity/.scratch/ft3/run4/solution-builder/src/solution_builder/components/c5/driver.py\", line 358, in check_screens\n    assert \"/v1/checkpoints/cases/\" in page and \"/decisions\" in page, \\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: CHK_01: C5-9: the screen must post a decision to /v1/checkpoints/cases/{case_id}/decisions"
+      },
+      "review": {
+        "findings": [],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [],
+      "tool_versions": [],
+      "checks": []
     }
   ],
   "promotion_blockers": [
