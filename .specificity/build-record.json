@@ -1232,6 +1232,122 @@
       ],
       "tool_versions": [],
       "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C8",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "9f72987dd56a3fff8cf677695cf3c7927359dcbc",
+      "report": {
+        "component": "C8",
+        "verdict": "built",
+        "wrote": [
+          "src/kpis/service.py",
+          "tests/test_kpis.py",
+          "ui/kpis/index.html"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "All ten owed KPIs are DEGRADED: no file in the Precord declares step.completed, guardrail.triggered, agent.decision, tool.call or human.review (PRECORD_UNDECLARED_EVENT). calculate returns None for every KPI and the screen shows no value until the Precord declares these events. The formulas are tested with the degraded map emptied.",
+          "C8-1: KPI_O11 is owed from MVP; it is shown as measured from MVP and has no value at Pilot.",
+          "C8-1: KPI_O12 is owed from MVP; it is shown as measured from MVP and has no value at Pilot.",
+          "C8-1: KPI_O13 is owed from MVP; it is shown as measured from MVP and has no value at Pilot.",
+          "C8-2: KPI_O1 is degraded and reports no value: the event step.completed is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O10 is degraded and reports no value: the event guardrail.triggered is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O2 is degraded and reports no value: the event step.completed is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O3 is degraded and reports no value: the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O4 is degraded and reports no value: the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O5 is degraded and reports no value: the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O6 is degraded and reports no value: the event agent.decision is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O7 is degraded and reports no value: the event tool.call is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O8 is degraded and reports no value: the event human.review is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-2: KPI_O9 is degraded and reports no value: the event human.review is not declared by any file in the Precord (readiness code PRECORD_UNDECLARED_EVENT).",
+          "C8-6: KPI_O4 has gate_tier blocking but tier_at_rung advisory; C8 uses tier_at_rung at Pilot.",
+          "C8-6: KPI_O9 has gate_tier blocking but tier_at_rung advisory; C8 uses tier_at_rung at Pilot.",
+          "C8-6: the alerting of KPI_O10 is text ('any PII event'), not an above or below limit and not 'any <declared event>', so no alert value is checked for it. This must be resolved before promotion: a person must state an above or below limit, or name the declared event the KPI emits.",
+          "C8-6: the alerting of KPI_O4 is text ('budget burn above 90 percent of the monthly allocation'), not an above or below limit and not 'any <declared event>', so no alert value is checked for it. This must be resolved before promotion: a person must state an above or below limit, or name the declared event the KPI emits.",
+          "C8-7: the sink \"The platform's own OpenTelemetry collector, until client IT names theirs\" has no endpoint in the Precord. deliver writes to the location bound in SOLUTION_ALERT_SINK and gives False when none is bound.",
+          "C8-8: the KPI formulas are prose and no event example exists, so no expected value is checked; only structure, scope, missing data and alerts are.",
+          "KPI_O1 (raw sources uploaded) and KPI_O2 (artifact versions committed) both read step.completed. The Precord gives no field that separates an upload from an artifact commit, so O1 counts every step.completed event and O2 counts those with status ok.",
+          "KPI_O6 (per agent per hour) and KPI_O7 (per case) return one figure for the events given. The caller sets the window, and backfill sets it per UTC day. KPI_O5 and KPI_O10 return a dict (by agent, by guardrail kind).",
+          "KPI_O8 asks for a split by direction. The event schema has no direction field, so only the overall override rate is computed.",
+          "KPI_O9 computes the audited-accuracy percent, and wilson_interval gives the 95 percent interval. calculate and the payload return only the percent. A correct decision is a human.review event with override_flag false, since the Precord names no other audit marker.",
+          "LOG_SINK is the platform's own OpenTelemetry collector until client IT names theirs. deliver writes only to SOLUTION_ALERT_SINK.",
+          "No visualization field exists in kpis.csv or the context, so playground_kpis_payload returns visualization None for every KPI.",
+          "Personas P3 (Frontline user) has no metrics assigned. KPI_O11, KPI_O12 and KPI_O13 are owed from MVP and show as 'measured from MVP'.",
+          "Precord declaration of the events step.completed, guardrail.triggered, agent.decision, tool.call and human.review. These events are the blocker for every KPI value.",
+          "The DATABASE_URL path of KpiEventStore (StateStore 'kpi-events') is not exercised by the tests, because they use SQLite only. The StateStore has no list call, so it keeps an index key '~index' next to the event-ID keys.",
+          "The Precord declares no signal for a closed case. KPI_O3, KPI_O4 and KPI_O5 divide by the count of distinct case_id values in the events given. KPI_O7 divides by the same count.",
+          "The alert rules for KPI_O4 (budget burn above 90 percent of the monthly allocation) and KPI_O10 (any PII event) have limit None. They are prose and raise nothing. KPI_O10 names no event or PII kind to count, and KPI_O4 has no monthly allocation value.",
+          "Thresholds for KPI_O4 and KPI_O9 are blocking in gate_tier but advisory at the Pilot rung. A miss is advisory and must be reported in the PR and build record.",
+          "deviation: KPI_GROUPS: the Precord declares no technical or business field for a KPI. C8 puts a KPI in the technical group when its category in kpis.csv contains 'agent behaviour' or 'reliability', and in the business group otherwise.",
+          "kpis.csv carries blank current_value and projected_value for every owed KPI (KPI_VALUES_BLANK). No benchmark is shown."
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        "src/kpis/service.py",
+        "tests/test_kpis.py",
+        "ui/kpis/index.html"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "dac5fd4dd780c7d80c0b17701deea5f31d2b9e7032a23eb1c48976ce18caf98b",
+        "command_hash": "21d5f10a34b4f8421449a010d586672068083d11db59203ac9e04d91da346643",
+        "output": ".........................\n----------------------------------------------------------------------\nRan 25 tests in 0.003s\n\nOK\n"
+      },
+      "review": {
+        "findings": [
+          {
+            "code": "PRECORD_UNDECLARED_EVENT",
+            "severity": "medium",
+            "message": "Known gap. All ten owed KPIs are DEGRADED, because no Precord file declares step.completed, guardrail.triggered, agent.decision, tool.call or human.review. calculate and the Playground payload return None/unmeasured for every KPI, so the KPI screen shows no live value at Pilot. The formulas are tested only with DEGRADED patched to {}. The build handles this correctly and lists it as a promotion blocker."
+          },
+          {
+            "code": "KPI_VALUES_BLANK",
+            "severity": "medium",
+            "message": "Known gap. current_value and projected_value are blank for every owed KPI in KPIS. The UI shows no benchmark or projected value, and no estimates were invented. This stays open until the Precord supplies them."
+          },
+          {
+            "code": "V2_ADVISORY_TIER",
+            "severity": "medium",
+            "message": "Known gap. KPI_O4 and KPI_O9 are gate_tier blocking but tier_at_rung advisory. The code uses TIERS (advisory) and the UI shows only that tier, not the gate_tier. An advisory miss must be reported in the PR and build record. THRESHOLDS carries the gate_tier but the surface does not expose it."
+          },
+          {
+            "code": "ALERT_RULE_PROSE",
+            "severity": "medium",
+            "message": "Known gap. The alert rules for KPI_O10 ('any PII event') and KPI_O4 (budget burn) have limit None, so alerts() never raises for them. KPI_O10 is a Risk lead policy alert and is silently inert until the Precord names the event or PII kind. The tests assert this inert behaviour in test_prose_rule_raises_nothing."
+          },
+          {
+            "code": "KPI_FORMULA_PARTIAL",
+            "severity": "low",
+            "message": "Known gap. KPI_O8 'split by direction' is not computed, because the event schema has no direction field. KPI_O9's Wilson interval exists only in wilson_interval and is not returned by calculate or the payload. KPI_O6 'per agent per hour' returns one figure per call. KPI_O1 and KPI_O2 rely on an unstated discriminator, and 'cases closed' is approximated by distinct case_id. All of these are listed in recorded_gaps."
+          },
+          {
+            "code": "DURABLE_STORE_UNTESTED",
+            "severity": "low",
+            "message": "src/kpis/service.py:668-675 The DATABASE_URL (StateStore) ingest path is not tested. It does read-modify-write on the '~index' key without atomicity, so concurrent ingesters can lose index entries and drop events from events(). An event_id of '~index' would also collide with the index key. The tests set DATABASE_URL aside and use SQLite only."
+          },
+          {
+            "code": "UI_SPEC_DUPLICATED",
+            "severity": "low",
+            "message": "ui/kpis/index.html:24 The page embeds a static copy of the KPI metadata, tiers, groups, degraded reasons and views instead of reading them from the service. This risks drift from service.py. Live values do come from /playground/kpis, and no canned numbers are shown, so the requirement is met."
+          }
+        ],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "1cfd694bcd1c2502b95b30951e1d1180d1b3bd7714dbc22286edccad97049655"
+      ],
+      "tool_versions": [],
+      "checks": []
     }
   ],
   "promotion_blockers": [
@@ -1317,5 +1433,5 @@
   ],
   "deployment": "user_owned",
   "solution_dir": "",
-  "agent_sessions_started": 53
+  "agent_sessions_started": 55
 }
