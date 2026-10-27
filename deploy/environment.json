@@ -1,0 +1,91 @@
+{
+  "client_it": [
+    {
+      "answer": "Google Cloud, a single region inside the client's own jurisdiction",
+      "answer_source": "Default",
+      "question_id": "Q1"
+    },
+    {
+      "answer": "All case data stays in the client's primary jurisdiction, with no cross-region replication of personal data",
+      "answer_source": "Default",
+      "question_id": "Q8"
+    },
+    {
+      "answer": "The client's own jurisdiction, with no cross-border model calls",
+      "answer_source": "Default",
+      "question_id": "Q9"
+    },
+    {
+      "answer": "Section 42(3) Insurance Act 1938 disqualification declaration, IRDAI POSP Code of Conduct, and PAN-Aadhaar linkage / 20% TDS rules",
+      "answer_source": "Documents",
+      "question_id": "Q4"
+    },
+    {
+      "answer": "Case records retained for seven years; agent traces and prompts for ninety days",
+      "answer_source": "Default",
+      "question_id": "Q7"
+    },
+    {
+      "answer": "OpenTelemetry traces and metrics, exported to the client's existing monitoring stack",
+      "answer_source": "Default",
+      "question_id": "Q5"
+    },
+    {
+      "answer": "The platform's own OpenTelemetry collector, until client IT names theirs",
+      "answer_source": "Default",
+      "question_id": "Q10"
+    }
+  ],
+  "declared": true,
+  "environment": {
+    "cloud": "Google Cloud, a single region inside the client's own jurisdiction"
+  },
+  "l0": {
+    "key_store": "environment variables or SOLUTION_SECRETS_DIR",
+    "network": "127.0.0.1 only",
+    "region": "none",
+    "sso": "local sign-in of the Solution",
+    "status": "local"
+  },
+  "l1": {
+    "attempt": "not attempted",
+    "inputs": [
+      {
+        "answer": "Google Cloud, a single region inside the client's own jurisdiction",
+        "answer_source": "Default",
+        "question_id": "Q1"
+      }
+    ],
+    "missing": [
+      "region",
+      "uat"
+    ],
+    "status": "no target declared",
+    "target": null
+  },
+  "missing": [
+    "region",
+    "sso",
+    "key_store",
+    "network"
+  ],
+  "model_region": {
+    "answer": "The client's own jurisdiction, with no cross-border model calls",
+    "answer_source": "Default",
+    "question_id": "Q9",
+    "region": null
+  },
+  "model_residency": {
+    "because": [
+      "Q8",
+      "Q9"
+    ],
+    "cross_border_forbidden": true,
+    "region": null,
+    "source": "Q9 (answer_source Default)",
+    "sources": [
+      "Q8 (answer_source Default, spec/stack.yaml#client_it.deployment)",
+      "Q9 (answer_source Default, spec/stack.yaml#client_it.deployment)"
+    ]
+  }
+}
