@@ -1,0 +1,279 @@
+{
+  "tenant_id": "local",
+  "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+  "resolved_stack": {
+    "language": "Python",
+    "language_version": "3.12",
+    "agent_framework": "google-adk-python",
+    "datastore": "PostgreSQL 16+",
+    "runtime": "Docker Engine + Compose",
+    "observability": "",
+    "model_provider": "Google Gemini (Vertex AI or paid Gemini API)",
+    "source_path": "spec/stack.yaml",
+    "locator": "build"
+  },
+  "handoffs": [
+    {
+      "tenant_id": "local",
+      "component": "C1",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "e875734a28d1713ff6be12bf33e53cfcd115df48",
+      "report": {
+        "component": "C1",
+        "verdict": "built",
+        "wrote": [
+          ".gitignore",
+          ".specificity/deployment.json",
+          ".specificity/resolved-versions.json",
+          "deploy/.env.example",
+          "deploy/Dockerfile",
+          "deploy/Dockerfile.dockerignore",
+          "deploy/backup.py",
+          "deploy/compose.yaml",
+          "deploy/environment.json",
+          "deploy/infrastructure.yaml",
+          "deploy/requirements.lock",
+          "deploy/select_target.py",
+          "deploy/smoke.py",
+          "deploy/tool-versions.yaml",
+          "pyproject.toml",
+          "scripts/check_secrets.py",
+          "scripts/run_evals.py",
+          "src/solution/__init__.py",
+          "src/solution/adk_model.py",
+          "src/solution/agent_runtime.py",
+          "src/solution/api.py",
+          "src/solution/case_routes.py",
+          "src/solution/case_schema.json",
+          "src/solution/cases.py",
+          "src/solution/claude_code_pool_llm.py",
+          "src/solution/data_management.json",
+          "src/solution/db.py",
+          "src/solution/llm_config.py",
+          "src/solution/masking.py",
+          "src/solution/migrations/0001_cases.sql",
+          "src/solution/migrations/0002_state.sql",
+          "src/solution/model_residency.json",
+          "src/solution/model_routes.json",
+          "src/solution/model_routing.py",
+          "src/solution/runtime.py",
+          "src/solution/secret_bindings.json",
+          "src/solution/secret_store.py",
+          "src/solution/signin.py",
+          "src/solution/state.py",
+          "src/solution/telemetry.py",
+          "src/solution/tool_policy.json",
+          "src/solution/tool_policy.py"
+        ],
+        "did_not_write": [],
+        "gaps": [
+          "C1-4: INT_UI1 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_UI2 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_UI3 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_UI4 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_UI5 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_UI6 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_UI7 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_UI8 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-4: INT_DB1 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+          "C1-11: default stack item 'Python 3.12 + uv' (ai language, owed at PoC): the C1 pack does not install uv. The pack installs with pip and a pinned lock file. No pack file calls uv.",
+          "C1-11: default stack item 'DeepEval' (ai eval_framework, owed at PoC): the C1 pack does not install deepeval. No generated code imports it. scripts/run_evals.py runs the ADK evalsets only. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+          "C1-11: default stack item 'Docling + multimodal LLM' (ai document_ai, owed at PoC): the C1 pack does not install docling. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+          "C1-11: default stack item 'pgvector in solution Postgres' (ai vector_store, owed at PoC): the C1 pack does not install or provide it. A Postgres extension. The compose Postgres image does not load it.",
+          "C1-11: default stack item 'ADK browser use' (ai browser_use, owed at Pilot): the C1 pack does not install playwright. No generated code imports it. It needs a browser runtime in the image. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+          "C1-11: default stack item 'Microsoft Presidio' (solution pii, owed at Pilot): the C1 pack does not install presidio-analyzer, presidio-anonymizer. src/solution/masking.py masks fields with its own code. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+          "C1-11: default stack item 'pytest + pytest-asyncio' (solution software_testing, owed at Pilot): the C1 pack does not install pytest, pytest-asyncio. The pack pyproject has no test dependency. The generated CI runs `pip install .` only.",
+          "C1-11: default stack item 'Testcontainers' (solution software_testing, owed at Pilot): the C1 pack does not install testcontainers. The pack pyproject has no test dependency. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+          "C1-11: default stack item 'Playwright (UI end-to-end)' (solution software_testing, owed at Pilot): the C1 pack does not install playwright. The pack pyproject has no test dependency. It needs browser binaries. The team has deferred it until a Solution needs it.",
+          "C1-11: default stack item 'Stoplight Prism (OpenAPI mocks)' (solution software_testing, owed at Pilot): the C1 pack does not install or provide it. An npm tool. No pack file installs or runs it.",
+          "C1-11: default stack item 'Postgres queue (FOR UPDATE SKIP LOCKED)' (solution messaging, owed at Pilot): the C1 pack does not install or provide it. SQL on the solution Postgres. The pack has no queue table.",
+          "C1-11: default stack item 'Jinja2 + WeasyPrint (PDF)' (solution doc_generation, owed at Pilot): the C1 pack does not install weasyprint. No generated code imports it. WeasyPrint needs system libraries. litellm already brings Jinja2. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+          "C1-11: default stack item 'python-docx + openpyxl' (solution doc_generation, owed at Pilot): the C1 pack does not install python-docx, openpyxl. No generated code imports it.",
+          "C1-11: default stack item 'Google OIDC' (connector identity, owed at Pilot): the C1 pack does not install google-auth. No generated code imports it. signin.py does not call Google. The team has deferred it until a Solution needs it.",
+          "C1-11: default stack item 'Google Sheets' (connector case_tracking, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+          "C1-11: default stack item 'Email alerts (SMTP)' (connector alerts, owed at Pilot): the C1 pack does not install or provide it. Python standard library (smtplib). The pack has no alert sender.",
+          "C1-11: default stack item 'Slack' (connector alerts, owed at Pilot): the C1 pack does not install slack-sdk. No generated code imports it. The team has deferred it until a Solution needs it.",
+          "C1-11: default stack item 'SFTP batch (CSV, fixed-width)' (connector integration_adapter, owed at Pilot): the C1 pack does not install paramiko. No generated code imports it. The team has deferred it until a Solution needs it.",
+          "C1-11: default stack item 'Gmail API' (connector email, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+          "C1-11: default stack item 'Google Drive' (connector files, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+          "C1-11: default stack item 'WhatsApp Business Platform (Cloud API)' (connector messaging_channel, owed at Pilot): the C1 pack does not install or provide it. No WhatsApp adapter exists in the pack. It is a REST API; httpx is declared."
+        ],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        ".gitignore",
+        ".specificity/deployment.json",
+        ".specificity/resolved-versions.json",
+        "deploy/.env.example",
+        "deploy/Dockerfile",
+        "deploy/Dockerfile.dockerignore",
+        "deploy/backup.py",
+        "deploy/compose.yaml",
+        "deploy/environment.json",
+        "deploy/infrastructure.yaml",
+        "deploy/requirements.lock",
+        "deploy/select_target.py",
+        "deploy/smoke.py",
+        "deploy/tool-versions.yaml",
+        "pyproject.toml",
+        "scripts/check_secrets.py",
+        "scripts/run_evals.py",
+        "src/solution/__init__.py",
+        "src/solution/adk_model.py",
+        "src/solution/agent_runtime.py",
+        "src/solution/api.py",
+        "src/solution/case_routes.py",
+        "src/solution/case_schema.json",
+        "src/solution/cases.py",
+        "src/solution/claude_code_pool_llm.py",
+        "src/solution/data_management.json",
+        "src/solution/db.py",
+        "src/solution/llm_config.py",
+        "src/solution/masking.py",
+        "src/solution/migrations/0001_cases.sql",
+        "src/solution/migrations/0002_state.sql",
+        "src/solution/model_residency.json",
+        "src/solution/model_routes.json",
+        "src/solution/model_routing.py",
+        "src/solution/runtime.py",
+        "src/solution/secret_bindings.json",
+        "src/solution/secret_store.py",
+        "src/solution/signin.py",
+        "src/solution/state.py",
+        "src/solution/telemetry.py",
+        "src/solution/tool_policy.json",
+        "src/solution/tool_policy.py"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "de216a04877a6cce68399b02e1a4f4b1194e27767d15da479798f6cbac19cbd7",
+        "command_hash": "50326a3510fe58503a81cdd6633961a52c6f321ce81f24f4175b3dad92850190",
+        "output": "Pack integrity and Python syntax passed"
+      },
+      "review": {
+        "findings": [],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "aace25f4169c9037a21d8a9e5f74ac3e64135492c5bed0404d116322c8bb1362"
+      ],
+      "tool_versions": [],
+      "checks": []
+    },
+    {
+      "tenant_id": "local",
+      "component": "C2",
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "revision": "8aabd58f4d43ecaa23289d2188e5cfe52135bf57",
+      "report": {
+        "component": "C2",
+        "verdict": "built",
+        "wrote": [
+          ".github/CODEOWNERS",
+          ".github/branch-protection.json",
+          ".github/workflows/checks.yaml",
+          ".specificity/ide.json",
+          ".specificity/tasks.json"
+        ],
+        "did_not_write": [],
+        "gaps": [],
+        "contradictions": [],
+        "blocked_on": [],
+        "next": []
+      },
+      "changed_files": [
+        ".github/CODEOWNERS",
+        ".github/branch-protection.json",
+        ".github/workflows/checks.yaml",
+        ".specificity/ide.json",
+        ".specificity/tasks.json"
+      ],
+      "verification": {
+        "tenant_id": "local",
+        "outcome": "passed",
+        "version": "1",
+        "input_hash": "ca178c380141a006d13b112e158855dc4320e95056e0b265a1f0b0d79edd3624",
+        "command_hash": "0ad3a55f5d2725f285ad68b535ba620601b4d8550f99141b5a94206133506127",
+        "output": "Pack integrity and Python syntax passed"
+      },
+      "review": {
+        "findings": [],
+        "blocking_severities": [
+          "critical",
+          "high"
+        ]
+      },
+      "effect_ids": [
+        "947bd5a89335af2001f882f8a253f024af6363a9a7dc29a918b1bf0862d77132"
+      ],
+      "tool_versions": [],
+      "checks": []
+    }
+  ],
+  "promotion_blockers": [
+    {
+      "code": "MOCK_INTEGRATION",
+      "classification": "blocks_promotion",
+      "sources": [
+        "TOOL_01",
+        "TOOL_02",
+        "TOOL_03"
+      ],
+      "message": "A stub or mock stands in for a tool. Replace it before promotion (C3-18).",
+      "affects": [],
+      "refuses": [],
+      "package_defect": false,
+      "owner": ""
+    },
+    {
+      "code": "L1_TARGET_MISSING",
+      "classification": "blocks_promotion",
+      "sources": [
+        "Q1 (answer_source Default)"
+      ],
+      "message": "L1 has no target: no region and no UAT address.",
+      "affects": [
+        "C1"
+      ],
+      "refuses": [],
+      "package_defect": false,
+      "owner": ""
+    },
+    {
+      "code": "MODEL_RESIDENCY_PROVIDER",
+      "classification": "blocks_promotion",
+      "sources": [
+        "Q8 (answer_source Default, spec/stack.yaml#client_it.deployment)",
+        "Q9 (answer_source Default, spec/stack.yaml#client_it.deployment)"
+      ],
+      "message": "Q8 and Q9 forbid a cross-border model call, but no client answer to Q9 names a Google Cloud region id. Only Vertex with a region inside the jurisdiction keeps the call in the country. The builder chooses no region. Client IT answers Q9 with a Google Cloud region id, or allows the call.",
+      "affects": [
+        "C1"
+      ],
+      "refuses": [],
+      "package_defect": false,
+      "owner": ""
+    },
+    {
+      "code": "RUNG_BELOW_MVP",
+      "classification": "blocks_promotion",
+      "sources": [
+        "spec/profile.yaml#solution_stage"
+      ],
+      "message": "The Precord is at Pilot. Promotion to L2 needs an MVP Precord (OD-13).",
+      "affects": [],
+      "refuses": [],
+      "package_defect": false,
+      "owner": ""
+    }
+  ],
+  "deployment": "user_owned",
+  "solution_dir": ""
+}
