@@ -1,0 +1,4171 @@
+{
+  "assumptions": [
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "APPROVING_DECISION_ASSUMED",
+      "message": "CHK_01: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Confirm and proceed', approves. It moves the case on; the other decisions do not.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "spec/checkpoints.yaml#CHK_01.decisions"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "APPROVING_DECISION_ASSUMED",
+      "message": "CHK_02: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Approve agent', approves. It releases a write and moves the case on; the other decisions do not.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "spec/checkpoints.yaml#CHK_02.decisions"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "OPEN_ITEM_RESOLUTION_UNREVIEWED",
+      "message": "50 open-item resolutions in handover/open_item_resolutions.csv are in force with review_status pending. The default was chosen without a person, and the build uses it. The Precord owner reviews each one and sets review_status.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "HR-306:INT_API1",
+        "HR-306:INT_DB1",
+        "HR-306:INT_UI1",
+        "HR-306:INT_UI2",
+        "HR-306:INT_UI3",
+        "HR-306:INT_UI4",
+        "HR-306:INT_UI5",
+        "HR-306:INT_UI6",
+        "HR-306:INT_UI7",
+        "HR-306:INT_UI8",
+        "gap:01a16805e7307f5fac46b3055d82d094",
+        "gap:01a16805e7327381a3036e531f70fc34",
+        "gap:01a16827ee307cd381f92a6f47f5acec",
+        "gap:01a16827ee317eca86fbe5f008f56333",
+        "gap:01a16827ee3170faacea233c2d72091b",
+        "gap:01a16827ee31717f8ce8efacb821413c",
+        "gap:01a16827ee3275ceac97da9099c1f840",
+        "gap:01a16827ee3377488f1b65681e9f609c",
+        "gap:01a16831a7c47f378d4e27e13d4528d3",
+        "gap:01a16831a7c57f64824bc4be1bb890ad",
+        "gap:01a16831a7c67bfd9b2df8827ddaca28",
+        "gap:01a16831a7c774778de0301cb31d916d",
+        "gap:01a16831a7c7787ca9f859ea8a634ec5",
+        "gap:01a16831d51a71138085991efaa5ee6b",
+        "gap:01a16831d51b71c98acbded9b8ae766a",
+        "gap:01a16831d51d7893b12314ca4fc6f52f",
+        "gap:01a16831d51d78f8be0929c0a1cddf9d",
+        "gap:01a16831d51e788e898bddcf3878d709",
+        "gap:01a16831d51e7c05bfc4e52b445b0fe8",
+        "gap:01a16831d51f7d2ca0b81a5872465aa9",
+        "gap:01a16831d51f7a239776edc4288a2854",
+        "gap:01a168321d197705b7ed08ded84e3c27",
+        "gap:01a168321d1a7d3dab30db74dd304ddd",
+        "gap:01a168321d1b79a9a5f45e64a032abfc",
+        "gap:01a168321d1c7663ae1232fe4b5d0be3",
+        "gap:01a168321d1c7c9683fe1edba92a4576",
+        "gap:01a168321d1d7e6d91d8db4a41f9dcd5",
+        "gap:01a168321d1e7f67829abd907ecc9108",
+        "gap:01a168321d1e77bb9100dcc32ff4b3c1",
+        "gap:01a168321d1e73a2977588f29dca00a2",
+        "gap:01a168321d1f75f386b23a7f07c49ce3",
+        "gap:01a168321d1f77a1a0241ff990883afe",
+        "gap:01a168321d2077c4b10bbea1ab3b18e7",
+        "gap:01a168321d207c37b099bed0c8f99bcc",
+        "gap:01a168321d21768f894fa26d7cc29a71",
+        "gap:01a168321d217f2382bd69c13be1b2fc",
+        "gap:01a168321d21746ebf9cbcc051dd646a",
+        "gap:01a168389e1571fc95f97459e0bd9191",
+        "gap:01a168389e15733b9b9a0822ac119242",
+        "gap:01a168389e16793fa7efd2b3aed1fee1"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "OPEN_ITEM_DEFAULT",
+      "message": "These open items have no answer. The build uses each item's default_assumption and writes it down where it is used.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "HR-201:BLK_01:TOOL_01",
+        "HR-201:BLK_01:TOOL_02",
+        "HR-201:BLK_02:TOOL_03",
+        "HR-306:INT_API1",
+        "HR-306:INT_DB1",
+        "HR-306:INT_UI1",
+        "HR-306:INT_UI2",
+        "HR-306:INT_UI3",
+        "HR-306:INT_UI4",
+        "HR-306:INT_UI5",
+        "HR-306:INT_UI6",
+        "HR-306:INT_UI7",
+        "HR-306:INT_UI8"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "STACK_KEY_BLANK",
+      "message": "The confirmed stack has no observability at Pilot. The platform default applies.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "spec/stack.yaml#build.observability"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "USER_OWNED_DEPLOYMENT",
+      "message": "Client IT did not choose. The answers to Q1, Q8, Q9 have answer_source Default: they are platform defaults, not client answers. The user selects the deployment target. The build is L0 only.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "Q1",
+        "Q8",
+        "Q9"
+      ]
+    },
+    {
+      "affects": [
+        "C3"
+      ],
+      "classification": "assumption",
+      "code": "PERSON_STEP_CLAIMED",
+      "message": "Step S6 is person-owned or not automated, and the Precord also gives it to an agent (BLK_02 action ACT_06; BLK_02 serves_steps; CHK_02 resume_action_id ACT_06; integration_map INT_UI6; orchestration ownership BLK_02; rule BR-ACT_06 (no agent enforces it)). The builder keeps the person as owner and does not automate the step. The builder removes the actions and integrations of that step from the agent checks, bindings and context. Module 1 must settle the conflict.",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "S6"
+      ]
+    },
+    {
+      "affects": [],
+      "classification": "assumption",
+      "code": "SCHEMA_CHECK_SKIPPED",
+      "message": "The package ships no standard/schemas/, so the builder did not validate the files against schemas (RD-5). It trusts the close gate in manifest.gate instead (D-11).",
+      "owner": "",
+      "package_defect": false,
+      "refuses": [],
+      "sources": [
+        "standard/schemas/"
+      ]
+    }
+  ],
+  "build_id": "9a901e7d57fc4e26b53500e3b897a1d0",
+  "components": [
+    {
+      "component": "C1",
+      "diagnosis": "",
+      "gaps": [
+        "C1-4: INT_UI1 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI2 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI3 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI4 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI5 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI6 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI7 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_UI8 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-4: INT_DB1 has no auth_ref in spec/integration_map.yaml. Name its credential in the Precord. The builder binds no credential that the Precord does not name.",
+        "C1-11: default stack item 'Python 3.12 + uv' (ai language, owed at PoC): the C1 pack does not install uv. The pack installs with pip and a pinned lock file. No pack file calls uv.",
+        "C1-11: default stack item 'DeepEval' (ai eval_framework, owed at PoC): the C1 pack does not install deepeval. No generated code imports it. scripts/run_evals.py runs the ADK evalsets only. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'Docling + multimodal LLM' (ai document_ai, owed at PoC): the C1 pack does not install docling. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'pgvector in solution Postgres' (ai vector_store, owed at PoC): the C1 pack does not install or provide it. A Postgres extension. The compose Postgres image does not load it.",
+        "C1-11: default stack item 'ADK browser use' (ai browser_use, owed at Pilot): the C1 pack does not install playwright. No generated code imports it. It needs a browser runtime in the image. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'Microsoft Presidio' (solution pii, owed at Pilot): the C1 pack does not install presidio-analyzer, presidio-anonymizer. src/solution/masking.py masks fields with its own code. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'pytest + pytest-asyncio' (solution software_testing, owed at Pilot): the C1 pack does not install pytest, pytest-asyncio. The pack pyproject has no test dependency. The generated CI runs `pip install .` only.",
+        "C1-11: default stack item 'Testcontainers' (solution software_testing, owed at Pilot): the C1 pack does not install testcontainers. The pack pyproject has no test dependency. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'Playwright (UI end-to-end)' (solution software_testing, owed at Pilot): the C1 pack does not install playwright. The pack pyproject has no test dependency. It needs browser binaries. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Stoplight Prism (OpenAPI mocks)' (solution software_testing, owed at Pilot): the C1 pack does not install or provide it. An npm tool. No pack file installs or runs it.",
+        "C1-11: default stack item 'Postgres queue (FOR UPDATE SKIP LOCKED)' (solution messaging, owed at Pilot): the C1 pack does not install or provide it. SQL on the solution Postgres. The pack has no queue table.",
+        "C1-11: default stack item 'Jinja2 + WeasyPrint (PDF)' (solution doc_generation, owed at Pilot): the C1 pack does not install weasyprint. No generated code imports it. WeasyPrint needs system libraries. litellm already brings Jinja2. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "C1-11: default stack item 'python-docx + openpyxl' (solution doc_generation, owed at Pilot): the C1 pack does not install python-docx, openpyxl. No generated code imports it.",
+        "C1-11: default stack item 'Google OIDC' (connector identity, owed at Pilot): the C1 pack does not install google-auth. No generated code imports it. signin.py does not call Google. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Google Sheets' (connector case_tracking, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Email alerts (SMTP)' (connector alerts, owed at Pilot): the C1 pack does not install or provide it. Python standard library (smtplib). The pack has no alert sender.",
+        "C1-11: default stack item 'Slack' (connector alerts, owed at Pilot): the C1 pack does not install slack-sdk. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'SFTP batch (CSV, fixed-width)' (connector integration_adapter, owed at Pilot): the C1 pack does not install paramiko. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Gmail API' (connector email, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'Google Drive' (connector files, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "C1-11: default stack item 'WhatsApp Business Platform (Cloud API)' (connector messaging_channel, owed at Pilot): the C1 pack does not install or provide it. No WhatsApp adapter exists in the pack. It is a REST API; httpx is declared."
+      ],
+      "merge_state": "unknown",
+      "merged": true,
+      "merged_pull_request": "",
+      "pull_request": "",
+      "revision": "24b526e6849f6fa59b8218760c0e90f43315c0b1",
+      "status": "degraded"
+    },
+    {
+      "component": "C2",
+      "diagnosis": "",
+      "gaps": [],
+      "merge_state": "unknown",
+      "merged": true,
+      "merged_pull_request": "",
+      "pull_request": "",
+      "revision": "6f28568ca2a7b5cfec14fe31da3b450f5224f98a",
+      "status": "built"
+    },
+    {
+      "component": "C3",
+      "diagnosis": "",
+      "gaps": [
+        "ACT_03 reads Name, Gender, Date of Birth, Address and Pincode through TOOL_01. INT_UI3 also maps Marital Status, City and State, and the Precord does not say which one is authoritative for S3",
+        "ACT_04 on_success names ACT_05, which belongs to BLK_02. run_case stops after ACT_04 and returns next=ACT_05; the orchestrator owns the hand-off and the CHK_01 checkpoint.",
+        "AUDIT_EVENTS: agents.yaml declares no audit_events for BLK_01.1. AUDIT_EVENTS is the empty tuple, so the sub-agent emits no event of its own. The parent BLK_01 declares agent.decision, tool.call and step.completed.",
+        "Auth not checked: EP-01, EP-02, EP-03 and EP-04 declare 'OAuth2 client credentials' and EP-06 declares 'HMAC signature'. No identity provider or signing secret is configured.",
+        "BLK_01.2 owns no action, exception or interaction in agents.yaml. ACT_04 (Resolve IFSC and Verify Bank Details) and BR-ACT_04 belong to the parent BLK_01, so ACTIONS, EXCEPTIONS and INTERACTIONS are empty and run_case completes with no action.",
+        "BLK_02 ACT_07 also lists TOOL_01, not TOOL_03. Only ACT_05 names TOOL_03, so the stub's contract covers ACT_05 alone.",
+        "BR-ACT_01 (unique mobile, valid email format), BR-ACT_03 (pincode matches state) and BR-ACT_04 (IFSC format and bank verification) are not enforced in the stub. The default_assumption covers only stubbing, and the rules give no parameters such as an IFSC pattern or a pincode-to-state table.",
+        "BR-ACT_03 ('Pincode and state match') gives no reference table for pincode-to-state, so this integration cannot enforce it (RULE_PARAMETER_MISSING)",
+        "BR-ACT_05 ('File extension permitted; File size within limits') gives no permitted extension list and no size limit (RULE_PARAMETER_MISSING). The stub does not check either one, and the rule cannot be enforced until Module 1 supplies both values.",
+        "BR-ACT_05 gives no permitted extension list and no file size limit (RULE_PARAMETER_MISSING). PERMITTED_EXTENSIONS is empty and MAX_FILE_SIZE_BYTES is None, so the enforcer checks only that the file name is readable, has an extension, and has a positive size.",
+        "BR-ACT_07 'Required verification checks completed' does not name the checks. The enforcer requires KYC Verification Results and Uploaded Documents to be on the case.",
+        "Both checkpoints have an empty shown[] and empty reason_codes. The orchestrator gives only the checkpoint IDs (pauses_at). The review fields and reason codes are still missing from the Precord.",
+        "C3-1a: BLK_01 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+        "C3-1a: BLK_01.1 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+        "C3-1a: BLK_01.2 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+        "C3-1a: BLK_02 harness concepts H-03, H-07, H-10, H-16, H-19, H-21 are recorded as declared text; no check runs them",
+        "C3-24: BLK_01 composes sub-agents; the orchestration graph was not executed end to end",
+        "C3-24: BLK_01 was not run against a model; the model run and its quality belong to C4",
+        "C3-24: BLK_01.1 was not run against a model; the model run and its quality belong to C4",
+        "C3-24: BLK_01.2 was not run against a model; the model run and its quality belong to C4",
+        "C3-24: BLK_02 was not run against a model; the model run and its quality belong to C4",
+        "C3-25: BLK_01 reads and writes of an action are field labels, not case keys; no check observes the fields that an action touches",
+        "C3-25: BLK_02 reads and writes of an action are field labels, not case keys; no check observes the fields that an action touches",
+        "C3-26: BLK_01 sensitive_data_policy of an interaction is text; no check observes a message",
+        "C3-26: BLK_02 sensitive_data_policy of an interaction is text; no check observes a message",
+        "C3-2: sub-agent BLK_01.1 names tools ['TOOL_01', 'TOOL_02'] that are not declared tool IDs; the Precord must name each tool by its tool_id",
+        "C3-2: sub-agent BLK_01.2 names tools ['TOOL_01'] that are not declared tool IDs; the Precord must name each tool by its tool_id",
+        "C3-7: BLK_01 failure_behaviour names no exact target; the route is unverified",
+        "C3-7: BLK_02 failure_behaviour names no exact target; the route is unverified",
+        "CHK_01 shown[] and reason_codes are empty (V3_EMPTY_SHOWN / CHECKPOINT_REASON_CODES_MISSING).",
+        "CHK_01 shown[] and reason_codes are empty (the checkpoint is owned by the parent).",
+        "CHK_02 declares an empty shown[] and no reason_codes (V3_EMPTY_SHOWN, CHECKPOINT_REASON_CODES_MISSING).",
+        "CHK_02 resume_action_id is ACT_06 (Consent and Declaration, S6). S6 is person-owned and in the not-automated register, so no agent resumes at ACT_06. The orchestrator does not model that resume, and Module 1 needs to settle it.",
+        "CONFIDENCE_THRESHOLD_MISSING: H-12 per-field extraction score has no declared threshold.",
+        "Deviation: ADK has no model fallback (fallback_model gemini-1.5-flash) and no per-case token or latency budget (4096 tokens, 30000 ms). These are declared as constants only.",
+        "Deviation: H-03, H-04 and H-19 (multimodal / OCR-IDP / document) are not implementable on the parent composition. The parent holds no model; the leaf sub-agents own them.",
+        "EMPTY_SCHEMA / INBOUND_CONTRACT_MISSING: BLK_01.in and BLK_01.out schemas have no properties, so the agent answer is the empty object and output_schema is an empty pydantic model.",
+        "EP-01 (POST /v1/cases): no Precord file gives a request or response schema. case.schema.json and BLK_01.in.schema.json are empty (INBOUND_CONTRACT_MISSING), so the body is checked only for being a JSON object.",
+        "EP-02 (GET /v1/cases/{case_id}/status): no response schema and no status enum are declared (STATUS_ENUM_MISSING). The handler returns the case fields and invents no status value.",
+        "EP-03 (GET /v1/hil/tasks): no response schema is declared. sla_due stays blank because no SLA clock start is declared.",
+        "EP-04 (POST /v1/hil/tasks/{task_id}/decision): no request schema is declared beyond request_example. The action is checked against checkpoints.yaml decisions[].action. Note that the example's action 'approve' is not one of the declared decisions.",
+        "EP-06 (POST /v1/callbacks/sys-a1): no Precord file gives a request or response schema. Only request_example {case_id, status} exists.",
+        "EP-06 callback status has no case-schema field, so it is stored in StateStore('case_callbacks') and not as a case field.",
+        "Edge outcomes use the values 'done' and 'agent_tool'. The Precord declares no outcome for an exception or a checkpoint rejection (for example CHK_02 'Reject' or EXC_01/EXC_02 escalation), so next_agent returns None for those outcomes.",
+        "FEW_SHOT_EMPTY: H-16 says Few-shot examples, but few_shot is empty and there is no eval case with split example.",
+        "Fallback model gemini-1.5-flash and the budgets (max_latency_ms 30000, max_tokens_per_case 4096) have no ADK mechanism. Recorded as deviations, not implemented.",
+        "Glossary is empty. The canonical names come from the prompt's domain-pack table and the tool action fields.",
+        "H-12 'Per-field extraction score' declares no confidence threshold (CONFIDENCE_THRESHOLD_MISSING). No threshold was set.",
+        "H-12 Per-field extraction score: no confidence threshold is declared (CONFIDENCE_THRESHOLD_MISSING).",
+        "H-12 per-field extraction score has no declared confidence threshold (CONFIDENCE_THRESHOLD_MISSING).",
+        "H-15 latency target (30 s) and the 4096-token budget: ADK has no per-case budget, so the deviation is recorded and nothing is hand-built. H-14 fallback_model gemini-1.5-flash is declared for the parent only, and ADK has no model fallback.",
+        "H-16 Few-shot examples: few_shot is empty and no eval cases are supplied (FEW_SHOT_EMPTY).",
+        "H-16 few-shot is declared but few_shot is empty (FEW_SHOT_EMPTY). FEW_SHOT = [].",
+        "HARNESS lists the 17 concepts owed at Pilot. H-11 and H-18 are Not applicable. H-17 and H-20 are owed at MVP, so they are out of scope.",
+        "INPUT_SCHEMA and OUTPUT_SCHEMA (BLK_01.in/out) have no properties (INBOUND_CONTRACT_MISSING / EMPTY_SCHEMA). The structured output model has no fields, and no sub-agent schema or prompt file exists for BLK_01.1 (SUB_AGENT_NO_CONTRACT).",
+        "INT_01 declares no delivery integration. notify() builds the masked message and uses the fallback only when a send callable is supplied.",
+        "INT_API1 'payload_pending' is a placeholder core field: the Precord states no request or response payload for EP-05 PUT /adapter/sys-a1/int-api1/{id}.",
+        "INT_API1 auth_ref is blank while EP-05 declares auth 'mTLS': no secret binding names the client certificate, so the adapter cannot be configured (PRECORD_UNRESOLVED_AUTH_REFERENCE).",
+        "INT_API1 field_mapping: core_field 'payload_pending' has an empty case_field; the case schema (schemas/case.schema.json) declares no properties, so no case field can be bound.",
+        "INT_API1 interaction is 'async callback' but the Precord does not state how the callback links to this adapter call (EP-06 /v1/callbacks/sys-a1 is inbound and served by the inbound Unit, not here).",
+        "INT_API1 mapped.agents is empty: no agent in the Precord serves this row, so nothing invokes the adapter.",
+        "INT_DB1 EP-07: auth is 'Not stated' and auth_ref is empty. No credential binding is declared, so the module reads no credential.",
+        "INT_DB1: mapped.agents is empty. No agent in the Precord serves this row (record lookup), so nothing invokes this module.",
+        "INT_DB1: mapped.endpoint is null, so the module copies ENDPOINT as None. No connection target is stated.",
+        "INT_DB1: the Precord gives no tools.yaml entry for this row, so no tool contract states the timeout, retry or idempotency beyond EP-07's own values.",
+        "INT_DB1: the field_mapping has one row and its case_field is empty, so 'record schema' maps to no case field. The case schema has no properties, and 'record schema' is a placeholder rather than a named core field.",
+        "INT_DB1: the row is kind 'tool' with status 'existing', but open item HR-306:INT_DB1 says the system is 'not available' and accepts the default 'Mock the endpoint until it exists'. As instructed, the row decides: KIND='tool', IS_MOCK=False, and invoke raises SystemNotConfigured. The module is not a mock seeded from sample data. sample_data is empty anyway.",
+        "INT_UI1 auth_ref is blank: no credential binding is declared for SYS_A1's 'Create an Agent or Account screen'",
+        "INT_UI1 field_mapping: case_field is empty for core_field 'Application record draft'",
+        "INT_UI1 field_mapping: case_field is empty for core_field 'Email'",
+        "INT_UI1 field_mapping: case_field is empty for core_field 'Full Name'; the case schema has no properties to map it to",
+        "INT_UI1 field_mapping: case_field is empty for core_field 'Mobile Number'",
+        "INT_UI1 field_mapping: case_field is empty for core_field 'RM Business Code'",
+        "INT_UI1 field_mapping: case_field is empty for core_field 'Validation error status'",
+        "INT_UI2 endpoint is a screen name ('User Verification screen') with no URL, auth_ref or credential binding; the Precord has no connection facts",
+        "INT_UI2 field 'Aadhaar Number' has an empty case_field; no case-schema property to map it to",
+        "INT_UI2 field 'CKYC Number' has an empty case_field; no case-schema property to map it to",
+        "INT_UI2 field 'External KYC service response' has an empty case_field; no case-schema property to map it to",
+        "INT_UI2 field 'KYC verification status' has an empty case_field; no case-schema property to map it to",
+        "INT_UI2 field 'PAN Number' has an empty case_field; the case schema (schemas/case.schema.json) declares no properties to map it to",
+        "INT_UI2 field 'System retry queue entry' has an empty case_field; no case-schema property to map it to",
+        "INT_UI2 is an existing SYS_A1 screen reached by browser use (mode rpa, kind tool), but tools.yaml has no entry for it, so invoke raises SystemNotConfiguredError and S2 (ACT_02) cannot reach SYS_A1 through this module",
+        "INT_UI3 field_mapping: case_field is blank for 'Address'",
+        "INT_UI3 field_mapping: case_field is blank for 'City'",
+        "INT_UI3 field_mapping: case_field is blank for 'Date of Birth'",
+        "INT_UI3 field_mapping: case_field is blank for 'Gender'",
+        "INT_UI3 field_mapping: case_field is blank for 'Marital Status'",
+        "INT_UI3 field_mapping: case_field is blank for 'Name'; there is no case-schema property to map it to (case.schema.json has no properties)",
+        "INT_UI3 field_mapping: case_field is blank for 'Pincode'",
+        "INT_UI3 field_mapping: case_field is blank for 'State'",
+        "INT_UI3 has no endpoints and no auth_ref, so there is no declared call contract (method, path, auth, timeout, idempotency) for the Profile Details Entry screen",
+        "INT_UI4 auth_ref is blank; no credential binding is declared for SYS_A1",
+        "INT_UI4 field_mapping: case_field is empty for all 8 core fields (Account Type, Name As In Bank Account, Bank Account Number, IFSC Code, Bank Name, Bank City, Branch Name, Bank verification submission payload); case.schema.json has no properties to map them to",
+        "INT_UI5 auth_ref is blank, so no credential binding is declared for SYS_A1's Document Upload screen",
+        "INT_UI5 field_mapping: case_field is blank for 'Aadhaar Back'",
+        "INT_UI5 field_mapping: case_field is blank for 'Aadhaar Front'",
+        "INT_UI5 field_mapping: case_field is blank for 'Bank Proof'",
+        "INT_UI5 field_mapping: case_field is blank for 'Categorized document records'",
+        "INT_UI5 field_mapping: case_field is blank for 'Cropped image assets'",
+        "INT_UI5 field_mapping: case_field is blank for 'Education Document'",
+        "INT_UI5 field_mapping: case_field is blank for 'PAN Card'",
+        "INT_UI5 field_mapping: case_field is blank for 'Profile Photo' (integration_map.yaml INT_UI5)",
+        "INT_UI5 field_mapping: case_field is blank for 'Validation status flags'",
+        "INT_UI5 has mechanism 'Browser use' (mode rpa), but tools.yaml is empty and declares no browser path. invoke() raises SystemNotConfigured, so the integration cannot run in the build",
+        "INT_UI6 field_mapping: case_field is empty for 'Consent date'",
+        "INT_UI6 field_mapping: case_field is empty for 'Declaration PDF'",
+        "INT_UI6 field_mapping: case_field is empty for 'Declaration checkbox'",
+        "INT_UI6 field_mapping: case_field is empty for 'Terms reviewed flag'",
+        "INT_UI6: mapped.agents is empty, so no agent serves this row",
+        "INT_UI6: open item HR-306:INT_UI6 accepted the default 'Mock the endpoint until it exists', but the integration_map row says kind=tool and mode=rpa. The row was followed (IS_MOCK=False), and invoke() raises IntegrationNotConfiguredError",
+        "INT_UI6: spec/tools.yaml is empty while the integration map lists SYS_A1 as an existing system (TOOLS_EMPTY_INTEGRATIONS_EXISTING). No browser tool was declared, so none was built",
+        "INT_UI6: the row has auth_ref blank and adapter null. No credential binding is declared for SYS_A1 at this screen",
+        "INT_UI7 (mechanism Browser use, mode rpa) has no tools.yaml entry and tools.yaml declares no browser path. No browser path was built (BROWSER_USE_UNDECLARED), so invoke raises SystemNotConfiguredError",
+        "INT_UI7 field 'Agent Type' has an empty case_field",
+        "INT_UI7 field 'Application Status' has an empty case_field; case.schema.json has no properties to map it to",
+        "INT_UI7 field 'Application approval state transitions' has an empty case_field",
+        "INT_UI7 field 'Discrepancy lists' has an empty case_field",
+        "INT_UI7 field 'KYC Verification Results' has an empty case_field",
+        "INT_UI7 field 'Reviewer remark drafts' has an empty case_field",
+        "INT_UI7 field 'Uploaded Documents' has an empty case_field",
+        "INT_UI7 has an empty mapped.endpoints, so OUTBOUND_ENDPOINTS is not defined and no outbound call contract exists",
+        "INT_UI7 has no auth_ref, so no credential binding is declared for SYS_A1",
+        "INT_UI8 auth_ref is blank; the credential binding for SYS_A1 at this screen is not stated.",
+        "INT_UI8 field_mapping 'Active agent code' has an empty case_field; the case schema has no properties to map it to.",
+        "INT_UI8 field_mapping 'Certification status' has an empty case_field; the case schema has no properties to map it to.",
+        "INT_UI8 field_mapping 'Training Status' has an empty case_field; the case schema has no properties to map it to.",
+        "MODEL_RESIDENCY_PROVIDER: the Solution's residency facts forbid a cross-border call, and deploy/environment.json has no model_region. make_agent() raises LlmConfigError until client IT answers Q9 with a Google Cloud region and the provider is Vertex.",
+        "Model residency: resolve_adk_model refuses because residency forbids cross-border calls and deploy/environment.json has no Vertex model_region (Q9 unanswered). make_agent cannot build a live model until client IT names a region (MODEL_RESIDENCY_PROVIDER).",
+        "Module is a client-system tool that is not configured; it blocks promotion past L1 mocks until client IT declares the tool",
+        "No agent in mapped.agents serves INT_UI8 (agents list is empty); S8 is person-owned and in the not-automated register (EX_02).",
+        "OUTPUT_SCHEMA and INPUT_SCHEMA (BLK_01.in/out.schema.json) and case.schema.json declare no properties (INBOUND_CONTRACT_MISSING / EMPTY_SCHEMA). The action writes are therefore not part of the output schema, so the model instruction lists no output field and the ADK output_schema has no fields.",
+        "Open item HR-306:INT_UI1 (status approved, answer 'Default accepted: Mock the endpoint until it exists') conflicts with integration_map row INT_UI1 (kind 'tool', status 'existing', mode 'rpa'). The module follows the row: KIND='tool', IS_MOCK=False, and invoke() raises SystemNotConfiguredError instead of returning mock data",
+        "Open item HR-306:INT_UI5 ('screen scrape', default 'Mock the endpoint until it exists', status approved) conflicts with the integration_map row (kind tool, status existing). I followed the row: KIND=tool and IS_MOCK=False. No mock was built",
+        "Open item HR-306:INT_UI8 (status approved, answer 'Default accepted: Mock the endpoint until it exists') conflicts with the row kind 'tool'; the row decides, so the module is a non-mock tool whose invoke() raises SystemNotConfigured. The default assumption was not applied.",
+        "Open items HR-201:BLK_01:TOOL_01 and HR-201:BLK_01:TOOL_02 are open and unanswered. TOOL_01 and TOOL_02 are labelled mocks (default assumption: stub on sample data). They block promotion.",
+        "RULE_PARAMETER_MISSING: BR-ACT_01 (email format), BR-ACT_03 (pincode/state match) and BR-ACT_04 (IFSC format) give no pattern or reference table. The module assumes an email has an @ and a domain dot, a PIN code is 6 digits that do not start with 0, and an IFSC matches the RBI format ^[A-Z]{4}0[A-Z0-9]{6}$. No pincode-to-state reference is shipped, so a state mismatch can be proven only when one is supplied.",
+        "Rate limits (20/50/100 req/s) and timeouts (2 s / 5 s) are copied into ENDPOINTS but not enforced in this module.",
+        "Request and response fields use the action labels from agent_block_actions@row:2 ('PAN Number', 'Aadhaar Number', 'CKYC Number' -> 'KYC verification status'). The case schema has no property names for them.",
+        "Rule BR-ACT_04 ('IFSC format valid') names a format but gives no pattern (RULE_PARAMETER_MISSING); not enforced in this module",
+        "STATUS_ENUM_MISSING: no KYC or bank verification status enum is declared. The module accepts only the completion-condition text 'Bank details verified' for BR-ACT_04, and only an explicit queued flag for the 'queued' branch of BR-ACT_02.",
+        "SUB_AGENT_NO_CONTRACT: BLK_01.2 has no prompts/ file and no schemas/ file of its own; the instruction is written from its purpose and the BLK_01 prompt frame.",
+        "Solution limit: INT_UI1 cannot be invoked in this build. Every call raises SystemNotConfiguredError until client IT declares a tool for it in tools.yaml",
+        "Sub-agents BLK_01.1 and BLK_01.2 have no prompt file and no schema file (SUB_AGENT_NO_CONTRACT).",
+        "TOOL_01 and TOOL_02 are labelled mocks under open items HR-201:BLK_01:TOOL_01 and HR-201:BLK_01:TOOL_02 (status open, default 'Stub the tool on sample data until it exists'). They block promotion.",
+        "TOOL_01 is a labelled stub (open item HR-201:BLK_01:TOOL_01, open with an empty answer) and blocks promotion.",
+        "TOOL_01 is a mock (IS_MOCK=True, ENDPOINT='__MOCK__') and blocks promotion until a tools.yaml entry exists for it.",
+        "TOOL_02 has no tools.yaml entry: no timeout_s, retry policy, auth reference or real endpoint. EXC_02 (service unavailable / 503) cannot be simulated because no sample row describes it.",
+        "TOOL_03 has no spec/tools.yaml entry, so no kind (read/write), timeout_s, retry policy, idempotency key or recovery action is declared. The stub sets no write scope and implements no retry.",
+        "TOOL_03 is a labelled mock (open item HR-201:BLK_02:TOOL_03, status open, no answer; default 'Stub the tool on sample data until it exists'). It blocks promotion.",
+        "The KYC verification status enum is not declared (case.schema.json and BLK_01.out.schema.json are empty), so the stub can return no status values. None were invented.",
+        "The Precord does not say how a TOOL_01 caller picks between ACT_01, ACT_03 and ACT_04. The stub reads the declared action_id from payload['action_id'] to pick one.",
+        "The Precord gives no field types or formats for the TOOL_01 reads and writes (for example the IFSC format or the Application record draft structure), and the case, BLK_01 input and BLK_01 output schemas are all empty. The stub uses the action labels as field names and does not validate them.",
+        "The agent input and output schemas and case.schema.json are empty (EMPTY_SCHEMA). The orchestrator passes the case through as is.",
+        "The glossary is empty (GLOSSARY_EMPTY). Case fields use the action reads/writes labels from agent_block_actions.",
+        "agent_version is owed from MVP. AGENT_VERSION is an empty string at Pilot.",
+        "agents.yaml declares no actions, serves_steps, exceptions or interactions for BLK_01.1. ACTIONS, EXCEPTIONS and INTERACTIONS are empty, and allowed_step returns False for every step. The parent BLK_01 owns ACT_01 to ACT_04, EXC_01, EXC_02 and INT_01.",
+        "agents.yaml declares no audit_events for BLK_01.2; AUDIT_EVENTS is the empty tuple, and run_case and the tool_01 wrapper emit only declared events. The parent BLK_01 emits agent.decision, tool.call and step.completed.",
+        "agents.yaml declares no model, temperature, timeout_s, max_retries, autonomy or max_output_tokens for BLK_01.1. The parent BLK_01 values are used (gemini-2.5-flash, 0.0, 30, 3, act_with_review, 1024).",
+        "agents.yaml declares no model, temperature, timeout_s, max_retries, autonomy, failure_behaviour, max_output_tokens, serves_steps, prompt or schema for BLK_01.2. The parent BLK_01 values are used as assumptions: gemini-2.5-flash, 0.0, 30, 3, act_with_review, 1024, S1-S4, and the BLK_01 in/out schemas.",
+        "agents.yaml few_shot is empty while H-16 requires few-shot examples (FEW_SHOT_EMPTY). context sample_data is empty.",
+        "budgets max_latency_ms 30000 / max_tokens_per_case 4096: ADK has no per-case budget. The values are recorded only, as a deviation.",
+        "case.schema.json has no properties, so the INT_UI6 core fields cannot be bound to canonical case field names",
+        "check A11 failed for agent-BLK_01: code has no hand-written retry, routing, scheduling, or tracing (syntax tree) (line 620: a loop that retries or waits)",
+        "check A11 failed for agent-BLK_01_1-fed3cbb0: code has no hand-written retry, routing, scheduling, or tracing (syntax tree) (line 318: a loop that retries or waits)",
+        "check A11 failed for agent-BLK_01_2-fba1eff4: code has no hand-written retry, routing, scheduling, or tracing (syntax tree) (line 370: a loop that retries or waits)",
+        "check A11 failed for agent-BLK_02: code has no hand-written retry, routing, scheduling, or tracing (syntax tree) (line 528: a loop that retries or waits; line 577: a loop that retries or waits)",
+        "check C3-7 failed for agent-BLK_01: handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)",
+        "check C3-7 failed for agent-BLK_02: handle_failure routes the case to the declared target (unverified: the declared failure_behaviour names no exact target, so no route was verified)",
+        "check C3-8 failed for agent-BLK_01: the agent module does no arithmetic; deterministic code does it (line 511: arithmetic on values)",
+        "check C3-8 failed for agent-BLK_01_2-fba1eff4: the agent module does no arithmetic; deterministic code does it (line 238: arithmetic on values)",
+        "check verifier:contract failed for C3: failed: A11 agent-BLK_01, C3-8 agent-BLK_01, C3-7 agent-BLK_01, A11 agent-BLK_01_1-fed3cbb0, A11 agent-BLK_01_2-fba1eff4, C3-8 agent-BLK_01_2-fba1eff4, A11 agent-BLK_02, C3-7 agent-BLK_02",
+        "check verifier:oracle failed for C3: unverified, promotion blocked: C3-7 agent-BLK_01, C3-7 agent-BLK_02",
+        "context sample_data is empty, so no fixture exists for the INT_UI2 fields",
+        "context sample_data is empty, so no fixture for the Bank Details Entry fields exists",
+        "context sample_data is empty, so the TOOL_01 stub cannot be seeded from client sample rows. Every response field (Application record draft, Agent profile update, Bank Name, Bank City, Branch Name, Bank verification status) is returned as None, meaning unknown. No values were invented.",
+        "context sample_data is empty, so the stub has no rows to seed from. invoke() returns every ACT_05 write field ('Categorized document slots', 'Validation status') as None, which means unknown. It does not make up values.",
+        "context sample_data is empty, so there are no fixtures for INT_UI1",
+        "context sample_data is empty. The stubs return None for every write, so BR-ACT_02 refuses at ACT_02 and the case routes to EXC_02 on every run until sample or real data exists.",
+        "context sample_data is empty: SAMPLE_ROWS is (), so the stub cannot be seeded and every response returns 'KYC verification status' = None (unknown), never an inferred value. No sample row exists for HR-201:BLK_01:TOOL_02's default assumption ('Stub the tool on sample data until it exists') to use.",
+        "deviation: BLK_01 declares composition sequential and the orchestration edge BLK_01 -> BLK_01.1 on 'agent_tool'. The builder runs BLK_01.1 under BLK_01 as the composition field says. The orchestrator records the edge and does not hand a case to it.",
+        "deviation: BLK_01 declares composition sequential and the orchestration edge BLK_01 -> BLK_01.2 on 'agent_tool'. The builder runs BLK_01.2 under BLK_01 as the composition field says. The orchestrator records the edge and does not hand a case to it.",
+        "deviation: BLK_01.1.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+        "deviation: BLK_01.1.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+        "deviation: BLK_01.1.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+        "deviation: BLK_01.1.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+        "deviation: BLK_01.2.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+        "deviation: BLK_01.2.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+        "deviation: BLK_01.2.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+        "deviation: BLK_01.2.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+        "deviation: BLK_01.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+        "deviation: BLK_01.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+        "deviation: BLK_01.fallback_model: ADK has no model fallback. The agent runs on 'gemini-2.5-flash' only. The declared fallback 'gemini-1.5-flash' is not applied.",
+        "deviation: BLK_01.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+        "deviation: BLK_01.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+        "deviation: BLK_02.budgets.max_latency_ms: ADK has no per-case budget. The agent does not enforce max_latency_ms 30000.",
+        "deviation: BLK_02.budgets.max_tokens_per_case: ADK has no per-case budget. The agent does not enforce max_tokens_per_case 4096.",
+        "deviation: BLK_02.fallback_model: ADK has no model fallback. The agent runs on 'gemini-2.5-flash' only. The declared fallback 'gemini-1.5-flash' is not applied.",
+        "deviation: BLK_02.harness.H-04: ADK has no slot for a specialised AI service. The builder wires none, so the declared service is not used. The Precord declares 'OCR / IDP \u00b7 Docling + multimodal LLM' for Specialised AI service.",
+        "deviation: BLK_02.harness.H-12: ADK has no per-field confidence routing. The builder routes only on the declared rules and exceptions. The Precord declares 'Per-field extraction score' for Confidence & routing.",
+        "fallback_model gemini-1.5-flash: ADK has no model fallback. Recorded as a deviation, and no fallback is built.",
+        "gap: BLK_01.1 declares no audit_events; the Precord gives C8 no runtime source for this agent",
+        "gap: BLK_01.1 declares no exception route; handle_failure is its only failure path",
+        "gap: BLK_01.1 input_schema has no schema file; the INPUT_SCHEMA check was skipped",
+        "gap: BLK_01.1 names no served steps; the served-step check was skipped",
+        "gap: BLK_01.1 output_schema has no schema file; the OUTPUT_SCHEMA check was skipped",
+        "gap: BLK_01.2 declares no audit_events; the Precord gives C8 no runtime source for this agent",
+        "gap: BLK_01.2 declares no exception route; handle_failure is its only failure path",
+        "gap: BLK_01.2 input_schema has no schema file; the INPUT_SCHEMA check was skipped",
+        "gap: BLK_01.2 names no served steps; the served-step check was skipped",
+        "gap: BLK_01.2 output_schema has no schema file; the OUTPUT_SCHEMA check was skipped",
+        "gap: assumption: EP-05 PUT /adapter/sys-a1/int-api1/{id} is tagged Solution-provided and names the adapter INT_API1; the builder treats it as an outbound call of that adapter, not an inbound route. Module 1 confirms the direction",
+        "gap: inbound_api.yaml has no endpoint-to-trigger-kind field; the builder takes the POST endpoint that is not a HIL endpoint and whose summary says 'trigger' as the one that starts a case",
+        "gap: these declared error actions are not triggered by any check, because the handler checks no x-auth value, keeps no rate limit and calls no failing dependency: EP-06 ['401', '403', '404', '409', '429', '5xx', 'timeout']; EP-01 ['401', '403', '404', '429', '5xx', 'timeout']; EP-02 ['401', '403', '409', '422', '429', '5xx', 'timeout']; EP-03 ['401', '403', '404', '409', '422', '429', '5xx', 'timeout']; EP-04 ['401', '403', '404', '409', '422', '429', '5xx', 'timeout']",
+        "make_agent() cannot build a model on this host: solution.llm_config refuses a cross-border call. No model_region is set in deploy/environment.json, and client IT has not answered Q9 (MODEL_RESIDENCY_PROVIDER).",
+        "orchestration.yaml declares one trigger only (Inbound channel message -> BLK_01). The BLK_02 trigger 'Document upload completion' (H-10 'File / object drop') has no trigger row, so BLK_02 runs only through the BLK_01 'done' edge.",
+        "sample_data is empty, so no fixture data exists for this row",
+        "sample_data is empty; it was not needed because the row is not a mock.",
+        "schemas/BLK_02.in.schema.json and BLK_02.out.schema.json declare no properties (INBOUND_CONTRACT_MISSING / EMPTY_SCHEMA). The agent's structured output is an empty pydantic model and its answer is {}. No fields were inferred.",
+        "schemas/case.schema.json and schemas/BLK_02.in/out.schema.json have no properties (EMPTY_SCHEMA / INBOUND_CONTRACT_MISSING). Request and response keys therefore use the action labels from agent_block_actions@row:5 as written, not canonical case-schema property names.",
+        "schemas/case.schema.json has no properties, so no INT_UI5 core_field can be bound to a case field",
+        "tools.yaml declares no tool for INT_UI8, and browser use is permitted only where tools.yaml declares it (C3-19), so no browser path was built.",
+        "tools.yaml has no entry for INT_UI4 (empty tools list), so the existing SYS_A1 Bank Details Entry screen cannot be called; invoke() raises SystemNotConfiguredError",
+        "tools.yaml is empty while integration_map lists INT_UI3 as an existing Browser-use system (TOOLS_EMPTY_INTEGRATIONS_EXISTING). No tool entry was written for it",
+        "tools.yaml is empty, but INT_UI1 is an existing SYS_A1 system (TOOLS_EMPTY_INTEGRATIONS_EXISTING). No tool entry was written for it"
+      ],
+      "merge_state": "merged",
+      "merged": true,
+      "merged_pull_request": "refs/heads/solution/c3-33254f05ae1e",
+      "pull_request": "refs/heads/solution/c3-33254f05ae1e",
+      "revision": "d0707ecf4b732e558f7fba622f35bc8c5b8386cb",
+      "status": "degraded"
+    },
+    {
+      "component": "C4",
+      "diagnosis": "",
+      "gaps": [
+        "C4-1: no case has split test; acceptance cannot be decided and the runner scores nothing",
+        "C4-2: threshold agent_error_rate has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold agent_error_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold agent_error_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold agents_live has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold agents_live has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold agents_live has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold ai_cost_per_case has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold ai_cost_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold ai_cost_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold audited_accuracy has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold audited_accuracy has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold audited_accuracy has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold data_extraction_time has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold data_extraction_time has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold data_extraction_time has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold guardrail_triggers has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold guardrail_triggers has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold guardrail_triggers has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold inputs_uploaded has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold inputs_uploaded has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold inputs_uploaded has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold memory_artifacts_created has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold memory_artifacts_created has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold memory_artifacts_created has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold override_rate_and_direction has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold override_rate_and_direction has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold override_rate_and_direction has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold tokens_per_agent_per_case has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold tokens_per_agent_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold tokens_per_agent_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold tokens_per_case has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold tokens_per_case has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold tokens_per_case has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold tool_error_and_retry_rate has no comparator; the OD-17 default applies: '<='",
+        "C4-2: threshold tool_error_and_retry_rate has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold tool_error_and_retry_rate has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2: threshold verification_api_availability has no comparator; the OD-17 default applies: '>='",
+        "C4-2: threshold verification_api_availability has no grader_id; OD-17 gives no default, so no grader is named for it",
+        "C4-2: threshold verification_api_availability has no min_sample; OD-17 gives no default, so no minimum sample applies",
+        "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+        "C4-2a: the case schema names no field; no deterministic case-schema gate can run",
+        "EVAL_CASE_INPUT_PROSE: every case input (e.g. EC-03 'a complete, clean case', EC-08 'instruction injected in a free-text field') is prose, not a JSON object for the agent input schema",
+        "EVAL_EXPECTATION_NOT_CHECKABLE: expected values are prose (e.g. 'completes with every field filled', 'extract the fields correctly'); G-01..G-04 have no structured decision, target, fields or tool sequence to compare",
+        "EVAL_JUDGE_MODEL_INVALID: graders.yaml judge_model (top level and G-05) is 'openai-api', a provider label and not a model ID; the runner names no model and the harness must resolve a judge model distinct from the agent model",
+        "EVAL_NO_TEST_CASES: evals/cases.jsonl has 120 cases, all split dev, and none in split test or example; scored_cases() is empty, so no quantitative acceptance can be claimed and C4 acceptance is unvalidated",
+        "EVAL_RUBRIC_GAP: G-05 rubric has sections only for EC-01, EC-02, EC-08, EC-16, EC-17, EC-24, EC-25; every other case (including all BLK_02 cases that G-05 applies to) has no rubric of its own and the judge receives the whole G-05 rubric",
+        "G-06 human sample review applies only to BLK_02 and samples 5% of test cases; with no test cases it samples nothing",
+        "MONITOR_ONLY_EVALS: all 13 rows of evals/thresholds.csv leave comparator, grader_id, min_sample, level, threshold_id and stage_applicability blank; comparators fall back to the metric-name rule, and no threshold is bound to a grader or a minimum sample",
+        "Thresholds audited_accuracy (KPI_O9), ai_cost_per_case (KPI_O4) and verification_api_availability (KPI_O11) have gate_tier blocking but tier_at_rung advisory at Pilot; misses are reported as findings, not failures"
+      ],
+      "merge_state": "merged",
+      "merged": true,
+      "merged_pull_request": "refs/heads/solution/c4-d9a5071db6f2",
+      "pull_request": "refs/heads/solution/c4-d9a5071db6f2",
+      "revision": "ac066ac757c8e8f51a8061a5b708a6f8f0d3c953",
+      "status": "degraded"
+    }
+  ],
+  "conformance": {
+    "matrix": ".specificity/conformance-matrix.json",
+    "not_met": [
+      {
+        "id": "C5-2:CHK_01",
+        "reason": "service.py does not exist",
+        "requirement": "C5-2"
+      },
+      {
+        "id": "C5-4:CHK_01:Confirm and proceed",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-4:CHK_01:Edit details",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-2:CHK_02",
+        "reason": "service.py does not exist",
+        "requirement": "C5-2"
+      },
+      {
+        "id": "C5-4:CHK_02:Approve agent",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-4:CHK_02:Raise discrepancy",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C5-4:CHK_02:Reject",
+        "reason": "service.py does not exist",
+        "requirement": "C5-4"
+      },
+      {
+        "id": "C8-1:KPI_O8",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O9",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O6",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O7",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O4",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O5",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O3",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O10",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O1",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      },
+      {
+        "id": "C8-1:KPI_O2",
+        "reason": "service.py does not exist",
+        "requirement": "C8-1"
+      }
+    ],
+    "summary": {
+      "checkable_share": 1.0,
+      "met": 140,
+      "not_met": 17,
+      "not_owed": 7,
+      "owed": 157,
+      "rung": "Pilot",
+      "tested_share": 0.0,
+      "unchecked": 0
+    }
+  },
+  "cost_and_time": {
+    "cost": 21.442688,
+    "elapsed": {
+      "components": {
+        "C1": 17.927,
+        "C3": 1094.868,
+        "C4": 235.014
+      },
+      "phase_a": 1347.809,
+      "phase_b": null,
+      "total": 1353.901
+    },
+    "missing_input": "",
+    "sessions_started": 31
+  },
+  "deployment": {
+    "mocked_integrations": [],
+    "revision": null,
+    "tier": "not deployed",
+    "urls": []
+  },
+  "deviations": [],
+  "evals": {
+    "authority_problems": [],
+    "cases": [],
+    "coverage": [
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_01",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_01.1",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_01.2",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "happy"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "exception"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "hil"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "notauto"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "missing"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 4,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "toolfail"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "adversarial"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 3,
+        "measured": 0,
+        "met": null,
+        "minimum": null,
+        "scenario_type": "language"
+      },
+      {
+        "agent_id": "BLK_02",
+        "declared": 30,
+        "measured": 0,
+        "met": false,
+        "minimum": 30,
+        "scenario_type": "total"
+      }
+    ],
+    "error": "",
+    "gaps": [
+      "C4-1: case EC-92 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-93 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-94 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-95 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-96 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-97 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-98 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-99 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-100 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-101 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-102 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-103 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-104 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-105 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-106 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-107 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-108 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-109 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-110 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-111 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-112 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-113 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-114 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-115 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-116 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-117 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-118 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-119 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-1: case EC-120 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured.",
+      "C4-2a: judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml.",
+      "C4-1: no test split, 0/120 measured. Acceptance cannot be decided, so the build is unvalidated."
+    ],
+    "groups": [],
+    "human_review": [],
+    "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+    "revision": "5e30c389f06d03613e15f3d32722a39cf7c245bc",
+    "rows": [
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "override_rate_and_direction",
+        "reason": "The harness has no measurement for override_rate_and_direction. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O8",
+        "status": "not_measured",
+        "threshold": "15",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "audited_accuracy",
+        "reason": "The harness has no measurement for audited_accuracy. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O9",
+        "status": "not_measured",
+        "threshold": "97",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "agent_error_rate",
+        "reason": "No case of agent * gave a measurement for agent_error_rate.",
+        "source_row": "KPI_O6",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "tool_error_and_retry_rate",
+        "reason": "The harness has no measurement for tool_error_and_retry_rate. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O7",
+        "status": "not_measured",
+        "threshold": "3",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "ai_cost_per_case",
+        "reason": "The harness has no measurement for ai_cost_per_case. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O4",
+        "status": "not_measured",
+        "threshold": "90",
+        "tier": "advisory",
+        "unit": "currency",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "tokens_per_agent_per_case",
+        "reason": "The harness has no measurement for tokens_per_agent_per_case. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O5",
+        "status": "not_measured",
+        "threshold": "10000",
+        "tier": "monitor",
+        "unit": "tokens",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "tokens_per_case",
+        "reason": "The harness has no measurement for tokens_per_case. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O3",
+        "status": "not_measured",
+        "threshold": "10000000",
+        "tier": "monitor",
+        "unit": "tokens",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "agents_live",
+        "reason": "The harness has no measurement for agents_live. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O12",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": "<=",
+        "grader": "none",
+        "metric": "data_extraction_time",
+        "reason": "The harness has no measurement for data_extraction_time. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O13",
+        "status": "not_measured",
+        "threshold": "10",
+        "tier": "monitor",
+        "unit": "minutes",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "verification_api_availability",
+        "reason": "The harness has no measurement for verification_api_availability. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O11",
+        "status": "not_measured",
+        "threshold": "99",
+        "tier": "advisory",
+        "unit": "percent",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "guardrail_triggers",
+        "reason": "The harness has no measurement for guardrail_triggers. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O10",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "inputs_uploaded",
+        "reason": "The harness has no measurement for inputs_uploaded. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O1",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      },
+      {
+        "agent_id": "*",
+        "comparator": ">=",
+        "grader": "none",
+        "metric": "memory_artifacts_created",
+        "reason": "The harness has no measurement for memory_artifacts_created. It stays unmeasured until a source supplies the value.",
+        "source_row": "KPI_O2",
+        "status": "not_measured",
+        "threshold": "2",
+        "tier": "monitor",
+        "unit": "count",
+        "value": null
+      }
+    ],
+    "runtime_unavailable": false
+  },
+  "generated_suite": {
+    "checked_after": "C4",
+    "durable": {
+      "outcome": "not_configured"
+    },
+    "error": "no generated tests yet (C7 not built)",
+    "errors": null,
+    "failures": null,
+    "limits": "Tested without DATABASE_URL. No database is configured for the preview, so the database mode was not tested.",
+    "mode": "default",
+    "outcome": "not_run",
+    "output": "",
+    "ran": null,
+    "revision": "7180046f63c3e9ea31354c2575e87c548ae935b1"
+  },
+  "omitted_components": {
+    "C5": "Readiness refused C5: No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+    "C6": "C6 needs C5, and readiness refused C5",
+    "C7": "C7 needs C5, and readiness refused C5",
+    "C8": "C8 needs C5, and readiness refused C5"
+  },
+  "partial_build": true,
+  "preliminary": false,
+  "promotion": {
+    "refusals": [
+      "a blocks-promotion item is open: MOCK_INTEGRATION, L1_TARGET_MISSING, MODEL_RESIDENCY_PROVIDER, CLIENT_ANSWER_DEFAULT, RUNG_BELOW_MVP, COMPONENT_OMITTED:C5, COMPONENT_OMITTED:C6, COMPONENT_OMITTED:C7, COMPONENT_OMITTED:C8, GENERATED_SUITE_NOT_RUN",
+      "a required security scan did not run: sast, dependencies, secrets (no security report)",
+      "the build is labelled unvalidated: no test split, 0/120 measured. Acceptance cannot be decided, so the build is unvalidated; 30 more eval gaps"
+    ],
+    "state": "building"
+  },
+  "promotion_blockers": [
+    "MOCK_INTEGRATION",
+    "L1_TARGET_MISSING",
+    "MODEL_RESIDENCY_PROVIDER",
+    "CLIENT_ANSWER_DEFAULT",
+    "RUNG_BELOW_MVP",
+    "COMPONENT_OMITTED:C5",
+    "COMPONENT_OMITTED:C6",
+    "COMPONENT_OMITTED:C7",
+    "COMPONENT_OMITTED:C8",
+    "GENERATED_SUITE_NOT_RUN"
+  ],
+  "readiness": {
+    "assumptions": [
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "APPROVING_DECISION_ASSUMED",
+        "message": "CHK_01: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Confirm and proceed', approves. It moves the case on; the other decisions do not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/checkpoints.yaml#CHK_01.decisions"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "APPROVING_DECISION_ASSUMED",
+        "message": "CHK_02: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Approve agent', approves. It releases a write and moves the case on; the other decisions do not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/checkpoints.yaml#CHK_02.decisions"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "OPEN_ITEM_RESOLUTION_UNREVIEWED",
+        "message": "50 open-item resolutions in handover/open_item_resolutions.csv are in force with review_status pending. The default was chosen without a person, and the build uses it. The Precord owner reviews each one and sets review_status.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "HR-306:INT_API1",
+          "HR-306:INT_DB1",
+          "HR-306:INT_UI1",
+          "HR-306:INT_UI2",
+          "HR-306:INT_UI3",
+          "HR-306:INT_UI4",
+          "HR-306:INT_UI5",
+          "HR-306:INT_UI6",
+          "HR-306:INT_UI7",
+          "HR-306:INT_UI8",
+          "gap:01a16805e7307f5fac46b3055d82d094",
+          "gap:01a16805e7327381a3036e531f70fc34",
+          "gap:01a16827ee307cd381f92a6f47f5acec",
+          "gap:01a16827ee317eca86fbe5f008f56333",
+          "gap:01a16827ee3170faacea233c2d72091b",
+          "gap:01a16827ee31717f8ce8efacb821413c",
+          "gap:01a16827ee3275ceac97da9099c1f840",
+          "gap:01a16827ee3377488f1b65681e9f609c",
+          "gap:01a16831a7c47f378d4e27e13d4528d3",
+          "gap:01a16831a7c57f64824bc4be1bb890ad",
+          "gap:01a16831a7c67bfd9b2df8827ddaca28",
+          "gap:01a16831a7c774778de0301cb31d916d",
+          "gap:01a16831a7c7787ca9f859ea8a634ec5",
+          "gap:01a16831d51a71138085991efaa5ee6b",
+          "gap:01a16831d51b71c98acbded9b8ae766a",
+          "gap:01a16831d51d7893b12314ca4fc6f52f",
+          "gap:01a16831d51d78f8be0929c0a1cddf9d",
+          "gap:01a16831d51e788e898bddcf3878d709",
+          "gap:01a16831d51e7c05bfc4e52b445b0fe8",
+          "gap:01a16831d51f7d2ca0b81a5872465aa9",
+          "gap:01a16831d51f7a239776edc4288a2854",
+          "gap:01a168321d197705b7ed08ded84e3c27",
+          "gap:01a168321d1a7d3dab30db74dd304ddd",
+          "gap:01a168321d1b79a9a5f45e64a032abfc",
+          "gap:01a168321d1c7663ae1232fe4b5d0be3",
+          "gap:01a168321d1c7c9683fe1edba92a4576",
+          "gap:01a168321d1d7e6d91d8db4a41f9dcd5",
+          "gap:01a168321d1e7f67829abd907ecc9108",
+          "gap:01a168321d1e77bb9100dcc32ff4b3c1",
+          "gap:01a168321d1e73a2977588f29dca00a2",
+          "gap:01a168321d1f75f386b23a7f07c49ce3",
+          "gap:01a168321d1f77a1a0241ff990883afe",
+          "gap:01a168321d2077c4b10bbea1ab3b18e7",
+          "gap:01a168321d207c37b099bed0c8f99bcc",
+          "gap:01a168321d21768f894fa26d7cc29a71",
+          "gap:01a168321d217f2382bd69c13be1b2fc",
+          "gap:01a168321d21746ebf9cbcc051dd646a",
+          "gap:01a168389e1571fc95f97459e0bd9191",
+          "gap:01a168389e15733b9b9a0822ac119242",
+          "gap:01a168389e16793fa7efd2b3aed1fee1"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "OPEN_ITEM_DEFAULT",
+        "message": "These open items have no answer. The build uses each item's default_assumption and writes it down where it is used.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "HR-201:BLK_01:TOOL_01",
+          "HR-201:BLK_01:TOOL_02",
+          "HR-201:BLK_02:TOOL_03",
+          "HR-306:INT_API1",
+          "HR-306:INT_DB1",
+          "HR-306:INT_UI1",
+          "HR-306:INT_UI2",
+          "HR-306:INT_UI3",
+          "HR-306:INT_UI4",
+          "HR-306:INT_UI5",
+          "HR-306:INT_UI6",
+          "HR-306:INT_UI7",
+          "HR-306:INT_UI8"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "STACK_KEY_BLANK",
+        "message": "The confirmed stack has no observability at Pilot. The platform default applies.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#build.observability"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "USER_OWNED_DEPLOYMENT",
+        "message": "Client IT did not choose. The answers to Q1, Q8, Q9 have answer_source Default: they are platform defaults, not client answers. The user selects the deployment target. The build is L0 only.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "Q1",
+          "Q8",
+          "Q9"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "assumption",
+        "code": "PERSON_STEP_CLAIMED",
+        "message": "Step S6 is person-owned or not automated, and the Precord also gives it to an agent (BLK_02 action ACT_06; BLK_02 serves_steps; CHK_02 resume_action_id ACT_06; integration_map INT_UI6; orchestration ownership BLK_02; rule BR-ACT_06 (no agent enforces it)). The builder keeps the person as owner and does not automate the step. The builder removes the actions and integrations of that step from the agent checks, bindings and context. Module 1 must settle the conflict.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "S6"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "assumption",
+        "code": "SCHEMA_CHECK_SKIPPED",
+        "message": "The package ships no standard/schemas/, so the builder did not validate the files against schemas (RD-5). It trusts the close gate in manifest.gate instead (D-11).",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "standard/schemas/"
+        ]
+      }
+    ],
+    "builder_gaps": [
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Python 3.12 + uv' (ai language, owed at PoC): the C1 pack does not install uv. The pack installs with pip and a pinned lock file. No pack file calls uv.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.language"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'DeepEval' (ai eval_framework, owed at PoC): the C1 pack does not install deepeval. No generated code imports it. scripts/run_evals.py runs the ADK evalsets only. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.eval_framework"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Docling + multimodal LLM' (ai document_ai, owed at PoC): the C1 pack does not install docling. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.document_ai"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'pgvector in solution Postgres' (ai vector_store, owed at PoC): the C1 pack does not install or provide it. A Postgres extension. The compose Postgres image does not load it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.vector_store"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'ADK browser use' (ai browser_use, owed at Pilot): the C1 pack does not install playwright. No generated code imports it. It needs a browser runtime in the image. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.ai.browser_use"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Microsoft Presidio' (solution pii, owed at Pilot): the C1 pack does not install presidio-analyzer, presidio-anonymizer. src/solution/masking.py masks fields with its own code. No generated code imports it. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.pii"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'pytest + pytest-asyncio' (solution software_testing, owed at Pilot): the C1 pack does not install pytest, pytest-asyncio. The pack pyproject has no test dependency. The generated CI runs `pip install .` only.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Testcontainers' (solution software_testing, owed at Pilot): the C1 pack does not install testcontainers. The pack pyproject has no test dependency. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Playwright (UI end-to-end)' (solution software_testing, owed at Pilot): the C1 pack does not install playwright. The pack pyproject has no test dependency. It needs browser binaries. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Stoplight Prism (OpenAPI mocks)' (solution software_testing, owed at Pilot): the C1 pack does not install or provide it. An npm tool. No pack file installs or runs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.software_testing"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Postgres queue (FOR UPDATE SKIP LOCKED)' (solution messaging, owed at Pilot): the C1 pack does not install or provide it. SQL on the solution Postgres. The pack has no queue table.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.messaging"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Jinja2 + WeasyPrint (PDF)' (solution doc_generation, owed at Pilot): the C1 pack does not install weasyprint. No generated code imports it. WeasyPrint needs system libraries. litellm already brings Jinja2. It is a heavy dependency. The team has not decided to install it, so the pack does not.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.doc_generation"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'python-docx + openpyxl' (solution doc_generation, owed at Pilot): the C1 pack does not install python-docx, openpyxl. No generated code imports it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.solution.doc_generation"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Google OIDC' (connector identity, owed at Pilot): the C1 pack does not install google-auth. No generated code imports it. signin.py does not call Google. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.identity"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Google Sheets' (connector case_tracking, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.case_tracking"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Email alerts (SMTP)' (connector alerts, owed at Pilot): the C1 pack does not install or provide it. Python standard library (smtplib). The pack has no alert sender.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.alerts"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Slack' (connector alerts, owed at Pilot): the C1 pack does not install slack-sdk. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.alerts"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'SFTP batch (CSV, fixed-width)' (connector integration_adapter, owed at Pilot): the C1 pack does not install paramiko. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.integration_adapter"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Gmail API' (connector email, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.email"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'Google Drive' (connector files, owed at Pilot): the C1 pack does not install google-api-python-client. No generated code imports it. The team has deferred it until a Solution needs it.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.files"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "open_item",
+        "code": "DEFAULT_ITEM_NOT_INSTALLED",
+        "message": "C1-11: default stack item 'WhatsApp Business Platform (Cloud API)' (connector messaging_channel, owed at Pilot): the C1 pack does not install or provide it. No WhatsApp adapter exists in the pack. It is a REST API; httpx is declared.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/stack.yaml#components.connector.messaging_channel"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "blocked_by": [],
+        "component": "C1",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C2",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [],
+        "component": "C3",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C4",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C5",
+        "precord_dependent": true,
+        "verdict": "refuse"
+      },
+      {
+        "blocked_by": [
+          "C5"
+        ],
+        "component": "C6",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [
+          "C5"
+        ],
+        "component": "C7",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [
+          "C5"
+        ],
+        "component": "C8",
+        "precord_dependent": true,
+        "verdict": "build_degraded"
+      },
+      {
+        "blocked_by": [],
+        "component": "C9",
+        "precord_dependent": false,
+        "verdict": "build"
+      },
+      {
+        "blocked_by": [],
+        "component": "C10",
+        "precord_dependent": false,
+        "verdict": "build"
+      }
+    ],
+    "model_access": [],
+    "not_owed": [],
+    "open_items": [
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event agent.decision. KPIs that use it: KPI_O12, KPI_O3, KPI_O4, KPI_O5, KPI_O6",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=agent.decision"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event guardrail.triggered. KPIs that use it: KPI_O10",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=guardrail.triggered"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event human.review. KPIs that use it: KPI_O8, KPI_O9",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=human.review"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event step.completed. KPIs that use it: KPI_O1, KPI_O13, KPI_O2",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=step.completed"
+        ]
+      },
+      {
+        "affects": [
+          "C8"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_UNDECLARED_EVENT",
+        "message": "No file declares the event tool.call. KPIs that use it: KPI_O11, KPI_O7",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#emitted_by=tool.call"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "PRECORD_BASELINE_MISMATCH",
+        "message": "Cited artifact agent_channels has baseline state missing",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "agent_channels"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "PRECORD_BASELINE_MISMATCH",
+        "message": "Cited artifact agent_decision_types has baseline state missing",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "agent_decision_types"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "PRECORD_BASELINE_MISMATCH",
+        "message": "Cited package artifact precord_eval_cases is not in the manifest",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "precord_eval_cases"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_01.in.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_01.out.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_02.in.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/BLK_02.out.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "PRECORD_EMPTY_SCHEMA",
+        "message": "The schema names no field. The build has no data model for it.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/case.schema.json"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "STATUS_ENUM_MISSING",
+        "message": "The case status has no enum: the build enforces no state transitions (C3-10).",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "schemas/case.schema.json#status"
+        ]
+      },
+      {
+        "affects": [
+          "C5"
+        ],
+        "classification": "open_item",
+        "code": "EMPTY_REVIEW_FIELDS",
+        "message": "These checkpoints show no field to the reviewer. A person cannot review what they cannot see.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "CHK_01.shown",
+          "CHK_02.shown"
+        ]
+      },
+      {
+        "affects": [
+          "C5"
+        ],
+        "classification": "open_item",
+        "code": "REFUSED_NO_REVIEW_FIELDS",
+        "message": "No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [
+          "C5"
+        ],
+        "sources": [
+          "spec/checkpoints.yaml"
+        ]
+      },
+      {
+        "affects": [
+          "C4"
+        ],
+        "classification": "open_item",
+        "code": "EVAL_NO_TEST_CASES",
+        "message": "These agents have no eval case in the `test` split. The evaluator scores only that split, so it cannot prove acceptance for them. Do not generate client acceptance data.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "BLK_01",
+          "BLK_01.1",
+          "BLK_01.2",
+          "BLK_02"
+        ]
+      },
+      {
+        "affects": [
+          "C3"
+        ],
+        "classification": "open_item",
+        "code": "MISSING_OWED_FILE",
+        "message": "spec/baseline.csv says sample_data is accepted, but the package has no context/sample_data.csv. Module 1 writes context/sample_data.csv only when sample_data holds records, so the artifact may be accepted but empty. Ship the file. Confirm that sample_data is empty when it is. The builder does not write client data in its place.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "context/sample_data.csv"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "EVAL_CASE_INPUT_PROSE",
+        "message": "120 eval cases give an input that is prose, not a JSON object for the input schema of the agent. The evaluator cannot send it to an agent. The Precord owner supplies a structured input. The builder does not write client case data.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "evals/cases.jsonl#EC-01",
+          "evals/cases.jsonl#EC-02",
+          "evals/cases.jsonl#EC-03",
+          "evals/cases.jsonl#EC-04",
+          "evals/cases.jsonl#EC-05",
+          "evals/cases.jsonl#EC-06",
+          "evals/cases.jsonl#EC-07",
+          "evals/cases.jsonl#EC-08",
+          "evals/cases.jsonl#EC-09",
+          "evals/cases.jsonl#EC-10",
+          "evals/cases.jsonl#EC-11",
+          "evals/cases.jsonl#EC-12",
+          "evals/cases.jsonl#EC-13",
+          "evals/cases.jsonl#EC-14",
+          "evals/cases.jsonl#EC-15",
+          "evals/cases.jsonl#EC-16",
+          "evals/cases.jsonl#EC-17",
+          "evals/cases.jsonl#EC-18",
+          "evals/cases.jsonl#EC-19",
+          "evals/cases.jsonl#EC-20",
+          "evals/cases.jsonl#EC-21",
+          "evals/cases.jsonl#EC-22",
+          "evals/cases.jsonl#EC-23",
+          "evals/cases.jsonl#EC-24",
+          "evals/cases.jsonl#EC-25",
+          "evals/cases.jsonl#EC-26",
+          "evals/cases.jsonl#EC-27",
+          "evals/cases.jsonl#EC-28",
+          "evals/cases.jsonl#EC-29",
+          "evals/cases.jsonl#EC-30",
+          "evals/cases.jsonl#EC-31",
+          "evals/cases.jsonl#EC-32",
+          "evals/cases.jsonl#EC-33",
+          "evals/cases.jsonl#EC-34",
+          "evals/cases.jsonl#EC-35",
+          "evals/cases.jsonl#EC-36",
+          "evals/cases.jsonl#EC-37",
+          "evals/cases.jsonl#EC-38",
+          "evals/cases.jsonl#EC-39",
+          "evals/cases.jsonl#EC-40",
+          "evals/cases.jsonl#EC-41",
+          "evals/cases.jsonl#EC-42",
+          "evals/cases.jsonl#EC-43",
+          "evals/cases.jsonl#EC-44",
+          "evals/cases.jsonl#EC-45",
+          "evals/cases.jsonl#EC-46",
+          "evals/cases.jsonl#EC-47",
+          "evals/cases.jsonl#EC-48",
+          "evals/cases.jsonl#EC-49",
+          "evals/cases.jsonl#EC-50",
+          "evals/cases.jsonl#EC-51",
+          "evals/cases.jsonl#EC-52",
+          "evals/cases.jsonl#EC-53",
+          "evals/cases.jsonl#EC-54",
+          "evals/cases.jsonl#EC-55",
+          "evals/cases.jsonl#EC-56",
+          "evals/cases.jsonl#EC-57",
+          "evals/cases.jsonl#EC-58",
+          "evals/cases.jsonl#EC-59",
+          "evals/cases.jsonl#EC-60",
+          "evals/cases.jsonl#EC-61",
+          "evals/cases.jsonl#EC-62",
+          "evals/cases.jsonl#EC-63",
+          "evals/cases.jsonl#EC-64",
+          "evals/cases.jsonl#EC-65",
+          "evals/cases.jsonl#EC-66",
+          "evals/cases.jsonl#EC-67",
+          "evals/cases.jsonl#EC-68",
+          "evals/cases.jsonl#EC-69",
+          "evals/cases.jsonl#EC-70",
+          "evals/cases.jsonl#EC-71",
+          "evals/cases.jsonl#EC-72",
+          "evals/cases.jsonl#EC-73",
+          "evals/cases.jsonl#EC-74",
+          "evals/cases.jsonl#EC-75",
+          "evals/cases.jsonl#EC-76",
+          "evals/cases.jsonl#EC-77",
+          "evals/cases.jsonl#EC-78",
+          "evals/cases.jsonl#EC-79",
+          "evals/cases.jsonl#EC-80",
+          "evals/cases.jsonl#EC-81",
+          "evals/cases.jsonl#EC-82",
+          "evals/cases.jsonl#EC-83",
+          "evals/cases.jsonl#EC-84",
+          "evals/cases.jsonl#EC-85",
+          "evals/cases.jsonl#EC-86",
+          "evals/cases.jsonl#EC-87",
+          "evals/cases.jsonl#EC-88",
+          "evals/cases.jsonl#EC-89",
+          "evals/cases.jsonl#EC-90",
+          "evals/cases.jsonl#EC-91",
+          "evals/cases.jsonl#EC-92",
+          "evals/cases.jsonl#EC-93",
+          "evals/cases.jsonl#EC-94",
+          "evals/cases.jsonl#EC-95",
+          "evals/cases.jsonl#EC-96",
+          "evals/cases.jsonl#EC-97",
+          "evals/cases.jsonl#EC-98",
+          "evals/cases.jsonl#EC-99",
+          "evals/cases.jsonl#EC-100",
+          "evals/cases.jsonl#EC-101",
+          "evals/cases.jsonl#EC-102",
+          "evals/cases.jsonl#EC-103",
+          "evals/cases.jsonl#EC-104",
+          "evals/cases.jsonl#EC-105",
+          "evals/cases.jsonl#EC-106",
+          "evals/cases.jsonl#EC-107",
+          "evals/cases.jsonl#EC-108",
+          "evals/cases.jsonl#EC-109",
+          "evals/cases.jsonl#EC-110",
+          "evals/cases.jsonl#EC-111",
+          "evals/cases.jsonl#EC-112",
+          "evals/cases.jsonl#EC-113",
+          "evals/cases.jsonl#EC-114",
+          "evals/cases.jsonl#EC-115",
+          "evals/cases.jsonl#EC-116",
+          "evals/cases.jsonl#EC-117",
+          "evals/cases.jsonl#EC-118",
+          "evals/cases.jsonl#EC-119",
+          "evals/cases.jsonl#EC-120"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "EVAL_EXPECTATION_NOT_CHECKABLE",
+        "message": "120 eval cases give an expectation that is prose. No check can grade it: it names no decision, target, field or tool sequence as a JSON object. The Precord owner states each expectation as data.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "evals/cases.jsonl#EC-01",
+          "evals/cases.jsonl#EC-02",
+          "evals/cases.jsonl#EC-03",
+          "evals/cases.jsonl#EC-04",
+          "evals/cases.jsonl#EC-05",
+          "evals/cases.jsonl#EC-06",
+          "evals/cases.jsonl#EC-07",
+          "evals/cases.jsonl#EC-08",
+          "evals/cases.jsonl#EC-09",
+          "evals/cases.jsonl#EC-10",
+          "evals/cases.jsonl#EC-11",
+          "evals/cases.jsonl#EC-12",
+          "evals/cases.jsonl#EC-13",
+          "evals/cases.jsonl#EC-14",
+          "evals/cases.jsonl#EC-15",
+          "evals/cases.jsonl#EC-16",
+          "evals/cases.jsonl#EC-17",
+          "evals/cases.jsonl#EC-18",
+          "evals/cases.jsonl#EC-19",
+          "evals/cases.jsonl#EC-20",
+          "evals/cases.jsonl#EC-21",
+          "evals/cases.jsonl#EC-22",
+          "evals/cases.jsonl#EC-23",
+          "evals/cases.jsonl#EC-24",
+          "evals/cases.jsonl#EC-25",
+          "evals/cases.jsonl#EC-26",
+          "evals/cases.jsonl#EC-27",
+          "evals/cases.jsonl#EC-28",
+          "evals/cases.jsonl#EC-29",
+          "evals/cases.jsonl#EC-30",
+          "evals/cases.jsonl#EC-31",
+          "evals/cases.jsonl#EC-32",
+          "evals/cases.jsonl#EC-33",
+          "evals/cases.jsonl#EC-34",
+          "evals/cases.jsonl#EC-35",
+          "evals/cases.jsonl#EC-36",
+          "evals/cases.jsonl#EC-37",
+          "evals/cases.jsonl#EC-38",
+          "evals/cases.jsonl#EC-39",
+          "evals/cases.jsonl#EC-40",
+          "evals/cases.jsonl#EC-41",
+          "evals/cases.jsonl#EC-42",
+          "evals/cases.jsonl#EC-43",
+          "evals/cases.jsonl#EC-44",
+          "evals/cases.jsonl#EC-45",
+          "evals/cases.jsonl#EC-46",
+          "evals/cases.jsonl#EC-47",
+          "evals/cases.jsonl#EC-48",
+          "evals/cases.jsonl#EC-49",
+          "evals/cases.jsonl#EC-50",
+          "evals/cases.jsonl#EC-51",
+          "evals/cases.jsonl#EC-52",
+          "evals/cases.jsonl#EC-53",
+          "evals/cases.jsonl#EC-54",
+          "evals/cases.jsonl#EC-55",
+          "evals/cases.jsonl#EC-56",
+          "evals/cases.jsonl#EC-57",
+          "evals/cases.jsonl#EC-58",
+          "evals/cases.jsonl#EC-59",
+          "evals/cases.jsonl#EC-60",
+          "evals/cases.jsonl#EC-61",
+          "evals/cases.jsonl#EC-62",
+          "evals/cases.jsonl#EC-63",
+          "evals/cases.jsonl#EC-64",
+          "evals/cases.jsonl#EC-65",
+          "evals/cases.jsonl#EC-66",
+          "evals/cases.jsonl#EC-67",
+          "evals/cases.jsonl#EC-68",
+          "evals/cases.jsonl#EC-69",
+          "evals/cases.jsonl#EC-70",
+          "evals/cases.jsonl#EC-71",
+          "evals/cases.jsonl#EC-72",
+          "evals/cases.jsonl#EC-73",
+          "evals/cases.jsonl#EC-74",
+          "evals/cases.jsonl#EC-75",
+          "evals/cases.jsonl#EC-76",
+          "evals/cases.jsonl#EC-77",
+          "evals/cases.jsonl#EC-78",
+          "evals/cases.jsonl#EC-79",
+          "evals/cases.jsonl#EC-80",
+          "evals/cases.jsonl#EC-81",
+          "evals/cases.jsonl#EC-82",
+          "evals/cases.jsonl#EC-83",
+          "evals/cases.jsonl#EC-84",
+          "evals/cases.jsonl#EC-85",
+          "evals/cases.jsonl#EC-86",
+          "evals/cases.jsonl#EC-87",
+          "evals/cases.jsonl#EC-88",
+          "evals/cases.jsonl#EC-89",
+          "evals/cases.jsonl#EC-90",
+          "evals/cases.jsonl#EC-91",
+          "evals/cases.jsonl#EC-92",
+          "evals/cases.jsonl#EC-93",
+          "evals/cases.jsonl#EC-94",
+          "evals/cases.jsonl#EC-95",
+          "evals/cases.jsonl#EC-96",
+          "evals/cases.jsonl#EC-97",
+          "evals/cases.jsonl#EC-98",
+          "evals/cases.jsonl#EC-99",
+          "evals/cases.jsonl#EC-100",
+          "evals/cases.jsonl#EC-101",
+          "evals/cases.jsonl#EC-102",
+          "evals/cases.jsonl#EC-103",
+          "evals/cases.jsonl#EC-104",
+          "evals/cases.jsonl#EC-105",
+          "evals/cases.jsonl#EC-106",
+          "evals/cases.jsonl#EC-107",
+          "evals/cases.jsonl#EC-108",
+          "evals/cases.jsonl#EC-109",
+          "evals/cases.jsonl#EC-110",
+          "evals/cases.jsonl#EC-111",
+          "evals/cases.jsonl#EC-112",
+          "evals/cases.jsonl#EC-113",
+          "evals/cases.jsonl#EC-114",
+          "evals/cases.jsonl#EC-115",
+          "evals/cases.jsonl#EC-116",
+          "evals/cases.jsonl#EC-117",
+          "evals/cases.jsonl#EC-118",
+          "evals/cases.jsonl#EC-119",
+          "evals/cases.jsonl#EC-120"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "FEW_SHOT_EMPTY",
+        "message": "4 agents declare harness H-16 (few-shot examples) at Pilot, but few_shot lists no case. The prompt gets no example. The Precord owner lists example-split cases for each agent.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/agents.yaml#BLK_01.few_shot",
+          "spec/agents.yaml#BLK_01.1.few_shot",
+          "spec/agents.yaml#BLK_01.2.few_shot",
+          "spec/agents.yaml#BLK_02.few_shot"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "EVAL_RUBRIC_GAP",
+        "message": "29 rubric gaps: a judge grader has no written rubric, or a case that reaches it has no rubric of its own (a rubric is keyed to a case, not to an agent). First gap: C4-1: case EC-92 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured. The Precord owner writes one rubric for each case.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "evals/graders.yaml"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "EVAL_JUDGE_MODEL_INVALID",
+        "message": "judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml. The Precord owner names a model ID. Readiness reports this on its own because C4 reports it only when a rubric exists.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "evals/graders.yaml#judge_model"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "CHECKPOINT_REASON_CODES_MISSING",
+        "message": "Checkpoints with no reason_codes: CHK_01, CHK_02. A reviewer who edits or rejects gives no coded reason. The Precord owner lists the reason codes.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/checkpoints.yaml#CHK_01.reason_codes",
+          "spec/checkpoints.yaml#CHK_02.reason_codes"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "CHECKPOINT_MODE_UNSTATED",
+        "message": "Checkpoints with no mode and no resume_action_id: CHK_01. C5 derives pause or override from the autonomy of the agent. The Precord owner states the mode.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/checkpoints.yaml#CHK_01.mode"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "TOOLS_EMPTY_INTEGRATIONS_EXISTING",
+        "message": "spec/tools.yaml declares no tool, but spec/integration_map.yaml lists 7 integrations as existing. The agents have no declared tool to call, and the builder writes no tool for a system the Precord does not declare. The Precord owner emits a tool entry for each existing integration, or marks it a stub with owed_at.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "INT_UI1",
+          "INT_UI2",
+          "INT_UI3",
+          "INT_UI4",
+          "INT_UI5",
+          "INT_UI7",
+          "INT_DB1"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "RULE_PARAMETER_MISSING",
+        "message": "BR-ACT_03, BR-ACT_04, BR-ACT_05, BR-ACT_07 name a limit, a format or a list (permitted, valid, match, required) but give no value, and rules.csv has no structured parameter for it. The builder does not guess the value. The Precord owner gives each value as structured data or reference data.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/rules.csv#BR-ACT_03",
+          "spec/rules.csv#BR-ACT_04",
+          "spec/rules.csv#BR-ACT_05",
+          "spec/rules.csv#BR-ACT_07"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "KPI_VALUES_BLANK",
+        "message": "10 KPIs owed at Pilot have a blank current_value or projected_value. C8 has no baseline or target to compare with. The Precord owner gives both values. The builder invents none.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/kpis.csv#KPI_O8",
+          "spec/kpis.csv#KPI_O9",
+          "spec/kpis.csv#KPI_O6",
+          "spec/kpis.csv#KPI_O7",
+          "spec/kpis.csv#KPI_O4",
+          "spec/kpis.csv#KPI_O5",
+          "spec/kpis.csv#KPI_O3",
+          "spec/kpis.csv#KPI_O10",
+          "spec/kpis.csv#KPI_O1",
+          "spec/kpis.csv#KPI_O2"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "ROI_ROWS_MISSING",
+        "message": "spec/baseline.csv says roi_assumptions was acted on, but evals/thresholds.csv has no roi_assumptions row for review_rate, automation_rate. The costed case cannot be compared with the design. The Precord owner adds the rows.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "evals/thresholds.csv#review_rate",
+          "evals/thresholds.csv#automation_rate"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "CONFIDENCE_THRESHOLD_MISSING",
+        "message": "Harness H-12 (a score-based choice) routes by a confidence score, but the Precord declares no confidence threshold (not in thresholds.csv, not on the agent). The score decides no routing, and every low-confidence exception has no trigger value. The Precord owner declares the threshold.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/agents.yaml#BLK_01.harness.H-12",
+          "spec/agents.yaml#BLK_01.1.harness.H-12",
+          "spec/agents.yaml#BLK_01.2.harness.H-12",
+          "spec/agents.yaml#BLK_02.harness.H-12"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "COMPOSITION_AMBIGUOUS",
+        "message": "The Precord gives two designs for the sub-agents. BLK_01: H-01 declares 'Coordinator + sub-agents' (the model picks the sub-agent), but composition is 'sequential' (a fixed order). The builder follows composition. The Precord owner keeps one composition field and makes harness H-01 agree with it. C3 records the orchestration edges and any other H-01 conflict as deviations in spec/deviations.csv.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/agents.yaml#BLK_01.composition"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "SUB_AGENT_NO_CONTRACT",
+        "message": "Sub-agents with no prompt file or schema file of their own: 2. They run under the parent, and eval cases target them. The Precord owner gives each sub-agent a prompt, schemas and an owner, or removes the sub-agent.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "spec/agents.yaml#BLK_01.1 (no BLK_01.1.md, BLK_01.1.in.schema.json, BLK_01.1.out.schema.json)",
+          "spec/agents.yaml#BLK_01.2 (no BLK_01.2.md, BLK_01.2.in.schema.json, BLK_01.2.out.schema.json)"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "STANDARD_CITATION_UNRESOLVED",
+        "message": "Files under standard/ that are cited as provenance and not shipped: 1. The citation points at nothing. The Precord owner ships each file, or cites a file that the package holds.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "standard/runtime.defaults.yaml (cited in spec/rules.csv)"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "open_item",
+        "code": "GLOSSARY_EMPTY",
+        "message": "spec/baseline.csv says ontology_nodes is pinned, but context/glossary.csv holds a header and no term. Names fall back to the action labels. The Precord owner ships the terms, or confirms that the artifact is empty. The builder writes no term.",
+        "owner": "",
+        "package_defect": true,
+        "refuses": [],
+        "sources": [
+          "context/glossary.csv"
+        ]
+      }
+    ],
+    "overall": "build_degraded",
+    "promotion_blockers": [
+      {
+        "affects": [],
+        "classification": "blocks_promotion",
+        "code": "MOCK_INTEGRATION",
+        "message": "A stub, a mock, or an integration that the build cannot reach stands in for a system. A mock returns sample data. The others raise 'not configured' until a client gives access. Replace or configure each one before promotion (C3-18).",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "TOOL_01",
+          "TOOL_02",
+          "TOOL_03",
+          "INT_UI1",
+          "INT_UI2",
+          "INT_UI3",
+          "INT_UI4",
+          "INT_UI5",
+          "INT_UI7",
+          "INT_API1",
+          "INT_DB1"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "blocks_promotion",
+        "code": "L1_TARGET_MISSING",
+        "message": "L1 has no target: no region and no UAT address.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "Q1 (answer_source Default)"
+        ]
+      },
+      {
+        "affects": [
+          "C1"
+        ],
+        "classification": "blocks_promotion",
+        "code": "MODEL_RESIDENCY_PROVIDER",
+        "message": "Q8 and Q9 forbid a cross-border model call, but no client answer to Q9 names a Google Cloud region id. Only Vertex with a region inside the jurisdiction keeps the call in the country. The builder chooses no region. Client IT answers Q9 with a Google Cloud region id, or allows the call.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "Q8 (answer_source Default, spec/stack.yaml#client_it.deployment)",
+          "Q9 (answer_source Default, spec/stack.yaml#client_it.deployment)"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "blocks_promotion",
+        "code": "CLIENT_ANSWER_DEFAULT",
+        "message": "The answers to Q3, Q5, Q6, Q7, Q10 have answer_source Default: they are platform defaults, not answers that client IT confirmed. The build keeps them and treats them as unconfirmed. L1 and Pilot need answers that client IT confirmed. The Precord owner gets each answer from client IT.",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "Q3",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q10"
+        ]
+      },
+      {
+        "affects": [],
+        "classification": "blocks_promotion",
+        "code": "RUNG_BELOW_MVP",
+        "message": "The Precord is at Pilot. Promotion to L2 needs an MVP Precord (OD-13).",
+        "owner": "",
+        "package_defect": false,
+        "refuses": [],
+        "sources": [
+          "spec/profile.yaml#solution_stage"
+        ]
+      }
+    ],
+    "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+    "resolved_stack": {
+      "agent_framework": "google-adk-python",
+      "datastore": "PostgreSQL 16+",
+      "language": "Python",
+      "language_version": "3.12",
+      "locator": "build",
+      "model_provider": "Google Gemini (Vertex AI or paid Gemini API)",
+      "observability": "",
+      "runtime": "Docker Engine + Compose",
+      "source_path": "spec/stack.yaml"
+    },
+    "tenant_id": "local"
+  },
+  "refused_components": [
+    "C5"
+  ],
+  "remediation": [
+    {
+      "action": "Replace each prose eval input with a JSON object that the input schema of the agent accepts.",
+      "affects": [],
+      "checks_cleared": 126,
+      "classification": "open_item",
+      "code": "EVAL_CASE_INPUT_PROSE",
+      "dependents": [
+        {
+          "action": "State each expected result as data: the decision, the target, the fields or the tool sequence.",
+          "affects": [],
+          "checks_cleared": 120,
+          "classification": "open_item",
+          "code": "EVAL_EXPECTATION_NOT_CHECKABLE",
+          "message": "120 eval cases give an expectation that is prose. No check can grade it: it names no decision, target, field or tool sequence as a JSON object. The Precord owner states each expectation as data.",
+          "sources": [
+            "evals/cases.jsonl#EC-01",
+            "evals/cases.jsonl#EC-02",
+            "evals/cases.jsonl#EC-03",
+            "evals/cases.jsonl#EC-04",
+            "evals/cases.jsonl#EC-05",
+            "evals/cases.jsonl#EC-06",
+            "evals/cases.jsonl#EC-07",
+            "evals/cases.jsonl#EC-08",
+            "evals/cases.jsonl#EC-09",
+            "evals/cases.jsonl#EC-10",
+            "evals/cases.jsonl#EC-11",
+            "evals/cases.jsonl#EC-12",
+            "evals/cases.jsonl#EC-13",
+            "evals/cases.jsonl#EC-14",
+            "evals/cases.jsonl#EC-15",
+            "evals/cases.jsonl#EC-16",
+            "evals/cases.jsonl#EC-17",
+            "evals/cases.jsonl#EC-18",
+            "evals/cases.jsonl#EC-19",
+            "evals/cases.jsonl#EC-20",
+            "evals/cases.jsonl#EC-21",
+            "evals/cases.jsonl#EC-22",
+            "evals/cases.jsonl#EC-23",
+            "evals/cases.jsonl#EC-24",
+            "evals/cases.jsonl#EC-25",
+            "evals/cases.jsonl#EC-26",
+            "evals/cases.jsonl#EC-27",
+            "evals/cases.jsonl#EC-28",
+            "evals/cases.jsonl#EC-29",
+            "evals/cases.jsonl#EC-30",
+            "evals/cases.jsonl#EC-31",
+            "evals/cases.jsonl#EC-32",
+            "evals/cases.jsonl#EC-33",
+            "evals/cases.jsonl#EC-34",
+            "evals/cases.jsonl#EC-35",
+            "evals/cases.jsonl#EC-36",
+            "evals/cases.jsonl#EC-37",
+            "evals/cases.jsonl#EC-38",
+            "evals/cases.jsonl#EC-39",
+            "evals/cases.jsonl#EC-40",
+            "evals/cases.jsonl#EC-41",
+            "evals/cases.jsonl#EC-42",
+            "evals/cases.jsonl#EC-43",
+            "evals/cases.jsonl#EC-44",
+            "evals/cases.jsonl#EC-45",
+            "evals/cases.jsonl#EC-46",
+            "evals/cases.jsonl#EC-47",
+            "evals/cases.jsonl#EC-48",
+            "evals/cases.jsonl#EC-49",
+            "evals/cases.jsonl#EC-50",
+            "evals/cases.jsonl#EC-51",
+            "evals/cases.jsonl#EC-52",
+            "evals/cases.jsonl#EC-53",
+            "evals/cases.jsonl#EC-54",
+            "evals/cases.jsonl#EC-55",
+            "evals/cases.jsonl#EC-56",
+            "evals/cases.jsonl#EC-57",
+            "evals/cases.jsonl#EC-58",
+            "evals/cases.jsonl#EC-59",
+            "evals/cases.jsonl#EC-60",
+            "evals/cases.jsonl#EC-61",
+            "evals/cases.jsonl#EC-62",
+            "evals/cases.jsonl#EC-63",
+            "evals/cases.jsonl#EC-64",
+            "evals/cases.jsonl#EC-65",
+            "evals/cases.jsonl#EC-66",
+            "evals/cases.jsonl#EC-67",
+            "evals/cases.jsonl#EC-68",
+            "evals/cases.jsonl#EC-69",
+            "evals/cases.jsonl#EC-70",
+            "evals/cases.jsonl#EC-71",
+            "evals/cases.jsonl#EC-72",
+            "evals/cases.jsonl#EC-73",
+            "evals/cases.jsonl#EC-74",
+            "evals/cases.jsonl#EC-75",
+            "evals/cases.jsonl#EC-76",
+            "evals/cases.jsonl#EC-77",
+            "evals/cases.jsonl#EC-78",
+            "evals/cases.jsonl#EC-79",
+            "evals/cases.jsonl#EC-80",
+            "evals/cases.jsonl#EC-81",
+            "evals/cases.jsonl#EC-82",
+            "evals/cases.jsonl#EC-83",
+            "evals/cases.jsonl#EC-84",
+            "evals/cases.jsonl#EC-85",
+            "evals/cases.jsonl#EC-86",
+            "evals/cases.jsonl#EC-87",
+            "evals/cases.jsonl#EC-88",
+            "evals/cases.jsonl#EC-89",
+            "evals/cases.jsonl#EC-90",
+            "evals/cases.jsonl#EC-91",
+            "evals/cases.jsonl#EC-92",
+            "evals/cases.jsonl#EC-93",
+            "evals/cases.jsonl#EC-94",
+            "evals/cases.jsonl#EC-95",
+            "evals/cases.jsonl#EC-96",
+            "evals/cases.jsonl#EC-97",
+            "evals/cases.jsonl#EC-98",
+            "evals/cases.jsonl#EC-99",
+            "evals/cases.jsonl#EC-100",
+            "evals/cases.jsonl#EC-101",
+            "evals/cases.jsonl#EC-102",
+            "evals/cases.jsonl#EC-103",
+            "evals/cases.jsonl#EC-104",
+            "evals/cases.jsonl#EC-105",
+            "evals/cases.jsonl#EC-106",
+            "evals/cases.jsonl#EC-107",
+            "evals/cases.jsonl#EC-108",
+            "evals/cases.jsonl#EC-109",
+            "evals/cases.jsonl#EC-110",
+            "evals/cases.jsonl#EC-111",
+            "evals/cases.jsonl#EC-112",
+            "evals/cases.jsonl#EC-113",
+            "evals/cases.jsonl#EC-114",
+            "evals/cases.jsonl#EC-115",
+            "evals/cases.jsonl#EC-116",
+            "evals/cases.jsonl#EC-117",
+            "evals/cases.jsonl#EC-118",
+            "evals/cases.jsonl#EC-119",
+            "evals/cases.jsonl#EC-120"
+          ]
+        },
+        {
+          "action": "List example-split eval cases in few_shot for each agent that declares harness H-16.",
+          "affects": [],
+          "checks_cleared": 4,
+          "classification": "open_item",
+          "code": "FEW_SHOT_EMPTY",
+          "message": "4 agents declare harness H-16 (few-shot examples) at Pilot, but few_shot lists no case. The prompt gets no example. The Precord owner lists example-split cases for each agent.",
+          "sources": [
+            "spec/agents.yaml#BLK_01.few_shot",
+            "spec/agents.yaml#BLK_01.1.few_shot",
+            "spec/agents.yaml#BLK_01.2.few_shot",
+            "spec/agents.yaml#BLK_02.few_shot"
+          ]
+        },
+        {
+          "action": "Name a model ID as judge_model in evals/graders.yaml, not a provider label.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "EVAL_JUDGE_MODEL_INVALID",
+          "message": "judge_model 'openai-api' is a provider label, not a model ID. The builder reviewer adapter cannot run it, so G-05 does not run. A person must name a model ID in evals/graders.yaml. The Precord owner names a model ID. Readiness reports this on its own because C4 reports it only when a rubric exists.",
+          "sources": [
+            "evals/graders.yaml#judge_model"
+          ]
+        },
+        {
+          "action": "Write one rubric for each case that reaches the judge grader, and key each rubric to its case.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "EVAL_RUBRIC_GAP",
+          "message": "29 rubric gaps: a judge grader has no written rubric, or a case that reaches it has no rubric of its own (a rubric is keyed to a case, not to an agent). First gap: C4-1: case EC-92 has no declared rubric in evals/graders.yaml. A rubric answer for it stays unmeasured. The Precord owner writes one rubric for each case.",
+          "sources": [
+            "evals/graders.yaml"
+          ]
+        }
+      ],
+      "message": "120 eval cases give an input that is prose, not a JSON object for the input schema of the agent. The evaluator cannot send it to an agent. The Precord owner supplies a structured input. The builder does not write client case data.",
+      "rank": 1,
+      "root_cause": "eval_inputs",
+      "sources": [
+        "evals/cases.jsonl#EC-01",
+        "evals/cases.jsonl#EC-02",
+        "evals/cases.jsonl#EC-03",
+        "evals/cases.jsonl#EC-04",
+        "evals/cases.jsonl#EC-05",
+        "evals/cases.jsonl#EC-06",
+        "evals/cases.jsonl#EC-07",
+        "evals/cases.jsonl#EC-08",
+        "evals/cases.jsonl#EC-09",
+        "evals/cases.jsonl#EC-10",
+        "evals/cases.jsonl#EC-11",
+        "evals/cases.jsonl#EC-12",
+        "evals/cases.jsonl#EC-13",
+        "evals/cases.jsonl#EC-14",
+        "evals/cases.jsonl#EC-15",
+        "evals/cases.jsonl#EC-16",
+        "evals/cases.jsonl#EC-17",
+        "evals/cases.jsonl#EC-18",
+        "evals/cases.jsonl#EC-19",
+        "evals/cases.jsonl#EC-20",
+        "evals/cases.jsonl#EC-21",
+        "evals/cases.jsonl#EC-22",
+        "evals/cases.jsonl#EC-23",
+        "evals/cases.jsonl#EC-24",
+        "evals/cases.jsonl#EC-25",
+        "evals/cases.jsonl#EC-26",
+        "evals/cases.jsonl#EC-27",
+        "evals/cases.jsonl#EC-28",
+        "evals/cases.jsonl#EC-29",
+        "evals/cases.jsonl#EC-30",
+        "evals/cases.jsonl#EC-31",
+        "evals/cases.jsonl#EC-32",
+        "evals/cases.jsonl#EC-33",
+        "evals/cases.jsonl#EC-34",
+        "evals/cases.jsonl#EC-35",
+        "evals/cases.jsonl#EC-36",
+        "evals/cases.jsonl#EC-37",
+        "evals/cases.jsonl#EC-38",
+        "evals/cases.jsonl#EC-39",
+        "evals/cases.jsonl#EC-40",
+        "evals/cases.jsonl#EC-41",
+        "evals/cases.jsonl#EC-42",
+        "evals/cases.jsonl#EC-43",
+        "evals/cases.jsonl#EC-44",
+        "evals/cases.jsonl#EC-45",
+        "evals/cases.jsonl#EC-46",
+        "evals/cases.jsonl#EC-47",
+        "evals/cases.jsonl#EC-48",
+        "evals/cases.jsonl#EC-49",
+        "evals/cases.jsonl#EC-50",
+        "evals/cases.jsonl#EC-51",
+        "evals/cases.jsonl#EC-52",
+        "evals/cases.jsonl#EC-53",
+        "evals/cases.jsonl#EC-54",
+        "evals/cases.jsonl#EC-55",
+        "evals/cases.jsonl#EC-56",
+        "evals/cases.jsonl#EC-57",
+        "evals/cases.jsonl#EC-58",
+        "evals/cases.jsonl#EC-59",
+        "evals/cases.jsonl#EC-60",
+        "evals/cases.jsonl#EC-61",
+        "evals/cases.jsonl#EC-62",
+        "evals/cases.jsonl#EC-63",
+        "evals/cases.jsonl#EC-64",
+        "evals/cases.jsonl#EC-65",
+        "evals/cases.jsonl#EC-66",
+        "evals/cases.jsonl#EC-67",
+        "evals/cases.jsonl#EC-68",
+        "evals/cases.jsonl#EC-69",
+        "evals/cases.jsonl#EC-70",
+        "evals/cases.jsonl#EC-71",
+        "evals/cases.jsonl#EC-72",
+        "evals/cases.jsonl#EC-73",
+        "evals/cases.jsonl#EC-74",
+        "evals/cases.jsonl#EC-75",
+        "evals/cases.jsonl#EC-76",
+        "evals/cases.jsonl#EC-77",
+        "evals/cases.jsonl#EC-78",
+        "evals/cases.jsonl#EC-79",
+        "evals/cases.jsonl#EC-80",
+        "evals/cases.jsonl#EC-81",
+        "evals/cases.jsonl#EC-82",
+        "evals/cases.jsonl#EC-83",
+        "evals/cases.jsonl#EC-84",
+        "evals/cases.jsonl#EC-85",
+        "evals/cases.jsonl#EC-86",
+        "evals/cases.jsonl#EC-87",
+        "evals/cases.jsonl#EC-88",
+        "evals/cases.jsonl#EC-89",
+        "evals/cases.jsonl#EC-90",
+        "evals/cases.jsonl#EC-91",
+        "evals/cases.jsonl#EC-92",
+        "evals/cases.jsonl#EC-93",
+        "evals/cases.jsonl#EC-94",
+        "evals/cases.jsonl#EC-95",
+        "evals/cases.jsonl#EC-96",
+        "evals/cases.jsonl#EC-97",
+        "evals/cases.jsonl#EC-98",
+        "evals/cases.jsonl#EC-99",
+        "evals/cases.jsonl#EC-100",
+        "evals/cases.jsonl#EC-101",
+        "evals/cases.jsonl#EC-102",
+        "evals/cases.jsonl#EC-103",
+        "evals/cases.jsonl#EC-104",
+        "evals/cases.jsonl#EC-105",
+        "evals/cases.jsonl#EC-106",
+        "evals/cases.jsonl#EC-107",
+        "evals/cases.jsonl#EC-108",
+        "evals/cases.jsonl#EC-109",
+        "evals/cases.jsonl#EC-110",
+        "evals/cases.jsonl#EC-111",
+        "evals/cases.jsonl#EC-112",
+        "evals/cases.jsonl#EC-113",
+        "evals/cases.jsonl#EC-114",
+        "evals/cases.jsonl#EC-115",
+        "evals/cases.jsonl#EC-116",
+        "evals/cases.jsonl#EC-117",
+        "evals/cases.jsonl#EC-118",
+        "evals/cases.jsonl#EC-119",
+        "evals/cases.jsonl#EC-120"
+      ],
+      "stage": "Evals"
+    },
+    {
+      "action": "Have a person review each open-item resolution and set its review_status.",
+      "affects": [],
+      "checks_cleared": 50,
+      "classification": "assumption",
+      "code": "OPEN_ITEM_RESOLUTION_UNREVIEWED",
+      "dependents": [],
+      "message": "50 open-item resolutions in handover/open_item_resolutions.csv are in force with review_status pending. The default was chosen without a person, and the build uses it. The Precord owner reviews each one and sets review_status.",
+      "rank": 2,
+      "root_cause": "OPEN_ITEM_RESOLUTION_UNREVIEWED",
+      "sources": [
+        "HR-306:INT_API1",
+        "HR-306:INT_DB1",
+        "HR-306:INT_UI1",
+        "HR-306:INT_UI2",
+        "HR-306:INT_UI3",
+        "HR-306:INT_UI4",
+        "HR-306:INT_UI5",
+        "HR-306:INT_UI6",
+        "HR-306:INT_UI7",
+        "HR-306:INT_UI8",
+        "gap:01a16805e7307f5fac46b3055d82d094",
+        "gap:01a16805e7327381a3036e531f70fc34",
+        "gap:01a16827ee307cd381f92a6f47f5acec",
+        "gap:01a16827ee317eca86fbe5f008f56333",
+        "gap:01a16827ee3170faacea233c2d72091b",
+        "gap:01a16827ee31717f8ce8efacb821413c",
+        "gap:01a16827ee3275ceac97da9099c1f840",
+        "gap:01a16827ee3377488f1b65681e9f609c",
+        "gap:01a16831a7c47f378d4e27e13d4528d3",
+        "gap:01a16831a7c57f64824bc4be1bb890ad",
+        "gap:01a16831a7c67bfd9b2df8827ddaca28",
+        "gap:01a16831a7c774778de0301cb31d916d",
+        "gap:01a16831a7c7787ca9f859ea8a634ec5",
+        "gap:01a16831d51a71138085991efaa5ee6b",
+        "gap:01a16831d51b71c98acbded9b8ae766a",
+        "gap:01a16831d51d7893b12314ca4fc6f52f",
+        "gap:01a16831d51d78f8be0929c0a1cddf9d",
+        "gap:01a16831d51e788e898bddcf3878d709",
+        "gap:01a16831d51e7c05bfc4e52b445b0fe8",
+        "gap:01a16831d51f7d2ca0b81a5872465aa9",
+        "gap:01a16831d51f7a239776edc4288a2854",
+        "gap:01a168321d197705b7ed08ded84e3c27",
+        "gap:01a168321d1a7d3dab30db74dd304ddd",
+        "gap:01a168321d1b79a9a5f45e64a032abfc",
+        "gap:01a168321d1c7663ae1232fe4b5d0be3",
+        "gap:01a168321d1c7c9683fe1edba92a4576",
+        "gap:01a168321d1d7e6d91d8db4a41f9dcd5",
+        "gap:01a168321d1e7f67829abd907ecc9108",
+        "gap:01a168321d1e77bb9100dcc32ff4b3c1",
+        "gap:01a168321d1e73a2977588f29dca00a2",
+        "gap:01a168321d1f75f386b23a7f07c49ce3",
+        "gap:01a168321d1f77a1a0241ff990883afe",
+        "gap:01a168321d2077c4b10bbea1ab3b18e7",
+        "gap:01a168321d207c37b099bed0c8f99bcc",
+        "gap:01a168321d21768f894fa26d7cc29a71",
+        "gap:01a168321d217f2382bd69c13be1b2fc",
+        "gap:01a168321d21746ebf9cbcc051dd646a",
+        "gap:01a168389e1571fc95f97459e0bd9191",
+        "gap:01a168389e15733b9b9a0822ac119242",
+        "gap:01a168389e16793fa7efd2b3aed1fee1"
+      ],
+      "stage": "Open items"
+    },
+    {
+      "action": "Give a current value and a projected value to each KPI that is owed at the rung.",
+      "affects": [],
+      "checks_cleared": 16,
+      "classification": "open_item",
+      "code": "KPI_VALUES_BLANK",
+      "dependents": [
+        {
+          "action": "Declare the confidence threshold that harness H-12 and the low-confidence exception use.",
+          "affects": [],
+          "checks_cleared": 4,
+          "classification": "open_item",
+          "code": "CONFIDENCE_THRESHOLD_MISSING",
+          "message": "Harness H-12 (a score-based choice) routes by a confidence score, but the Precord declares no confidence threshold (not in thresholds.csv, not on the agent). The score decides no routing, and every low-confidence exception has no trigger value. The Precord owner declares the threshold.",
+          "sources": [
+            "spec/agents.yaml#BLK_01.harness.H-12",
+            "spec/agents.yaml#BLK_01.1.harness.H-12",
+            "spec/agents.yaml#BLK_01.2.harness.H-12",
+            "spec/agents.yaml#BLK_02.harness.H-12"
+          ]
+        },
+        {
+          "action": "Add the review_rate and automation_rate rows from roi_assumptions to evals/thresholds.csv.",
+          "affects": [],
+          "checks_cleared": 2,
+          "classification": "open_item",
+          "code": "ROI_ROWS_MISSING",
+          "message": "spec/baseline.csv says roi_assumptions was acted on, but evals/thresholds.csv has no roi_assumptions row for review_rate, automation_rate. The costed case cannot be compared with the design. The Precord owner adds the rows.",
+          "sources": [
+            "evals/thresholds.csv#review_rate",
+            "evals/thresholds.csv#automation_rate"
+          ]
+        }
+      ],
+      "message": "10 KPIs owed at Pilot have a blank current_value or projected_value. C8 has no baseline or target to compare with. The Precord owner gives both values. The builder invents none.",
+      "rank": 3,
+      "root_cause": "kpi_sources",
+      "sources": [
+        "spec/kpis.csv#KPI_O8",
+        "spec/kpis.csv#KPI_O9",
+        "spec/kpis.csv#KPI_O6",
+        "spec/kpis.csv#KPI_O7",
+        "spec/kpis.csv#KPI_O4",
+        "spec/kpis.csv#KPI_O5",
+        "spec/kpis.csv#KPI_O3",
+        "spec/kpis.csv#KPI_O10",
+        "spec/kpis.csv#KPI_O1",
+        "spec/kpis.csv#KPI_O2"
+      ],
+      "stage": "KPI board"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 13,
+      "classification": "assumption",
+      "code": "OPEN_ITEM_DEFAULT",
+      "dependents": [],
+      "message": "These open items have no answer. The build uses each item's default_assumption and writes it down where it is used.",
+      "rank": 4,
+      "root_cause": "OPEN_ITEM_DEFAULT",
+      "sources": [
+        "HR-201:BLK_01:TOOL_01",
+        "HR-201:BLK_01:TOOL_02",
+        "HR-201:BLK_02:TOOL_03",
+        "HR-306:INT_API1",
+        "HR-306:INT_DB1",
+        "HR-306:INT_UI1",
+        "HR-306:INT_UI2",
+        "HR-306:INT_UI3",
+        "HR-306:INT_UI4",
+        "HR-306:INT_UI5",
+        "HR-306:INT_UI6",
+        "HR-306:INT_UI7",
+        "HR-306:INT_UI8"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Confirm each mocked endpoint with the client and replace the mock before promotion.",
+      "affects": [],
+      "checks_cleared": 11,
+      "classification": "open_item",
+      "code": "MOCK_INTEGRATION",
+      "dependents": [
+        {
+          "action": "Emit a tool entry in spec/tools.yaml for each existing integration, or mark it a stub with owed_at.",
+          "affects": [],
+          "checks_cleared": 7,
+          "classification": "open_item",
+          "code": "TOOLS_EMPTY_INTEGRATIONS_EXISTING",
+          "message": "spec/tools.yaml declares no tool, but spec/integration_map.yaml lists 7 integrations as existing. The agents have no declared tool to call, and the builder writes no tool for a system the Precord does not declare. The Precord owner emits a tool entry for each existing integration, or marks it a stub with owed_at.",
+          "sources": [
+            "INT_UI1",
+            "INT_UI2",
+            "INT_UI3",
+            "INT_UI4",
+            "INT_UI5",
+            "INT_UI7",
+            "INT_DB1"
+          ]
+        }
+      ],
+      "message": "A stub, a mock, or an integration that the build cannot reach stands in for a system. A mock returns sample data. The others raise 'not configured' until a client gives access. Replace or configure each one before promotion (C3-18).",
+      "rank": 5,
+      "root_cause": "integration_evidence",
+      "sources": [
+        "TOOL_01",
+        "TOOL_02",
+        "TOOL_03",
+        "INT_UI1",
+        "INT_UI2",
+        "INT_UI3",
+        "INT_UI4",
+        "INT_UI5",
+        "INT_UI7",
+        "INT_API1",
+        "INT_DB1"
+      ],
+      "stage": "Integration inventory"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 5,
+      "classification": "open_item",
+      "code": "PRECORD_EMPTY_SCHEMA",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/BLK_01.out.schema.json"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/BLK_02.in.schema.json"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/BLK_02.out.schema.json"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C3"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_EMPTY_SCHEMA",
+          "message": "The schema names no field. The build has no data model for it.",
+          "sources": [
+            "schemas/case.schema.json"
+          ]
+        }
+      ],
+      "message": "The schema names no field. The build has no data model for it.",
+      "rank": 6,
+      "root_cause": "PRECORD_EMPTY_SCHEMA",
+      "sources": [
+        "schemas/BLK_01.in.schema.json"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C8"
+      ],
+      "checks_cleared": 5,
+      "classification": "open_item",
+      "code": "PRECORD_UNDECLARED_EVENT",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event guardrail.triggered. KPIs that use it: KPI_O10",
+          "sources": [
+            "spec/kpis.csv#emitted_by=guardrail.triggered"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event human.review. KPIs that use it: KPI_O8, KPI_O9",
+          "sources": [
+            "spec/kpis.csv#emitted_by=human.review"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event step.completed. KPIs that use it: KPI_O1, KPI_O13, KPI_O2",
+          "sources": [
+            "spec/kpis.csv#emitted_by=step.completed"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [
+            "C8"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_UNDECLARED_EVENT",
+          "message": "No file declares the event tool.call. KPIs that use it: KPI_O11, KPI_O7",
+          "sources": [
+            "spec/kpis.csv#emitted_by=tool.call"
+          ]
+        }
+      ],
+      "message": "No file declares the event agent.decision. KPIs that use it: KPI_O12, KPI_O3, KPI_O4, KPI_O5, KPI_O6",
+      "rank": 7,
+      "root_cause": "PRECORD_UNDECLARED_EVENT",
+      "sources": [
+        "spec/kpis.csv#emitted_by=agent.decision"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Ask client IT to confirm each client IT answer that has answer_source Default.",
+      "affects": [],
+      "checks_cleared": 5,
+      "classification": "blocks_promotion",
+      "code": "CLIENT_ANSWER_DEFAULT",
+      "dependents": [],
+      "message": "The answers to Q3, Q5, Q6, Q7, Q10 have answer_source Default: they are platform defaults, not answers that client IT confirmed. The build keeps them and treats them as unconfirmed. L1 and Pilot need answers that client IT confirmed. The Precord owner gets each answer from client IT.",
+      "rank": 8,
+      "root_cause": "CLIENT_ANSWER_DEFAULT",
+      "sources": [
+        "Q3",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q10"
+      ],
+      "stage": "IT requirements questionnaire"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C4"
+      ],
+      "checks_cleared": 4,
+      "classification": "open_item",
+      "code": "EVAL_NO_TEST_CASES",
+      "dependents": [],
+      "message": "These agents have no eval case in the `test` split. The evaluator scores only that split, so it cannot prove acceptance for them. Do not generate client acceptance data.",
+      "rank": 9,
+      "root_cause": "EVAL_NO_TEST_CASES",
+      "sources": [
+        "BLK_01",
+        "BLK_01.1",
+        "BLK_01.2",
+        "BLK_02"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Give the limit, the format or the list of each business rule as structured data or reference data.",
+      "affects": [],
+      "checks_cleared": 4,
+      "classification": "open_item",
+      "code": "RULE_PARAMETER_MISSING",
+      "dependents": [],
+      "message": "BR-ACT_03, BR-ACT_04, BR-ACT_05, BR-ACT_07 name a limit, a format or a list (permitted, valid, match, required) but give no value, and rules.csv has no structured parameter for it. The builder does not guess the value. The Precord owner gives each value as structured data or reference data.",
+      "rank": 10,
+      "root_cause": "rule_parameters",
+      "sources": [
+        "spec/rules.csv#BR-ACT_03",
+        "spec/rules.csv#BR-ACT_04",
+        "spec/rules.csv#BR-ACT_05",
+        "spec/rules.csv#BR-ACT_07"
+      ],
+      "stage": "Business rules"
+    },
+    {
+      "action": "Name the fields that each checkpoint shows to the reviewer.",
+      "affects": [
+        "C5"
+      ],
+      "checks_cleared": 3,
+      "classification": "open_item",
+      "code": "EMPTY_REVIEW_FIELDS",
+      "dependents": [
+        {
+          "action": "Declare a checkpoint that shows at least one field.",
+          "affects": [
+            "C5"
+          ],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "REFUSED_NO_REVIEW_FIELDS",
+          "message": "No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+          "sources": [
+            "spec/checkpoints.yaml"
+          ]
+        }
+      ],
+      "message": "These checkpoints show no field to the reviewer. A person cannot review what they cannot see.",
+      "rank": 11,
+      "root_cause": "empty_design",
+      "sources": [
+        "CHK_01.shown",
+        "CHK_02.shown"
+      ],
+      "stage": "Agent specification"
+    },
+    {
+      "action": "List the reason codes of each checkpoint in spec/checkpoints.yaml.",
+      "affects": [],
+      "checks_cleared": 3,
+      "classification": "open_item",
+      "code": "CHECKPOINT_REASON_CODES_MISSING",
+      "dependents": [
+        {
+          "action": "State the mode of each checkpoint that has no resume_action_id.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "CHECKPOINT_MODE_UNSTATED",
+          "message": "Checkpoints with no mode and no resume_action_id: CHK_01. C5 derives pause or override from the autonomy of the agent. The Precord owner states the mode.",
+          "sources": [
+            "spec/checkpoints.yaml#CHK_01.mode"
+          ]
+        }
+      ],
+      "message": "Checkpoints with no reason_codes: CHK_01, CHK_02. A reviewer who edits or rejects gives no coded reason. The Precord owner lists the reason codes.",
+      "rank": 12,
+      "root_cause": "checkpoint_design",
+      "sources": [
+        "spec/checkpoints.yaml#CHK_01.reason_codes",
+        "spec/checkpoints.yaml#CHK_02.reason_codes"
+      ],
+      "stage": "Human checkpoints"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 3,
+      "classification": "open_item",
+      "code": "PRECORD_BASELINE_MISMATCH",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_BASELINE_MISMATCH",
+          "message": "Cited artifact agent_decision_types has baseline state missing",
+          "sources": [
+            "agent_decision_types"
+          ]
+        },
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "PRECORD_BASELINE_MISMATCH",
+          "message": "Cited package artifact precord_eval_cases is not in the manifest",
+          "sources": [
+            "precord_eval_cases"
+          ]
+        }
+      ],
+      "message": "Cited artifact agent_channels has baseline state missing",
+      "rank": 13,
+      "root_cause": "export_completeness",
+      "sources": [
+        "agent_channels"
+      ],
+      "stage": "Precord export"
+    },
+    {
+      "action": "Give each sub-agent a prompt, schemas and an owner, or remove it.",
+      "affects": [],
+      "checks_cleared": 3,
+      "classification": "open_item",
+      "code": "SUB_AGENT_NO_CONTRACT",
+      "dependents": [
+        {
+          "action": "Keep one composition field. Make harness H-01 and the orchestration edges agree with it.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "open_item",
+          "code": "COMPOSITION_AMBIGUOUS",
+          "message": "The Precord gives two designs for the sub-agents. BLK_01: H-01 declares 'Coordinator + sub-agents' (the model picks the sub-agent), but composition is 'sequential' (a fixed order). The builder follows composition. The Precord owner keeps one composition field and makes harness H-01 agree with it. C3 records the orchestration edges and any other H-01 conflict as deviations in spec/deviations.csv.",
+          "sources": [
+            "spec/agents.yaml#BLK_01.composition"
+          ]
+        }
+      ],
+      "message": "Sub-agents with no prompt file or schema file of their own: 2. They run under the parent, and eval cases target them. The Precord owner gives each sub-agent a prompt, schemas and an owner, or removes the sub-agent.",
+      "rank": 14,
+      "root_cause": "agent_composition",
+      "sources": [
+        "spec/agents.yaml#BLK_01.1 (no BLK_01.1.md, BLK_01.1.in.schema.json, BLK_01.1.out.schema.json)",
+        "spec/agents.yaml#BLK_01.2 (no BLK_01.2.md, BLK_01.2.in.schema.json, BLK_01.2.out.schema.json)"
+      ],
+      "stage": "Agent specification"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 3,
+      "classification": "assumption",
+      "code": "USER_OWNED_DEPLOYMENT",
+      "dependents": [],
+      "message": "Client IT did not choose. The answers to Q1, Q8, Q9 have answer_source Default: they are platform defaults, not client answers. The user selects the deployment target. The build is L0 only.",
+      "rank": 15,
+      "root_cause": "USER_OWNED_DEPLOYMENT",
+      "sources": [
+        "Q1",
+        "Q8",
+        "Q9"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Ask client IT to answer Q9 with a cloud region id inside the jurisdiction, or to allow a cross-border model call.",
+      "affects": [
+        "C1"
+      ],
+      "checks_cleared": 2,
+      "classification": "blocks_promotion",
+      "code": "MODEL_RESIDENCY_PROVIDER",
+      "dependents": [],
+      "message": "Q8 and Q9 forbid a cross-border model call, but no client answer to Q9 names a Google Cloud region id. Only Vertex with a region inside the jurisdiction keeps the call in the country. The builder chooses no region. Client IT answers Q9 with a Google Cloud region id, or allows the call.",
+      "rank": 16,
+      "root_cause": "MODEL_RESIDENCY_PROVIDER",
+      "sources": [
+        "Q8 (answer_source Default, spec/stack.yaml#client_it.deployment)",
+        "Q9 (answer_source Default, spec/stack.yaml#client_it.deployment)"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 2,
+      "classification": "assumption",
+      "code": "APPROVING_DECISION_ASSUMED",
+      "dependents": [
+        {
+          "action": "Close this item in Module 1 and close the Precord again.",
+          "affects": [],
+          "checks_cleared": 1,
+          "classification": "assumption",
+          "code": "APPROVING_DECISION_ASSUMED",
+          "message": "CHK_02: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Approve agent', approves. It releases a write and moves the case on; the other decisions do not.",
+          "sources": [
+            "spec/checkpoints.yaml#CHK_02.decisions"
+          ]
+        }
+      ],
+      "message": "CHK_01: The Precord leaves the approving decision open. The builder assumes the first declared decision, 'Confirm and proceed', approves. It moves the case on; the other decisions do not.",
+      "rank": 17,
+      "root_cause": "APPROVING_DECISION_ASSUMED",
+      "sources": [
+        "spec/checkpoints.yaml#CHK_01.decisions"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Ship the file that spec/baseline.csv says Module 1 accepted.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 1,
+      "classification": "open_item",
+      "code": "MISSING_OWED_FILE",
+      "dependents": [],
+      "message": "spec/baseline.csv says sample_data is accepted, but the package has no context/sample_data.csv. Module 1 writes context/sample_data.csv only when sample_data holds records, so the artifact may be accepted but empty. Ship the file. Confirm that sample_data is empty when it is. The builder does not write client data in its place.",
+      "rank": 18,
+      "root_cause": "MISSING_OWED_FILE",
+      "sources": [
+        "context/sample_data.csv"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Declare the status values of the case in Module 1.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 1,
+      "classification": "open_item",
+      "code": "STATUS_ENUM_MISSING",
+      "dependents": [],
+      "message": "The case status has no enum: the build enforces no state transitions (C3-10).",
+      "rank": 19,
+      "root_cause": "standard_1_1_inputs",
+      "sources": [
+        "schemas/case.schema.json#status"
+      ],
+      "stage": "Standard 1.1"
+    },
+    {
+      "action": "Ship the glossary terms in context/glossary.csv, or confirm that the artifact is empty.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "open_item",
+      "code": "GLOSSARY_EMPTY",
+      "dependents": [],
+      "message": "spec/baseline.csv says ontology_nodes is pinned, but context/glossary.csv holds a header and no term. Names fall back to the action labels. The Precord owner ships the terms, or confirms that the artifact is empty. The builder writes no term.",
+      "rank": 20,
+      "root_cause": "GLOSSARY_EMPTY",
+      "sources": [
+        "context/glossary.csv"
+      ],
+      "stage": "Process design"
+    },
+    {
+      "action": "Ship each file under standard/ that the Precord cites, or cite a file that the package holds.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "open_item",
+      "code": "STANDARD_CITATION_UNRESOLVED",
+      "dependents": [],
+      "message": "Files under standard/ that are cited as provenance and not shipped: 1. The citation points at nothing. The Precord owner ships each file, or cites a file that the package holds.",
+      "rank": 21,
+      "root_cause": "standard_citations",
+      "sources": [
+        "standard/runtime.defaults.yaml (cited in spec/rules.csv)"
+      ],
+      "stage": "Precord export"
+    },
+    {
+      "action": "Name the cloud region and the UAT address in the deployment answers of client IT, then close the Precord again.",
+      "affects": [
+        "C1"
+      ],
+      "checks_cleared": 1,
+      "classification": "blocks_promotion",
+      "code": "L1_TARGET_MISSING",
+      "dependents": [],
+      "message": "L1 has no target: no region and no UAT address.",
+      "rank": 22,
+      "root_cause": "L1_TARGET_MISSING",
+      "sources": [
+        "Q1 (answer_source Default)"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "blocks_promotion",
+      "code": "RUNG_BELOW_MVP",
+      "dependents": [],
+      "message": "The Precord is at Pilot. Promotion to L2 needs an MVP Precord (OD-13).",
+      "rank": 23,
+      "root_cause": "RUNG_BELOW_MVP",
+      "sources": [
+        "spec/profile.yaml#solution_stage"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [
+        "C3"
+      ],
+      "checks_cleared": 1,
+      "classification": "assumption",
+      "code": "PERSON_STEP_CLAIMED",
+      "dependents": [],
+      "message": "Step S6 is person-owned or not automated, and the Precord also gives it to an agent (BLK_02 action ACT_06; BLK_02 serves_steps; CHK_02 resume_action_id ACT_06; integration_map INT_UI6; orchestration ownership BLK_02; rule BR-ACT_06 (no agent enforces it)). The builder keeps the person as owner and does not automate the step. The builder removes the actions and integrations of that step from the agent checks, bindings and context. Module 1 must settle the conflict.",
+      "rank": 24,
+      "root_cause": "PERSON_STEP_CLAIMED",
+      "sources": [
+        "S6"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "assumption",
+      "code": "SCHEMA_CHECK_SKIPPED",
+      "dependents": [],
+      "message": "The package ships no standard/schemas/, so the builder did not validate the files against schemas (RD-5). It trusts the close gate in manifest.gate instead (D-11).",
+      "rank": 25,
+      "root_cause": "SCHEMA_CHECK_SKIPPED",
+      "sources": [
+        "standard/schemas/"
+      ],
+      "stage": "Module 1 owner"
+    },
+    {
+      "action": "Close this item in Module 1 and close the Precord again.",
+      "affects": [],
+      "checks_cleared": 1,
+      "classification": "assumption",
+      "code": "STACK_KEY_BLANK",
+      "dependents": [],
+      "message": "The confirmed stack has no observability at Pilot. The platform default applies.",
+      "rank": 26,
+      "root_cause": "STACK_KEY_BLANK",
+      "sources": [
+        "spec/stack.yaml#build.observability"
+      ],
+      "stage": "Module 1 owner"
+    }
+  ],
+  "repository": {
+    "branch": "main",
+    "commit": "95adbb911ab0e196e74de2dff3dc751b865229a9",
+    "tags": []
+  },
+  "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+  "roi_comparison": [
+    {
+      "achieved": null,
+      "assumed": null,
+      "assumption": "automation_rate",
+      "basis": "",
+      "composition": "none: no input was available",
+      "difference": null,
+      "missing_input": "A measured automation rate: the build has no run of real or synthetic cases that report it."
+    },
+    {
+      "achieved": 1.0,
+      "assumed": null,
+      "assumption": "review_rate",
+      "basis": "Checkpoint CHK_02 is always on (trigger: always, or required with no review_rate_percent), so every case is reviewed.",
+      "composition": "real: checkpoint configuration",
+      "difference": null,
+      "missing_input": "review_rate in a threshold row of evals/thresholds.csv that cites roi_assumptions."
+    }
+  ],
+  "run_evidence": {
+    "adapter": "claude_code",
+    "gateway_required": false,
+    "model": null,
+    "models": [
+      "claude-opus-5-5"
+    ],
+    "sessions": [
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "fab23e3ef556b72794fa38b3f95ab50f8e9c62e3bbba8a44c440e4db4f7e5e03"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "4bb102d919c23e5fcae561334d3d6803c06f5bbc584ce8e946d22347f2a99cfa"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "49bb965ee4e85624406fede211af9b94eba60d4fab837a4cdc6a10f850e54d4c"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "d256dbd13214fbd6d19176b8dee8ee9d52eb008edd0b08285536bb92f4da8289"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "cf45fdccbc7f24c695824e84c6337aec08374b6beb8113f3554febe4c9ca035b"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "6476c633051f1672713937259d08d9da1dfb4fa6a372893442b1d433a22e1913"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "857527b3420fabcc0dc8efe1fd39f8452b208ebd1b36a14e0e29a7fcf2da79dd"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "0c0bdc34bec3b284de86b680a551fa3261c03d450815b45d140cfb936fb0c7cb"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "9a48c9d53008bc33b62665e4a1dd632ff1525aadcaedc87f01d6bdc4aec9b9f5"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "16b149274e18cd5a968eeb84c24d8bf2cfa2a7e2196e8d74f1a755844a056eca"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "6b53e8356218c3b785a04f5115d994a19d3759a4b9f1c6cef735547ab7ce2759"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "12cc8cd2348da8459df06ac653dd409d9ec33da6521fa47efbb088d276030cf9"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "f9d73c52d80adf6d5bcb80dbb3dc64f541f8584a75c5fb3b89483830863cf1f6"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "1282c4c1cc229a51cecb4add4f2fb3dabc4aaaf20f81a35170ff2af6fb62bf61"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "1fb1deb1fe235130543c9d1a168d5389f9772791dbebe3c9e1cf426ad9ed5de8"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "26a37165d2474332c813fd400ce47659c38ac04808165195ea81b5f03abc8d20"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "0ea4f4a7d9b8c56548457a72235e468e935531165c123d19b73ed41dab53df1f"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "1af8735a3f35ae7a399e6f0f9546fad35275cdda37832b4e4ffaa787bcf15bd9"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "23c6be970185f8a709fd6f6bb2455cc48a78501508a9268f51c82ce70cbe9294"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "739928620fad7a9dd721fc82d11e7aa2a00775548adc4bdd91fb000d448f0655"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "bf3990ead83e1d6405438a273bfd833420bc57019305116f4218527cf3a2430c"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "f5da15daf6a83e4d872f3265916e4b288b71a2c49b0e17ac78d0dd1b26bdd5da"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "0988d50db7348922f0ddd5f9ae2480bc0070aad17de8f42bdf50abd88ca2bd74"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "31f678376acba879274fce3e33f7ef3d6d51990d5464a52924ac980494715865"
+      },
+      {
+        "access_type": "",
+        "component": "C3",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "ca60cd28b44f3a8a28a40f55c0ce145aff0c7ee09715891fd52a785f8528d09a"
+      },
+      {
+        "access_type": "",
+        "component": "C4",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "72d990c4fe615ee087d520180f4059e84f8369fd45d443a681353f69b7a82e07"
+      },
+      {
+        "access_type": "",
+        "component": "C4",
+        "model": "claude-opus-5-5",
+        "provider": "",
+        "session_id": "72d990c4fe615ee087d520180f4059e84f8369fd45d443a681353f69b7a82e07-review"
+      }
+    ],
+    "substitutions": [
+      {
+        "from_adapter": null,
+        "from_model": null,
+        "reason": "start",
+        "resume_revision": "87a1b0d8fd2a48187e9cd5901445a2a28285253a",
+        "to_adapter": "claude_code",
+        "to_model": null
+      },
+      {
+        "from_adapter": null,
+        "from_model": null,
+        "reason": "start",
+        "resume_revision": "28c3c0abf6009327520dff0347ef49a4c1db32a1",
+        "to_adapter": "claude_code",
+        "to_model": null
+      }
+    ]
+  },
+  "security": null,
+  "stage_inputs": [
+    {
+      "added": [],
+      "changed": [],
+      "component": "C1",
+      "inputs": 12,
+      "reason": "",
+      "removed": [],
+      "verdict": "built"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C2",
+      "inputs": 11,
+      "reason": "",
+      "removed": [],
+      "verdict": "built"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C3",
+      "inputs": 30,
+      "reason": "",
+      "removed": [],
+      "verdict": "built"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C4",
+      "inputs": 12,
+      "reason": "",
+      "removed": [],
+      "verdict": "built"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C5",
+      "inputs": 8,
+      "reason": "Readiness refused C5: No checkpoint shows a field to the reviewer. C5 has nothing to build.",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C6",
+      "inputs": 22,
+      "reason": "C6 needs C5, and readiness refused C5",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C7",
+      "inputs": 11,
+      "reason": "C7 needs C5, and readiness refused C5",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C8",
+      "inputs": 10,
+      "reason": "C8 needs C5, and readiness refused C5",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C9",
+      "inputs": 10,
+      "reason": "The Run did not start it. It waits for an earlier gate or for a rebuild.",
+      "removed": [],
+      "verdict": "skipped"
+    },
+    {
+      "added": [],
+      "changed": [],
+      "component": "C10",
+      "inputs": 15,
+      "reason": "C9 did not build.",
+      "removed": [],
+      "verdict": "skipped"
+    }
+  ],
+  "test_coverage": null,
+  "user_testing": [],
+  "versions": {
+    "build_manifest": "# C1-2: the exact tool versions of this Solution. The builder resolves them from installed package metadata.\n# An entry with a range was not resolvable at build time. `deploy/tool-versions-resolved.txt` is written by the image build.\npython: \"3.12\"\npostgres: \"16\"\nalembic: \"1.20.1\"\nasyncpg: \"0.32.0\"\nauthlib: \"1.9.1\"\nfastapi: \"0.141.1\"\nfsspec: \"2026.9.0\"\ngoogle-adk: \"2.6.1\"\ngreenlet: \"3.5.6\"\nhttpx: \"0.28.1\"\njsonschema: \"4.26.0\"\nlitellm: \"1.106.4\"\nmcp: \"1.30.0\"\npsycopg: \"3.3.6\"\npsycopg-binary: \"3.3.6\"\npydantic: \"2.14.1\"\npython-multipart: \"0.0.32\"\nsqlalchemy: \"2.1.6\"\nuvicorn: \"0.54.0\"\n",
+    "manifest": {
+      "adk_version": "2.6.1",
+      "coding_agent_version": "1.4.3",
+      "missing": [],
+      "model_notes": [
+        {
+          "agent_id": "BLK_01",
+          "detail": "The agent runs its declared model only. Only deploy/smoke.py calls the fallback.",
+          "kind": "fallback_not_applied",
+          "model": "gemini-1.5-flash"
+        },
+        {
+          "agent_id": "BLK_02",
+          "detail": "The agent runs its declared model only. Only deploy/smoke.py calls the fallback.",
+          "kind": "fallback_not_applied",
+          "model": "gemini-1.5-flash"
+        },
+        {
+          "agent_id": "",
+          "detail": "Q8 and Q9 keep the model call in the client's country, but Q9 (answer_source Default) names no cloud region id. The builder chose none. Set GOOGLE_CLOUD_LOCATION with the Vertex provider.",
+          "kind": "model_region_not_chosen",
+          "model": ""
+        }
+      ],
+      "model_versions": {
+        "BLK_01": {
+          "fallback_model": "gemini-1.5-flash",
+          "model": "gemini-2.5-flash"
+        },
+        "BLK_02": {
+          "fallback_model": "gemini-1.5-flash",
+          "model": "gemini-2.5-flash"
+        }
+      },
+      "open_item_assumptions": [
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Stub the tool on sample data until it exists",
+          "item_id": "HR-201:BLK_01:TOOL_01",
+          "status": "open"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Stub the tool on sample data until it exists",
+          "item_id": "HR-201:BLK_01:TOOL_02",
+          "status": "open"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Stub the tool on sample data until it exists",
+          "item_id": "HR-201:BLK_02:TOOL_03",
+          "status": "open"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_API1",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_DB1",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI1",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI2",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI3",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI4",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI5",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI6",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI7",
+          "status": "approved"
+        },
+        {
+          "blocks_rung": "none",
+          "default_assumption": "Mock the endpoint until it exists",
+          "item_id": "HR-306:INT_UI8",
+          "status": "approved"
+        }
+      ],
+      "precord_version": 1,
+      "requirement_id": "7382e6e982b25d279e87608d60f6d2e6faa6d5ba151bbaa6a99338e507891694",
+      "rung": "Pilot",
+      "seeds": {
+        "build_random_seed": null,
+        "note": "The builder sets no random seed. Model temperature comes from the Precord."
+      },
+      "skill_shas": {
+        "adk-native-first": "a070ee2428e271b787ae3797e9b9690ac412ce1d5c77cfaa909ea499079334b3",
+        "autonomy-and-guardrails": "56313dd4c263aa5f437f90f1736e940e72533c4828fb8d7a5b51dd2ecc513f57",
+        "case-object-first-schema": "40b3080b6efb7c70a49ebabbe1f527cf60670145d2b7c328ff9d1901f9e32e9c",
+        "checkpoint-implementation": "899bec843a38f628f0022680c3271f9dbacf3524ac238d7d1dcbba5469b3f7f6",
+        "context7-documentation": "d76c98ad243dc9e25c773c8667d99912db8bda8c8fe9d1851a2cd9f7e7567f07",
+        "deviation-recording": "0fede00822a4a6d1f7c51fa182b4cb77bb77583b5c8839c4ee8b8a74f34aae0a",
+        "eval-compilation": "95b2bf713ca4a067f23f0433d33d25ce87dcf5346b6eaee893dd43e315614ca5",
+        "harness-implementation": "61e4b349cf44cea4496b1b052c0485902e9b0d88cc3fbbdf92b1edb7b0a29799",
+        "precord-reading": "d5fd4238eb6bce7ecd86783c0081ad72c31f1ff82ef437ed276730b21d8dbbdb",
+        "provenance-discipline": "125f5f032b3a4b5da1d9c556f3fa5664d4edb95ecdfa01bdc0805df53b867d7c",
+        "rung-scoping": "2550097a247121204e5e64616bb6da1cde1bf8c025527d7960202faa19d5f8aa",
+        "tool-from-tools-yaml": "60e3df7152b299967ae84132f7e4c43e2e3e16f3756d3d42c5bdfaea4c46e993"
+      },
+      "standard_sha": "865fcebd32e3d9783be960c29a63589f7f8a6cac091e88c490196d82276e1b4b",
+      "standard_version": "2.0.0",
+      "stubs": [
+        {
+          "agents": [
+            "BLK_01",
+            "BLK_01.1",
+            "BLK_01.2"
+          ],
+          "open_items": [
+            "HR-201:BLK_01:TOOL_01"
+          ],
+          "tool_id": "TOOL_01"
+        },
+        {
+          "agents": [
+            "BLK_01",
+            "BLK_01.1"
+          ],
+          "open_items": [
+            "HR-201:BLK_01:TOOL_02"
+          ],
+          "tool_id": "TOOL_02"
+        },
+        {
+          "agents": [
+            "BLK_02"
+          ],
+          "open_items": [
+            "HR-201:BLK_02:TOOL_03"
+          ],
+          "tool_id": "TOOL_03"
+        }
+      ],
+      "tag": "precord-v1",
+      "tier_at_rung": [
+        {
+          "agent_id": "*",
+          "gate_tier": "advisory",
+          "metric": "override_rate_and_direction",
+          "threshold": "15",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "blocking",
+          "metric": "audited_accuracy",
+          "threshold": "97",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "advisory",
+          "metric": "agent_error_rate",
+          "threshold": "2",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "advisory",
+          "metric": "tool_error_and_retry_rate",
+          "threshold": "3",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "blocking",
+          "metric": "ai_cost_per_case",
+          "threshold": "90",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "tokens_per_agent_per_case",
+          "threshold": "10000",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "tokens_per_case",
+          "threshold": "10000000",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "agents_live",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "data_extraction_time",
+          "threshold": "10",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "blocking",
+          "metric": "verification_api_availability",
+          "threshold": "99",
+          "tier_at_rung": "advisory"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "guardrail_triggers",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "inputs_uploaded",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        },
+        {
+          "agent_id": "*",
+          "gate_tier": "monitor",
+          "metric": "memory_artifacts_created",
+          "threshold": "2",
+          "tier_at_rung": "monitor"
+        }
+      ],
+      "tool_versions": {
+        "alembic": "1.20.1",
+        "asyncpg": "0.32.0",
+        "authlib": "1.9.1",
+        "datastore": "PostgreSQL 16+",
+        "fastapi": "0.141.1",
+        "fsspec": "2026.9.0",
+        "google-adk": "2.6.1",
+        "greenlet": "3.5.6",
+        "httpx": "0.28.1",
+        "jsonschema": "4.26.0",
+        "litellm": "1.106.4",
+        "mcp": "1.30.0",
+        "psycopg": "3.3.6",
+        "psycopg-binary": "3.3.6",
+        "pydantic": "2.14.1",
+        "python": "3.12",
+        "python-multipart": "0.0.32",
+        "sqlalchemy": "2.1.6",
+        "uvicorn": "0.54.0"
+      }
+    },
+    "tools": []
+  }
+}
